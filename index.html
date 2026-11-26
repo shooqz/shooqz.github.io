@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-mode="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>شوق الزامل — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;600;800;900&family=Readex+Pro:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/*
+VOICE: confident, playful-professional — a developer with a designer's eye
+IDEA: a conference badge + festival wristbands; every section is a different "object" from her world (code, keyboard, ticket, metro line, sticky notes, iMessage)
+PICTURE: swinging holographic ID card; memoji buddy that texts you section by section
+COLOUR and TYPE: fuchsia→orange gradient, pink, mauve, ink, cobalt accent; Alexandria / Readex Pro / JetBrains Mono
+LAYOUT: hero, about(code), skills(keyboard), work(ribbons + 6 case studies), brand, journey(metro), how I work, now(stickies), contact
+*/
+:root{
+  color-scheme:light;
+  --fu:#F53DD6;--or:#FF4D1F;--pk:#FF9EDC;--mv:#8E4FE8;--ink:#14081F;--co:#1440E0;
+  --grad:linear-gradient(120deg,var(--fu),var(--or));
+  --bg:#ffffff;--tx:#14081F;--mut:#6b5f78;--line:#eadff0;--soft:#fbf3fb;--card:#ffffff;
+  --ios:#007AFF;--iosg:#E9E9EB;--iosgt:#8E8E93;
+}
+:root[data-mode=dark]{color-scheme:dark;--bg:#14081F;--tx:#fbf3fb;--mut:#b6a6c6;--line:#2e1f40;--soft:#1d0f2c;--card:#21122f;--ios:#0A84FF;--iosg:#3A3A3C;--iosgt:#AEAEB2}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 "Readex Pro",system-ui,sans-serif;overflow-x:clip;transition:background .4s,color .4s}
+.mono{font-family:"JetBrains Mono",monospace}
+a{color:inherit}
+.g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ph{display:inline-block;border:1.5px dashed currentColor;border-radius:8px;padding:0 8px;opacity:.7;font:500 .85em "JetBrains Mono",monospace}
+.wrap{max-width:1240px;margin:auto;padding:0 max(5vw,16px)}
+.band{padding:clamp(70px,9vw,130px) 0;position:relative}
+.sh{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:44px}
+.sh h2{font:900 clamp(38px,5.4vw,70px)/1.02 Alexandria,sans-serif;margin:0}
+.sh p{color:var(--mut);margin:0;max-width:30em}
+.tagn{font:600 13px "JetBrains Mono",monospace;color:var(--fu);display:block;margin-bottom:10px}
+svg.st{width:1em;height:1em}
+
+/* header */
+header.top{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px max(5vw,16px);background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(12px)}
+.logo{display:flex;align-items:center;gap:6px;font:600 20px "JetBrains Mono",monospace;text-decoration:none}
+.logo .st{width:20px;height:20px;color:var(--fu)}
+nav{display:flex;gap:2px;align-items:center}
+nav a{text-decoration:none;font-size:14px;padding:8px 11px;border-radius:99px;color:var(--mut)}
+nav a:hover{color:var(--tx);background:var(--soft)}
+.tg{height:40px;min-width:40px;padding:0 12px;border-radius:99px;border:1.5px solid var(--line);background:var(--bg);color:var(--tx);font:600 13px "JetBrains Mono",monospace;cursor:pointer}
+.tg:hover{border-color:var(--fu)}
+:focus-visible{outline:2px solid var(--fu);outline-offset:3px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:24px;align-items:center;min-height:calc(100vh - 68px);position:relative}
+.hero::before{content:"";position:absolute;inset:auto -10% -10% auto;width:520px;height:520px;background:radial-gradient(circle,color-mix(in srgb,var(--fu) 22%,transparent),transparent 65%);pointer-events:none;z-index:-1}
+.kicker{display:inline-flex;align-items:center;gap:8px;font:600 13px "JetBrains Mono",monospace;padding:6px 14px;border-radius:99px;background:var(--soft);border:1px solid var(--line)}
+.kicker .st{color:var(--or)}
+h1{font:900 clamp(52px,8.5vw,118px)/.98 Alexandria,sans-serif;margin:22px 0 10px}
+.role{font:600 clamp(18px,2vw,22px) Alexandria,sans-serif;margin:0 0 14px}
+.role span{color:var(--mv)}
+.lead{color:var(--mut);max-width:34em;margin:0 0 26px;font-size:17px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--tx);border-radius:99px;padding:5px 14px;font-size:14px;font-weight:500}
+.hint{margin-top:30px;font:13px "JetBrains Mono",monospace;color:var(--mut);display:flex;align-items:center;gap:8px}
+.hint i{width:8px;height:8px;border-radius:50%;background:var(--or);animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.2}}
+
+/* badge */
+.stage{position:relative;height:min(760px,calc(100vh - 68px));perspective:1400px}
+.pivot{position:absolute;top:-10px;left:50%}
+.swing{position:absolute;left:-160px;top:0;width:320px;transform-origin:160px 0;will-change:transform}
+.strap{margin:auto;width:38px;height:clamp(140px,22vh,230px);background:var(--grad);overflow:hidden;position:relative}
+.strap span{position:absolute;inset:0;writing-mode:vertical-rl;font:600 12px "JetBrains Mono",monospace;color:#fff;letter-spacing:.18em;white-space:nowrap;display:flex;align-items:center;justify-content:center}
+.clip{display:block;margin:-6px auto -14px;width:46px;height:64px;position:relative;z-index:2;filter:drop-shadow(0 3px 3px #0003)}
+.card3d{position:relative;width:320px;height:460px;transform-style:preserve-3d;will-change:transform;transition:transform .7s cubic-bezier(.2,.9,.25,1.15);cursor:grab;touch-action:none}
+.card3d .front{transition:visibility 0s linear .25s}
+.card3d.turning .foil,.card3d.turning .glare{opacity:0;transition:none}
+.card3d.turning{transition-duration:.6s}
+.card3d .back{visibility:hidden;transition:visibility 0s linear .25s}
+.card3d.flipped .front{visibility:hidden}.card3d.flipped .back{visibility:visible}
+.face{position:absolute;inset:0;border-radius:24px;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;box-shadow:0 30px 60px -20px #14081f66,0 0 0 1px #14081f14}
+.slot{position:absolute;top:16px;left:50%;translate:-50% 0;width:64px;height:12px;border-radius:9px;background:var(--bg);box-shadow:inset 0 2px 3px #0003;z-index:3}
+.front{background:#fff;color:#14081F;padding:44px 24px 22px;display:flex;flex-direction:column}
+.front .tp{display:flex;justify-content:space-between;font:600 11px "JetBrains Mono",monospace;color:#6b5f78}
+.photo{position:relative;z-index:2;width:176px;aspect-ratio:1;margin:16px auto 14px}
+.photo .ring{position:absolute;inset:-9px;background:var(--grad);clip-path:var(--star)}
+.photo .in{position:absolute;inset:0;clip-path:var(--star);background:linear-gradient(150deg,#FF9EDC,#8E4FE8);display:grid;place-items:center;color:#fff}
+.photo .in .st{width:52px;height:52px;opacity:.9}
+.photo .in small{position:absolute;bottom:30px;font:11px "JetBrains Mono",monospace;opacity:.85}
+.front h3{font:800 26px/1.15 Alexandria,sans-serif;margin:0;text-align:center}
+.front .r{text-align:center;font-size:14px;color:#8E4FE8;font-weight:500;margin:4px 0 0}
+.front .meta{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;font-size:12px;border-top:1.5px dashed #eadff0;padding-top:12px}
+.front .meta b{display:block;font:600 10px "JetBrains Mono",monospace;color:#9a8da8}
+.foil{position:absolute;inset:0;z-index:1;pointer-events:none;mix-blend-mode:color-dodge;opacity:.2;background:repeating-linear-gradient(115deg,#ff9edc 0%,#8e4fe8 6%,#5ee7ff 12%,#b4ff9e 18%,#ffe36e 24%,#ff9edc 30%);background-size:320% 320%;background-position:var(--mx,50%) var(--my,50%)}
+.glare{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at var(--mx,50%) var(--my,30%),#ffffff90,transparent 45%);mix-blend-mode:soft-light}
+.back{transform:rotateY(180deg);color:#14081F;padding:66px 24px 22px;display:flex;flex-direction:column;background:repeating-radial-gradient(circle at 50% 50%,#ffffff40 0 1px,transparent 1px 5px),conic-gradient(from var(--ang,0deg) at 50% 50%,#dcd4fb,#c6d6fb,#c8ecf7,#d6f5e9,#e6defa,#cfc6f5,#c3dbf6,#e2d6f7,#dcd4fb)}
+.back .disc{position:absolute;left:50%;top:50%;width:64px;height:64px;translate:-50% -50%;border-radius:50%;background:#ffffffb0;box-shadow:0 0 0 14px #ffffff40,0 0 0 15px #ffffff90}
+.back>*{position:relative}.back .disc,.back .slot{position:absolute}
+.back h3{font:800 24px/1.15 Alexandria,sans-serif;margin:0 0 6px}
+.back p{margin:0;font-size:13px;color:#3d2c4f}
+.back .sk{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.back .sk span{background:#ffffffb8;border-radius:99px;padding:3px 10px;font:600 11px "JetBrains Mono",monospace}
+.back .row{display:flex;justify-content:space-between;align-items:end;margin-top:14px}
+.qr{width:78px;height:78px;border-radius:10px;background:#fff;padding:3px;box-shadow:0 4px 12px -4px #14081f40}.visits{display:flex;flex-wrap:wrap;gap:10px;margin:-6px 0 18px}.visits .visit{margin:0}
+.qrsvg{display:block;width:100%;height:100%}
+.back .lnk{font:600 12px/1.9 "JetBrains Mono",monospace}
+
+/* about — code */
+.about{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,5vw,70px);align-items:center}
+.manifesto{font:800 clamp(26px,3.2vw,42px)/1.35 Alexandria,sans-serif;margin:0}
+.manifesto mark{background:none;color:inherit;position:relative;white-space:nowrap}
+.manifesto mark::after{content:"";position:absolute;inset:auto -4px .08em;height:.36em;background:var(--grad);opacity:.35;border-radius:4px;z-index:-1}
+.about .sub{color:var(--mut);margin-top:18px;font-size:17px}
+.code{background:#14081F;color:#e9ddf3;border-radius:22px;padding:0 0 22px;font:14px/1.85 "JetBrains Mono",monospace;box-shadow:0 30px 60px -30px #14081f99;direction:ltr;text-align:left;overflow:hidden;border:1px solid #2e1f40}
+.code .bar{display:flex;gap:7px;padding:14px 18px;border-bottom:1px solid #2e1f40;align-items:center}
+.code .bar i{width:11px;height:11px;border-radius:50%;background:#3a2a4c}.code .bar i:first-child{background:var(--or)}.code .bar i:nth-child(2){background:var(--fu)}.code .bar i:nth-child(3){background:var(--mv)}
+.code .bar span{margin-left:auto;font-size:12px;color:#8a7a9c}
+.code pre{margin:0;padding:18px 22px 0;overflow-x:auto;white-space:pre}
+.k{color:var(--pk)}.s{color:#ffb38f}.p{color:#b9a3ff}.c{color:#7d6c90}.n{color:#7fd7ff}
+.cursor{display:inline-block;width:8px;height:17px;background:var(--fu);vertical-align:-3px;animation:blink 1s steps(1) infinite}
+
+/* skills — keyboard */
+.kb-screen{background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:16px 20px;font:15px "JetBrains Mono",monospace;margin-bottom:18px;min-height:86px;direction:ltr;text-align:left}
+.kb-screen .out{color:var(--mut);font-family:"Readex Pro",sans-serif;margin-top:4px}
+[dir=rtl] .kb-screen .out{direction:rtl;text-align:right}
+.kb{background:linear-gradient(180deg,var(--soft),color-mix(in srgb,var(--soft) 70%,var(--line)));border:1.5px solid var(--line);border-radius:26px;padding:clamp(12px,2vw,22px);display:grid;gap:10px;box-shadow:0 30px 60px -40px #14081f80}
+.kr{display:flex;gap:10px;flex-wrap:wrap}
+.key{flex:1 1 auto;min-width:86px;height:64px;border:0;border-radius:14px;cursor:pointer;font:600 15px "JetBrains Mono",monospace;color:var(--tx);background:var(--card);box-shadow:0 5px 0 var(--line),0 6px 14px -6px #14081f40;transition:transform .08s,box-shadow .08s;position:relative}
+.key small{position:absolute;top:6px;inset-inline-start:10px;font-size:10px;color:var(--mut);font-weight:400}
+.key.hot{background:var(--grad);color:#fff;box-shadow:0 5px 0 #b02a7c,0 6px 14px -6px #f53dd680}
+.key.mv{background:var(--mv);color:#fff;box-shadow:0 5px 0 #5f2fae}
+.key.pk{background:var(--pk);color:#14081F;box-shadow:0 5px 0 #d96fb3}
+.key:active,.key.on{transform:translateY(5px);box-shadow:0 0 0 var(--line)}
+.key.wide{flex-grow:3}
+
+/* ribbons */
+.work-ix{background:var(--soft);overflow:hidden}
+.ribbons{display:flex;flex-direction:column;gap:14px}
+.ribbon{--r:-2deg;--in:4vw;display:flex;align-items:stretch;height:64px;width:calc(100% - var(--in) + 4vw);margin-inline-start:var(--in);transform:rotate(var(--r));transition:transform .45s cubic-bezier(.2,.9,.25,1.2),box-shadow .3s;background:var(--c);color:var(--t);box-shadow:0 10px 24px -14px #14081f80;text-decoration:none}
+.ribbon:hover,.ribbon:focus-visible{transform:rotate(0) scale(1.03);z-index:2}
+.ribbon .bd{flex:none;width:64px;display:grid;place-items:center;background:var(--t);color:var(--c)}
+.ribbon .bd .st{width:34px;height:34px}
+.track{flex:1;overflow:hidden;display:flex;align-items:center;direction:ltr}
+.mq{display:flex;flex:none;white-space:nowrap;animation:mq var(--d,26s) linear infinite;animation-direction:var(--dir,normal)}
+.mq span{display:inline-flex;align-items:center;gap:18px;padding-inline-end:18px;font:800 26px Alexandria,sans-serif}
+.mq em{font:600 13px "JetBrains Mono",monospace;font-style:normal;opacity:.85;border:1.5px solid currentColor;border-radius:99px;padding:2px 10px}
+.mq .n2{font:600 18px "JetBrains Mono",monospace;font-style:normal;opacity:.75;margin-inline-end:-6px}
+.mq .st{width:20px;height:20px}
+.ribbon:hover .mq{animation-play-state:paused}
+.zz{flex:none;width:52px;display:grid;place-items:center;background:var(--t);color:var(--c)}
+.zz svg{width:30px;height:44px}[dir=rtl] .zz svg{transform:scaleX(-1)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* case studies */
+.cs{padding:clamp(60px,8vw,110px) 0;border-top:1px solid var(--line)}
+.cs:nth-of-type(even){background:var(--soft)}
+.cs .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center}
+.cs.flip .vis{order:-1}
+.cs .no{font:600 14px "JetBrains Mono",monospace;color:var(--fu);direction:ltr;display:inline-block}
+.cs h3{font:900 clamp(32px,4vw,54px)/1.05 Alexandria,sans-serif;margin:8px 0 12px}
+.cs .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.cs .tags span{font:600 12px "JetBrains Mono",monospace;padding:3px 10px;border-radius:99px;background:var(--card);border:1px solid var(--line)}
+.cs dl{margin:0;display:grid;gap:14px}
+.cs dt{font:600 12px "JetBrains Mono",monospace;color:var(--mv)}
+.cs dd{margin:2px 0 0;color:var(--tx)}
+.cs dd ul{margin:4px 0 0;padding-inline-start:18px}
+.cs dd li{margin:2px 0}
+.cs .why{margin-top:18px;padding:14px 18px;border-radius:16px;background:var(--card);border:1.5px solid var(--line);font-size:15px}
+.cs .why b{color:var(--fu)}
+.vis{position:relative;min-height:380px;border-radius:28px;display:grid;place-items:center;padding:28px;overflow:hidden}
+.shot{font:12px "JetBrains Mono",monospace;color:var(--mut);margin-top:10px;text-align:center}
+/* v: calendar */
+.v-cal{background:var(--grad)}
+.cal{background:#fff;color:#14081F;border-radius:20px;padding:18px;width:min(100%,380px);box-shadow:0 30px 50px -20px #14081f80;rotate:-3deg}
+.cal header{display:flex;justify-content:space-between;font:700 15px Alexandria,sans-serif;margin-bottom:10px}
+.cal .gr{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.cal .gr i{aspect-ratio:1;border-radius:8px;background:#f5eef8;position:relative;font:10px "JetBrains Mono",monospace;font-style:normal;padding:3px;color:#9a8da8}
+.cal .gr i.e::after{content:"";position:absolute;left:5px;right:5px;bottom:5px;height:5px;border-radius:3px;background:var(--c,#F53DD6)}
+.cal .ev{margin-top:12px;display:flex;align-items:center;gap:10px;background:#14081F;color:#fff;border-radius:12px;padding:10px 12px;font-size:13px}
+.cal .ev b{width:10px;height:10px;border-radius:50%;background:var(--or)}
+/* v: QB ticket */
+.v-qb{background:#14081F}
+.ticket{display:flex;width:min(100%,420px);rotate:2deg;filter:drop-shadow(0 30px 40px #00000080)}
+.ticket .main{flex:1;background:linear-gradient(135deg,#FF9EDC,#8E4FE8);border-radius:18px 0 0 18px;padding:22px;color:#14081F;direction:ltr;text-align:left}
+.ticket .stub{width:110px;background:#fff;border-radius:0 18px 18px 0;border-left:3px dashed #14081F33;display:grid;place-items:center;font:600 11px "JetBrains Mono",monospace;color:#14081F;text-align:center;padding:10px}
+.ticket .lbl{font:600 11px "JetBrains Mono",monospace;opacity:.7}
+.ticket .big{font:900 30px/1.05 Alexandria,sans-serif;margin:6px 0 14px}
+.cd{display:flex;gap:8px}
+.cd div{background:#14081F;color:#fff;border-radius:10px;padding:6px 8px;text-align:center;font:600 20px "JetBrains Mono",monospace;min-width:52px}
+.cd small{display:block;font-size:9px;opacity:.6}
+.trophy{position:absolute;top:28px;right:28px;background:var(--or);color:#fff;font:700 12px "JetBrains Mono",monospace;padding:6px 12px;border-radius:99px;rotate:6deg}
+/* v: before/after */
+.v-fed{background:color-mix(in srgb,var(--or) 14%,var(--bg));gap:14px;grid-template-columns:1fr auto 1fr;align-items:center}
+.ba{background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:14px;font-size:13px;height:100%}
+.ba b{font:600 11px "JetBrains Mono",monospace;color:var(--mut);display:block;margin-bottom:8px}
+.ba .img{height:150px;border-radius:12px;background:repeating-linear-gradient(45deg,#cbbfd6 0 8px,#ddd2e6 8px 16px);filter:blur(1.5px);display:grid;place-items:center;color:#6b5f78;font:600 12px "JetBrains Mono",monospace}
+.ba ul{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.ba li{display:flex;gap:8px;align-items:center;background:var(--soft);border-radius:10px;padding:7px 9px}
+.ba li i{width:34px;flex:none;text-align:center;font:600 11px/1.1 "JetBrains Mono",monospace;font-style:normal;color:#fff;background:var(--or);border-radius:7px;padding:4px 0}
+.arrow{font:900 30px Alexandria;color:var(--or)}
+[dir=rtl] .arrow{transform:scaleX(-1)}
+/* v: flow */
+.v-hub{background:var(--card);border:1.5px solid var(--line)}
+.flow{display:grid;gap:12px;width:min(100%,400px)}
+.fl{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:16px;background:var(--soft);border:1.5px solid var(--line);font-weight:500}
+.fl i{flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font:600 13px "JetBrains Mono",monospace;font-style:normal;color:#fff;background:var(--c)}
+.fl.split{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0;background:none;border:0}
+.fl.split div{padding:12px;border-radius:14px;text-align:center;font-size:14px}
+.ok{background:color-mix(in srgb,#2fbf71 18%,var(--bg));border:1.5px solid #2fbf7155}
+.no2{background:color-mix(in srgb,var(--or) 14%,var(--bg));border:1.5px solid #ff4d1f55}
+.down{text-align:center;color:var(--mut);font:12px "JetBrains Mono",monospace;margin:-6px 0}
+.role-pill{font:600 13px "JetBrains Mono",monospace;background:#14081F;color:var(--pk);border-radius:12px;padding:10px;text-align:center;direction:ltr}
+/* v: translate */
+.v-ai{background:var(--mv)}
+.tr{width:min(100%,420px);display:grid;gap:12px}
+.tr .box{background:#fff;color:#14081F;border-radius:18px;padding:16px 18px;box-shadow:0 20px 40px -20px #14081f90}
+.tr .box b{font:600 11px "JetBrains Mono",monospace;color:#8E4FE8;display:block;margin-bottom:4px}
+.tr .en{direction:ltr;text-align:left;min-height:56px}
+.tr .en span{border-right:2px solid var(--fu);padding-right:2px}
+.tr .pills{display:flex;gap:8px;flex-wrap:wrap}
+.tr .pills span{background:#ffffff26;color:#fff;border:1px solid #ffffff55;border-radius:99px;padding:4px 12px;font-size:12px}
+/* v: AR phone */
+.v-ar{background:var(--co)}
+.phone{width:220px;height:420px;border-radius:38px;background:#0d0d12;padding:10px;box-shadow:0 40px 60px -20px #00000099;rotate:-4deg}
+.scr{height:100%;border-radius:30px;position:relative;overflow:hidden;background:linear-gradient(180deg,#efe7dc 0 72%,#cdb79b 72%)}
+.scr::before{content:"";position:absolute;top:10px;left:50%;translate:-50% 0;width:70px;height:20px;border-radius:99px;background:#0d0d12;z-index:2}
+.art{position:absolute;left:50%;top:38%;translate:-50% -50%;width:120px;height:120px;border:7px solid #2b2118;background:#fff;display:grid;place-items:center;text-align:center;font:800 15px/1.3 Alexandria,sans-serif;color:var(--fu);box-shadow:0 12px 20px -8px #0006}
+.dim{position:absolute;left:50%;translate:-50% 0;top:calc(38% + 74px);font:600 11px "JetBrains Mono",monospace;color:#14081F;background:#fff;padding:2px 8px;border-radius:99px;direction:ltr}
+.ui{position:absolute;bottom:14px;left:12px;right:12px;display:flex;gap:6px;justify-content:center}
+.ui span{background:#ffffffe6;border-radius:99px;padding:4px 10px;font-size:11px;color:#14081F}
+.scan{position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,#1440e033 50%,transparent 55%);background-size:100% 200%;animation:scan 3s linear infinite}
+@keyframes scan{from{background-position:0 -100%}to{background-position:0 100%}}
+.teamtag{position:absolute;top:24px;left:24px;background:#fff;color:#1440E0;font:600 12px "JetBrains Mono",monospace;padding:6px 12px;border-radius:99px}
+
+
+/* case study kit */
+.cs.feat .wrap{display:block}
+.fhead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,60px);align-items:end;margin-bottom:30px}
+.lede{font-size:18px;color:var(--mut);margin:0}
+.cs .tags a{font:600 12px "JetBrains Mono",monospace;padding:3px 10px;border-radius:99px;background:var(--grad);color:#fff;text-decoration:none}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.tbtn{border:1.5px solid var(--line);background:var(--card);color:var(--tx);border-radius:99px;padding:8px 16px;font:500 14px "Readex Pro",sans-serif;cursor:pointer;min-height:40px}
+.tbtn.on{background:var(--tx);color:var(--bg);border-color:var(--tx)}
+.tabs.sites .tbtn::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--d);margin-inline-end:8px;vertical-align:1px}
+.browser{border-radius:18px;overflow:hidden;background:var(--card);border:1.5px solid var(--line);box-shadow:0 30px 60px -30px #14081f80}
+.browser.dark{background:#0d0d10;border-color:#2a2a30}
+.bbar{display:flex;align-items:center;gap:7px;padding:10px 14px;border-bottom:1px solid var(--line);direction:ltr}
+.browser.dark .bbar{border-color:#2a2a30;color:#aaa}
+.bbar i{width:10px;height:10px;border-radius:50%;background:#ff5f57}.bbar i:nth-child(2){background:#febc2e}.bbar i:nth-child(3){background:#28c840}
+.bbar span{margin:0 auto;font:12px "JetBrains Mono",monospace;color:var(--mut);background:var(--soft);padding:3px 14px;border-radius:99px}
+.browser.dark .bbar span{background:#1c1c22;color:#aaa}
+.panes{position:relative;aspect-ratio:16/9;overflow:hidden}
+.pane{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transition:opacity .4s}
+.pane.on{opacity:1}
+.pane.soon{display:grid;place-content:center;text-align:center;gap:8px;background:radial-gradient(circle at 50% 40%,#9a6ef055,#0d0d10 70%);color:#fff;padding:20px}
+.pane.soon b{font:800 28px Alexandria,sans-serif}.pane.soon span{color:#c9b8ff;font-size:14px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:26px 0}
+.stats div{padding:18px 20px;border-radius:20px;background:var(--card);border:1.5px solid var(--line)}
+.stats b{display:block;font:900 clamp(30px,4vw,48px)/1 Alexandria,sans-serif;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;direction:ltr;text-align:start}
+.stats span{font-size:14px;color:var(--mut)}
+.stats.sm{margin:14px 0 0;gap:8px}.stats.sm div{padding:12px 14px}.stats.sm b{font-size:26px}
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.tcard{padding:22px;border-radius:22px;background:var(--card);border:1.5px solid var(--line)}
+.tcard .lab{font:600 11px "JetBrains Mono",monospace;color:var(--fu)}
+.tcard h4{font:800 20px/1.3 Alexandria,sans-serif;margin:6px 0 10px}
+.tcard p{margin:0;font-size:15px;color:var(--mut)}
+.tcard ul{margin:8px 0 0;padding-inline-start:18px;font-size:15px}.tcard li{margin:4px 0}
+.mini-code{direction:ltr;text-align:left;font:13px/1.7 "JetBrains Mono",monospace;background:#14081F;color:#e9ddf3;border-radius:12px;padding:10px 14px;margin-bottom:12px}
+.term{background:#14081F;color:#e9ddf3;border-radius:22px;overflow:hidden;border:1px solid #2e1f40;box-shadow:0 30px 60px -30px #14081f99;direction:ltr;text-align:left}
+.term .bar{display:flex;gap:7px;padding:12px 16px;border-bottom:1px solid #2e1f40;align-items:center}
+.term .bar i{width:10px;height:10px;border-radius:50%;background:var(--or)}.term .bar i:nth-child(2){background:var(--fu)}.term .bar i:nth-child(3){background:var(--mv)}
+.term .bar span{margin-left:auto;font:12px "JetBrains Mono",monospace;color:#8a7a9c}
+.term pre{margin:0;padding:18px 20px;font:13.5px/1.85 "JetBrains Mono",monospace;overflow-x:auto}
+.term .x{color:#ff7a6b}.term .ok{color:#6be3a0}
+.pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;align-items:center}
+.pillrow>span{padding:8px 14px;border-radius:99px;background:var(--card);border:1.5px solid var(--line);font-size:14px;direction:ltr}
+.pillrow>span:not(.ph) b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
+.pillrow .ph{border-style:dashed;background:none}
+.v-musha{background:linear-gradient(160deg,#2a6b4f,#14382b);color:#fff;display:flex;flex-direction:column;gap:20px;align-items:stretch;justify-content:center}
+.stamp{position:absolute;top:22px;inset-inline-end:22px;border:2px solid #b8f5d3;color:#b8f5d3;font:700 12px "JetBrains Mono",monospace;padding:6px 12px;border-radius:8px;rotate:-6deg}
+.ladder{display:grid;gap:6px}.ladder b{font:600 12px "JetBrains Mono",monospace;color:#b8f5d3;margin-bottom:4px}
+.ladder i{height:14px;width:var(--w);border-radius:7px;background:linear-gradient(90deg,#b8f5d3,#ffffff40)}
+.flowx{display:flex;flex-wrap:wrap;gap:6px}
+.flowx span{background:#ffffff1f;border:1px solid #ffffff40;border-radius:99px;padding:6px 12px;font-size:13px}
+.flowx span:not(:last-child)::after{content:"  ←";opacity:.6}
+[dir=ltr] .flowx span:not(:last-child)::after{content:"  →"}
+.v-dom{background:var(--card);border:1.5px solid var(--line);display:flex;flex-direction:column;gap:22px;align-items:stretch;justify-content:center}
+.sm-title{font-size:13px;color:var(--mut)}
+.states{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.states span{padding:8px 12px;border-radius:12px;color:#fff;background:var(--c);font-size:14px;font-weight:500}
+.states em{font-style:normal;color:var(--mut)}
+[dir=rtl] .states em{transform:scaleX(-1)}
+.chain b{display:block;font-size:14px;margin-bottom:8px}
+.chain div{display:flex;gap:6px}
+.chain i{flex:1;height:34px;border-radius:10px;border:1.5px dashed var(--line);display:grid;place-items:center;font-style:normal;color:var(--fu);font-weight:800}
+.chain i.d{background:var(--grad);border:0}.chain i.r{border:2px solid var(--fu);animation:blink 1.4s infinite}
+.ci{display:flex;flex-wrap:wrap;gap:6px;font-size:12px;direction:ltr}
+.ci span{padding:5px 10px;border-radius:8px;background:#14081F;color:#6be3a0}.ci span:last-child{color:var(--pk)}
+.ar-gal{position:relative;padding-bottom:30px}
+.iphone{position:absolute;bottom:-10px;inset-inline-end:-10px;width:clamp(130px,30%,190px);aspect-ratio:1180/2556;border-radius:28px;background:#0d0d12;padding:6px;box-shadow:0 30px 50px -18px #000a;rotate:4deg}
+.iphone video{width:100%;height:100%;object-fit:cover;border-radius:23px;display:block;background:#222}
+
+
+/* tech calendar — live themes demo */
+.tdemo-wrap{display:block!important;margin-top:44px}
+.tdemo-h{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.tdemo-h h4{font:800 24px Alexandria,sans-serif;margin:0}.tdemo-h p{margin:0;color:var(--mut);font-size:14px}
+.tdemo{display:grid;grid-template-columns:260px minmax(0,1fr);gap:16px;padding:14px;border-radius:28px;background:var(--card);border:1.5px solid var(--line)}
+.tpick{padding:8px}
+.tpick b{font:700 15px Alexandria,sans-serif}.tpick p{margin:4px 0 12px;font-size:13px;color:var(--mut)}
+.sws{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tsw{display:flex;flex-direction:column;align-items:stretch;gap:5px;border:2px solid transparent;border-radius:14px;padding:5px;background:var(--soft);cursor:pointer;font:500 12px "Readex Pro",sans-serif;color:var(--tx);text-align:center}
+.tsw i{display:block;width:100%;height:42px;border-radius:9px;border:1px solid #0001}
+.tsw small{display:block;font-size:10px;color:var(--fu)}
+.tsw.on{border-color:var(--fu)}
+.tsave{margin-top:12px;width:100%;min-height:44px;border:0;border-radius:12px;background:var(--grad);color:#fff;font:600 15px "Readex Pro",sans-serif;cursor:pointer}
+.tsaved{margin-top:8px;font-size:12px;color:#2fbf71;min-height:18px}
+.tpage{position:relative;overflow:hidden;border-radius:20px;min-height:400px;background:var(--pbg,#eef2fd);transition:background .5s;--ptx:#0b1530;--pmu:#5b6270;--pcd:#fff;--pln:#e5e7eb}
+.tpage.dark{--ptx:#fff;--pmu:#ffffffb8;--pcd:#ffffff14;--pln:#ffffff29}
+.tpage.motion{background-size:300% 300%;animation:drift 14s ease infinite}
+@keyframes drift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.tpage canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.tcont{position:relative;padding:30px 28px;color:var(--ptx)}
+.ttag{display:inline-block;padding:4px 12px;border-radius:99px;background:var(--pcd);border:1px solid var(--pln);font-size:12px}
+.tcont h5{margin:14px 0 6px;font:800 28px/1.3 Alexandria,sans-serif}
+.tcont p{margin:0 0 20px;color:var(--pmu)}
+.tinfo{display:flex;gap:22px;flex-wrap:wrap;padding:14px 18px;border-radius:16px;background:var(--pcd);border:1px solid var(--pln);backdrop-filter:blur(6px);font-size:13px}
+.tinfo b{display:block;font-size:15px}
+.trsvp{margin-top:20px;min-height:46px;padding:0 28px;border:0;border-radius:99px;background:#e81528;color:#fff;font:700 15px "Readex Pro",sans-serif;cursor:pointer;box-shadow:0 8px 20px #e8152850}
+.thint{margin-top:10px;font-size:12px;color:var(--pmu);min-height:18px}
+
+/* log board */
+.logb{position:relative;border-radius:34px;padding:clamp(40px,6vw,70px) clamp(16px,4vw,60px) clamp(60px,8vw,100px);background:radial-gradient(circle,color-mix(in srgb,var(--tx) 14%,transparent) 1.2px,transparent 1.5px) 0 0/22px 22px,var(--soft);border:1.5px solid var(--line);overflow:hidden;min-height:560px}
+.entries{position:relative;z-index:2;columns:3 230px;column-gap:18px;max-width:760px;margin:auto}
+.ent{break-inside:avoid;margin:0 0 18px;padding:20px;border-radius:6px 6px 20px 6px;background:var(--ec,#FF9EDC);color:#14081F;rotate:var(--r);box-shadow:0 18px 28px -18px #14081f80;position:relative;transition:rotate .3s,translate .3s}
+.ent:hover{rotate:0deg;translate:0 -4px}
+.ent::before{content:"";position:absolute;top:-9px;left:50%;translate:-50% 0;width:64px;height:20px;background:#ffffff8c;rotate:-3deg;border-radius:3px}
+.ent .d{display:flex;justify-content:space-between;align-items:center;font:600 11px "JetBrains Mono",monospace;opacity:.75;direction:ltr}
+.ent .t{display:inline-block;background:#ffffff80;border-radius:99px;padding:1px 9px;font:500 11px "Readex Pro",sans-serif;margin-top:8px}
+.ent p{margin:8px 0 0;font-size:15px;line-height:1.6}
+.ent .sk{position:absolute;bottom:-12px;inset-inline-end:-10px;font-size:30px;rotate:12deg;filter:drop-shadow(0 3px 2px #0003)}
+.ent.quote{background:#14081F;color:#fff;border-radius:20px}.ent.quote p{font:800 20px/1.45 Alexandria,sans-serif}.ent.quote .t{background:#ffffff22}
+.ent.polaroid{background:#fff;padding:12px 12px 18px;border-radius:4px}.ent.polaroid img{width:100%;display:block;border-radius:2px;background:#eee}
+.stk{position:absolute;z-index:3;cursor:grab;touch-action:none;user-select:none;rotate:var(--r);transition:scale .2s;filter:drop-shadow(2.5px 0 0 #fff) drop-shadow(-2.5px 0 0 #fff) drop-shadow(0 2.5px 0 #fff) drop-shadow(0 -2.5px 0 #fff) drop-shadow(0 10px 10px #14081f45)}
+.stk:hover{scale:1.06}.stk:active{cursor:grabbing;scale:1.1}
+.stk img{width:100%;display:block;pointer-events:none}
+.stk.pill{font:700 16px Alexandria,sans-serif;padding:8px 16px;border-radius:99px;color:#fff;background:var(--c);white-space:nowrap}
+.stk.mono{font-family:"JetBrains Mono",monospace}
+.stk.tagn2{background:#fff;color:#14081F;border-radius:12px;overflow:hidden;text-align:center;width:150px}
+.stk.tagn2 b{display:block;background:var(--fu);color:#fff;font:700 12px Alexandria,sans-serif;padding:5px}
+.stk.tagn2 span{display:block;font:900 30px/1.4 Alexandria,sans-serif;padding:4px 0 8px}
+.logh{position:relative;z-index:2;max-width:760px;margin:0 auto 40px}
+.logh h2{font:900 clamp(34px,4.6vw,58px)/1 Alexandria,sans-serif;margin:0}
+.logh p{margin:6px 0 0;color:var(--mut)}
+.empty{text-align:center;color:var(--mut);font:14px "JetBrains Mono",monospace}
+.editor{max-width:900px;margin:20px auto 0;padding:18px;border-radius:20px;background:var(--card);border:1.5px dashed var(--fu);display:none;position:relative;z-index:4}
+.editor.on{display:block}
+.editor h4{margin:0 0 10px;font:800 18px Alexandria,sans-serif}
+.editor .row2{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-bottom:8px}
+.editor input,.editor select,.editor textarea{width:100%;font:16px "Readex Pro",sans-serif;padding:10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--tx)}
+.editor textarea{min-height:64px;margin-bottom:8px}
+.editor pre{background:#14081F;color:#e9ddf3;border-radius:12px;padding:12px;font:12px "JetBrains Mono",monospace;white-space:pre-wrap;direction:ltr;text-align:left}
+.editor button{min-height:44px;padding:0 18px;border-radius:99px;border:0;background:var(--grad);color:#fff;font:600 14px "Readex Pro",sans-serif;cursor:pointer}
+@media (max-width:860px){.tdemo{grid-template-columns:1fr}.editor .row2{grid-template-columns:1fr 1fr}.stk:not(.keep-sm){display:none}.stk.keep-sm{width:64px!important;top:18px!important;bottom:auto!important}}
+
+
+/* routing / project pages */
+#pages .cs{display:none}
+body.in-page #home{display:none}
+body.in-page #pages .cs.on{display:block;border-top:0}
+.pbar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:24px;padding-bottom:6px}
+.pbar a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:99px;border:1.5px solid var(--line);text-decoration:none;font-weight:500;background:var(--card)}
+.pbar a:hover{border-color:var(--fu)}
+.pbar span{font:600 13px "JetBrains Mono",monospace;color:var(--mut);direction:ltr}
+.pnext{display:block;margin:50px auto 0;max-width:1240px;padding:0 max(5vw,16px)}
+.pnext a{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:28px 30px;border-radius:26px;background:var(--grad);color:#fff;text-decoration:none}
+.pnext small{font:600 12px "JetBrains Mono",monospace;opacity:.85;display:block}
+.pnext b{font:900 clamp(26px,4vw,44px)/1.1 Alexandria,sans-serif}
+.pnext em{font-style:normal;font-size:34px}
+[dir=rtl] .pnext em{transform:scaleX(-1)}
+/* projects grid */
+.pgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.pc{display:flex;flex-direction:column;border-radius:26px;overflow:hidden;background:var(--card);border:1.5px solid var(--line);text-decoration:none;transition:translate .3s,box-shadow .3s,border-color .3s}
+.pc:hover{translate:0 -6px;box-shadow:0 30px 50px -30px #14081f90;border-color:var(--fu)}
+.pc.big{grid-column:span 2;grid-row:span 2}
+.cv{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0d0d12}
+.pc.big .cv{aspect-ratio:auto;flex:1;min-height:300px}
+.cv img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;transition:scale .5s}
+.pc:hover .cv img{scale:1.04}
+.pb{padding:18px 20px 20px}
+.pb .no{font:600 12px "JetBrains Mono",monospace;color:var(--fu)}
+.pb h3{font:800 22px/1.25 Alexandria,sans-serif;margin:4px 0 4px}
+.pc.big .pb h3{font-size:32px}
+.pb p{margin:0;color:var(--mut);font-size:14px}
+.pb .go{display:inline-block;margin-top:10px;font-weight:600;font-size:14px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cv-tc{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:18px;background:var(--soft)}
+.cv-tc i{border-radius:12px;border:1px solid #0001}
+.cv-tc span{position:absolute;bottom:10px;inset-inline-end:14px;font:600 11px "JetBrains Mono",monospace;color:var(--mut)}
+.cv-mu{background:linear-gradient(160deg,#2a6b4f,#14382b);display:flex;flex-direction:column;justify-content:center;gap:8px;padding:22px}
+.cv-mu b{font:600 12px "JetBrains Mono",monospace;color:#b8f5d3}.cv-mu i{height:12px;width:var(--w);border-radius:6px;background:linear-gradient(90deg,#b8f5d3,#ffffff40)}
+.cv-do{background:#14081F;display:flex;flex-wrap:wrap;align-content:center;justify-content:center;gap:6px;padding:20px}
+.cv-do span{padding:7px 11px;border-radius:10px;background:var(--mv);color:#fff;font-size:13px}.cv-do span:last-child{background:#2fbf71}
+.cv-do em{color:#8a7a9c;font-style:normal}[dir=rtl] .cv-do em{transform:scaleX(-1)}
+/* embeds */
+.embed{position:relative;aspect-ratio:16/10;background:#111}
+.embed img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.eov{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:linear-gradient(180deg,#0000,#000a)}
+.eplay{min-height:48px;padding:0 24px;border-radius:99px;border:0;background:var(--grad);color:#fff;font:600 15px "Readex Pro",sans-serif;cursor:pointer;box-shadow:0 10px 30px -8px #f53dd6aa}
+.eov a{color:#fff;font-size:14px}
+.figgrid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,4vw,56px);align-items:center}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.steps li{display:flex;gap:16px;padding:18px 20px;border-radius:20px;background:var(--card);border:1.5px solid var(--line)}
+.steps b{flex:none;min-width:max-content;padding-inline-end:2px;font:900 28px/1 Alexandria,sans-serif;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.steps h4{margin:0 0 4px;font:800 18px Alexandria,sans-serif}.steps p{margin:0;color:var(--mut);font-size:14px}
+.morelink{display:inline-block;margin-top:14px;font-weight:600}
+/* QB page */
+.qbp .wrap{display:block}
+.cs .qbwf-wrap{display:block!important;margin-top:34px}
+.qbwf{background:#0d0b10;color:#f4f0f7;border-radius:30px;padding:clamp(18px,3vw,34px);display:grid;gap:22px;--mut:#a9a1b3}
+.qbwf-h .lab{font:600 11px "JetBrains Mono",monospace;color:#FF5A00}
+.qbwf-h h4{margin:6px 0;font:800 clamp(22px,2.6vw,30px)/1.25 Alexandria,sans-serif}
+.qbwf-h p{margin:0;color:#a9a1b3;max-width:46em}
+:root[data-mode=light] .qbwf{background:#f6f2f9;color:#14081F;border:1.5px solid var(--line)}
+:root[data-mode=light] .qbwf-h p{color:#6b5f78}
+:root[data-mode=light] .qbwf .bp-tabs .tbtn{background:#fff;color:#14081F;border-color:#e6dcef}
+:root[data-mode=light] .qbwf .bp-tabs .tbtn.on{background:#14081F;color:#fff}
+:root[data-mode=light] .qbwf .wf-strip .wfi{border-color:#e6dcef}
+:root[data-mode=light] .qbwf .wf-nav .tg{background:#fff;color:#14081F;border-color:#e6dcef}
+:root[data-mode=light] .qbwf .mscr{border-color:#e9e2f0;box-shadow:0 30px 50px -24px #14081f55}
+:root[data-mode=light] .qbwf .mphone b,:root[data-mode=light] .qbwf .mhint,:root[data-mode=light] .qbwf .wf-strip figcaption{color:#6b5f78}
+.qbwf .bp-tabs{margin-top:0}
+.qbp{background:#0d0b10;color:#f4f0f7;--line:#2a2530;--card:#17141c;--mut:#a9a1b3;--soft:#141118}
+.qb-hero{position:relative;overflow:hidden;padding:60px 0 70px;min-height:560px;display:flex;align-items:center}
+.qd{position:absolute;transform:skewX(-28deg);opacity:.95}
+.qd.d1{background:#FF5A00;width:34%;height:46%;bottom:-6%;inset-inline-start:6%}
+.qd.d2{background:#9b6cff;width:14%;height:64%;top:-10%;inset-inline-end:16%}
+.qd.d3{background:#FF5A00;width:10%;height:22%;top:12%;inset-inline-start:38%;opacity:.6}
+.masc{position:absolute;bottom:0;height:min(88%,520px);filter:drop-shadow(0 30px 30px #0009);animation:bob 4s ease-in-out infinite;z-index:1}
+.masc.m1{inset-inline-end:4%}
+.masc.m2{inset-inline-end:26%;height:min(74%,440px);animation-delay:-2s}
+.qb-hc{position:relative;z-index:2;width:100%}
+.qb-hc h3{font:900 clamp(54px,9vw,120px)/.95 Alexandria,sans-serif;margin:8px 0 14px;max-width:8ch}
+.qb-hc .lede{max-width:34em;color:#d6cfe0;font-size:17px;margin-bottom:16px}
+.qb-hc .tags span{background:#ffffff14;border-color:#ffffff22;color:#fff}
+.qbs{max-width:560px}.qbs div{background:#ffffff0d;border-color:#ffffff1f}.qbs b{background:linear-gradient(120deg,#FF5A00,#9b6cff);-webkit-background-clip:text;background-clip:text}
+.qsec{padding-top:70px}
+.qh{display:flex;gap:18px;align-items:start;margin-bottom:24px}
+.qn{flex:none;font:900 46px/1 Alexandria,sans-serif;color:#FF5A00}
+.qh h4{margin:0 0 6px;font:800 clamp(24px,3vw,34px)/1.2 Alexandria,sans-serif}
+.qh p{margin:0;color:var(--mut);max-width:42em}.qh>div{flex:1;min-width:0}
+.bp-tabs{margin-top:22px}
+.bp-tabs .tbtn{background:#17141c;color:#fff;border-color:#2a2530}.bp-tabs .tbtn.on{background:#fff;color:#0d0b10}
+.bp-panes{position:relative}
+.bp-panes>.pane{position:relative;opacity:1;display:none}.bp-panes>.pane.on{display:block}
+.wf-strip{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;scrollbar-width:thin}
+.wf-strip figure{flex:none;width:clamp(220px,26vw,300px);margin:0;scroll-snap-align:start}
+.wf-strip .wfi{height:380px;overflow:auto;border-radius:16px;border:1.5px solid #2a2530;background:#111}
+.wf-strip img{width:100%;display:block}
+.wf-strip figcaption{font:600 12px "JetBrains Mono",monospace;color:var(--mut);margin-top:8px}
+.wf-nav{display:flex;gap:8px;justify-content:flex-end;margin-top:6px}
+.wf-nav .tg{background:#17141c;color:#fff;border-color:#2a2530;font-size:18px}
+.bp-mob{text-align:center}
+.mphone{display:inline-block;margin:0 10px;vertical-align:top}
+.mscr{width:230px;height:470px;overflow:auto;border-radius:34px;border:8px solid #1d1a22;background:#111;box-shadow:0 30px 50px -20px #000a;scrollbar-width:none}
+.mscr img{width:100%;display:block}
+.mphone b{display:block;margin-top:10px;font:600 12px "JetBrains Mono",monospace;color:var(--mut)}
+.mhint{font:12px "JetBrains Mono",monospace;color:var(--mut)}
+.w2b{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:16px;align-items:center}
+.w2b figure{margin:0}.w2b .lbl{font:600 12px "JetBrains Mono",monospace;color:var(--mut);margin-bottom:8px}
+.w2b-img{height:420px;overflow:auto;border-radius:18px;border:1.5px solid #2a2530}
+.w2b-img img{width:100%;display:block}
+.w2b-arrow{font:900 34px Alexandria;color:#FF5A00}[dir=rtl] .w2b-arrow{transform:scaleX(-1)}
+.qlive{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px;align-items:start}
+.qlive video,.qlive img{width:100%;display:block}
+.qbp .tcard{background:#17141c;border-color:#2a2530}.qbp .tcard .lab{color:#FF5A00}
+.qbp .mini-code{background:#000}.qbp .mini-code .x{color:#ff7a6b}
+.shipped{margin-top:16px;padding:22px;border-radius:22px;border:1.5px solid #2a2530}
+.shipped .lab{font:600 11px "JetBrains Mono",monospace;color:#9b6cff}
+.shipped ul{margin:8px 0 0;padding-inline-start:18px;columns:2 260px}
+.qbp .pbar a{background:#17141c;border-color:#2a2530;color:#fff}
+.qbp .pnext{padding-bottom:60px}
+/* live log */
+.liveb{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px;font:600 12px "JetBrains Mono",monospace;color:var(--mut)}
+.live{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:99px;background:#ff2d55;color:#fff;letter-spacing:.06em}
+.live i{width:8px;height:8px;border-radius:50%;background:#fff;animation:blink 1.1s infinite}
+.liveb>span:not(.live):not(:empty){padding:4px 10px;border-radius:99px;background:var(--card);border:1px solid var(--line)}
+.nowst{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:8px 14px;border-radius:14px;background:var(--card);border:1.5px solid var(--line);font-size:14px}
+.nowst:empty{display:none}
+.nowst i{width:10px;height:10px;border-radius:50%;background:#2fbf71;box-shadow:0 0 0 0 #2fbf7166;animation:ping2 1.6s infinite}
+@keyframes ping2{to{box-shadow:0 0 0 10px #2fbf7100}}
+.ticker{position:relative;z-index:2;max-width:760px;margin:0 auto 30px;overflow:hidden;border-radius:12px;background:#14081F;color:#fff;direction:ltr;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.tk{display:flex;width:max-content;animation:mq 40s linear infinite;padding:9px 0}
+.tk span{white-space:nowrap;padding:0 22px;font-size:14px}.tk span b{color:var(--pk);font:600 12px "JetBrains Mono",monospace;margin-inline-end:8px}
+.ent.fresh{box-shadow:0 0 0 3px var(--fu),0 18px 28px -18px #14081f80}
+.ent .newb{position:absolute;top:-12px;inset-inline-end:14px;background:var(--grad);color:#fff;font:700 11px "JetBrains Mono",monospace;padding:3px 9px;border-radius:99px;rotate:4deg}
+
+/* linkedin */
+.lis{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;align-items:start}
+.li-card{border-radius:22px;background:var(--card);border:1.5px solid var(--line);overflow:hidden;display:flex;flex-direction:column}
+.li-card .lih{display:flex;align-items:center;gap:10px;padding:16px 18px 0;font:600 12px "JetBrains Mono",monospace;color:var(--mut)}
+.li-card .lih b{width:28px;height:28px;border-radius:7px;background:#0A66C2;color:#fff;display:grid;place-items:center;font:800 14px Alexandria,sans-serif}
+.li-card p{margin:10px 18px;font-size:15px}
+.li-card .lia{display:flex;gap:8px;padding:0 18px 18px;flex-wrap:wrap}
+.li-card .lia a,.li-card .lia button{min-height:40px;padding:0 14px;border-radius:99px;border:1.5px solid var(--line);background:none;color:var(--tx);font:500 13px "Readex Pro",sans-serif;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center}
+.lif{position:relative;margin:12px 12px 0;border-radius:14px;overflow:hidden;background:var(--soft)}.lif iframe{position:relative;z-index:1;width:100%;height:100%;border:0}.lifb{position:absolute;inset:0;display:grid;place-items:center;font:800 60px Alexandria,sans-serif;color:#0A66C222}.lia{padding-top:12px!important}
+.lihelp{font:13px "JetBrains Mono",monospace;color:var(--mut)}
+@media (max-width:860px){.pgrid{grid-template-columns:1fr 1fr}.pc.big{grid-column:span 2;grid-row:auto}.figgrid,.qlive{grid-template-columns:1fr}.w2b{grid-template-columns:1fr}[dir] .w2b-arrow{transform:none;rotate:90deg;justify-self:center}.masc{opacity:.35}.masc.m2{display:none}.qb-hero{min-height:auto}}
+@media (max-width:600px){.pgrid{grid-template-columns:1fr}.pc.big{grid-column:auto}.mscr{width:200px;height:400px}.mphone{margin:0 4px 14px}}
+
+
+/* figma interactive canvas */
+.figt{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.flogo{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:18px;background:#000;box-shadow:0 10px 24px -10px #000a;flex:none}
+.flogo img{width:100%;height:100%;border-radius:18px;display:block}.flogo b{display:none}
+.flogo.nologo{width:auto;padding:0 16px;height:52px}.flogo.nologo b{display:block;font:700 18px "Readex Pro",sans-serif;color:#fff}
+.fgc{border-radius:22px;overflow:hidden;background:#1e1e1e;color:#e6e6e6;box-shadow:0 30px 60px -30px #000c;border:1px solid #2c2c2c;direction:ltr;text-align:left;font:12px "Readex Pro",system-ui,sans-serif}
+.fc-bar{display:flex;align-items:center;gap:12px;padding:9px 12px;background:#2c2c2c;border-bottom:1px solid #383838}
+.fc-dots{display:flex;gap:6px}.fc-dots i{width:10px;height:10px;border-radius:50%;background:#ff5f57}.fc-dots i:nth-child(2){background:#febc2e}.fc-dots i:nth-child(3){background:#28c840}
+.fc-file{color:#b3b3b3;font-size:12px}
+.fc-mode{margin-left:auto;display:flex;background:#1e1e1e;border-radius:8px;padding:2px}
+.fc-mode button{border:0;background:none;color:#b3b3b3;font:500 12px "Readex Pro",sans-serif;padding:6px 12px;border-radius:6px;cursor:pointer;min-height:30px}
+.fc-mode button.on{background:#0d99ff;color:#fff}
+.fc-body{display:grid;grid-template-columns:130px minmax(0,1fr) 130px;height:400px}
+.fc-layers,.fc-props{background:#2c2c2c;padding:10px;overflow:hidden}
+.fc-layers b,.fc-props b{display:block;font-size:11px;color:#fff;margin-bottom:8px}
+.fc-layers ul{list-style:none;margin:0;padding:0}
+.fc-layers li{padding:4px 6px;border-radius:4px;color:#b3b3b3;font-size:11px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fc-layers li.fr{color:#fff;font-weight:600;margin-top:6px}
+.fc-layers li.on{background:#0d99ff33;color:#fff}
+.fc-props div{display:grid;gap:6px;font-size:11px;color:#b3b3b3}
+.fc-props span{display:flex;justify-content:space-between;background:#383838;border-radius:4px;padding:4px 6px}.fc-props em{font-style:normal;color:#fff}
+.fc-stage{position:relative;overflow:hidden;background:radial-gradient(circle,#3a3a3a 1px,transparent 1.3px) 0 0/16px 16px,#1e1e1e;padding:34px 18px 18px;display:flex;gap:16px;align-items:flex-start;justify-content:center}
+.frm{position:relative;background:#fff;border-radius:4px;padding:8px;display:flex;flex-direction:column;gap:6px;transition:background .5s;box-shadow:0 8px 20px #0006}
+.frm .flab{position:absolute;top:-18px;left:0;font-size:10px;color:#b3b3b3;white-space:nowrap}
+.f-desk{width:50%;min-height:290px}.f-tab{width:26%;min-height:240px}.f-mob{width:15%;min-height:200px}
+.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.row2{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.blk{position:relative;background:#e3e3e3;border-radius:3px;cursor:pointer;transition:background .5s,outline-color .2s;outline:1.5px solid transparent;overflow:hidden}
+.blk:hover{outline-color:#0d99ff}
+.b-nav{height:16px}.b-hero{height:120px;padding:12px}.b-card{height:58px}.b-foot{height:20px}
+.f-tab .b-hero{height:80px}.f-mob .b-hero{height:84px;padding:8px}
+.blk .ln{display:block;height:7px;border-radius:2px;background:#bdbdbd;margin-bottom:5px;transition:background .5s}
+.blk .l1{width:60%}.blk .l2{width:40%}
+.blk .btn{display:block;width:34%;height:10px;border-radius:5px;background:#bdbdbd;margin-top:8px;transition:background .5s}
+.blk .img{position:absolute;right:10px;top:10px;bottom:10px;width:34%;border-radius:3px;background:repeating-linear-gradient(45deg,#cfcfcf 0 6px,#d9d9d9 6px 12px);transition:background .5s}
+.fgc.uim .frm{background:#14081F}
+.fgc.uim .b-nav{background:#21122f}.fgc.uim .b-foot{background:#21122f}
+.fgc.uim .b-hero{background:linear-gradient(120deg,#F53DD6,#FF4D1F)}
+.fgc.uim .b-hero .ln{background:#fff}.fgc.uim .b-hero .btn{background:#14081F}
+.fgc.uim .b-hero .img{background:radial-gradient(circle at 50% 50%,#fff 0 18%,#ffffff44 19% 40%,transparent 41%),#8E4FE8}
+.fgc.uim .b-card:nth-child(1){background:#FF9EDC}.fgc.uim .b-card:nth-child(2){background:#8E4FE8}.fgc.uim .b-card:nth-child(3){background:#1440E0}
+.fgc.uim .f-mob .b-card,.fgc.uim .f-tab .b-card:nth-child(1){background:#FF9EDC}
+.blk:nth-child(2){transition-delay:.05s}.blk:nth-child(3){transition-delay:.1s}.blk:nth-child(4){transition-delay:.15s}
+.sel{position:absolute;pointer-events:none;outline:1.5px solid #0d99ff;transition:all .45s cubic-bezier(.2,.9,.25,1);opacity:0}
+.sel.on{opacity:1}
+.sel i{position:absolute;width:6px;height:6px;background:#fff;border:1.5px solid #0d99ff}
+.sel i:nth-child(1){left:-4px;top:-4px}.sel i:nth-child(2){right:-4px;top:-4px}.sel i:nth-child(3){left:-4px;bottom:-4px}.sel i:nth-child(4){right:-4px;bottom:-4px}
+.sel span{position:absolute;left:50%;bottom:-20px;translate:-50% 0;background:#0d99ff;color:#fff;font-size:10px;padding:1px 6px;border-radius:3px;white-space:nowrap}
+.cur{position:absolute;left:0;top:0;pointer-events:none;transition:transform .9s cubic-bezier(.4,.1,.2,1);z-index:3}
+.cur svg{width:16px;height:20px;display:block;filter:drop-shadow(0 2px 2px #0006)}
+.cur span{position:absolute;left:14px;top:16px;background:#F53DD6;color:#fff;font-size:10px;padding:2px 7px;border-radius:4px;white-space:nowrap}
+@media (max-width:860px){.fc-body{grid-template-columns:minmax(0,1fr);height:auto}.fc-layers,.fc-props{display:none}.fc-stage{height:330px}}
+@media (max-width:600px){.f-desk{width:58%}.f-tab{display:none}.f-mob{width:28%}}
+
+
+/* polaroids */
+.pola{margin:0;background:#fff;padding:10px 10px 14px;border-radius:4px;box-shadow:0 20px 34px -18px #14081f99;rotate:var(--r,0deg);color:#14081F;width:220px}
+.pola img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border-radius:2px;background:#eee}
+.pola figcaption{font:500 13px/1.4 "Readex Pro",sans-serif;margin-top:8px;text-align:center}
+.v-qb+.pola,.cs .pola{margin:22px auto 0}
+/* launch */
+.lgrid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:22px;align-items:start}
+.lpanel{background:#14081F;color:#f4eef9;border-radius:26px;padding:20px;box-shadow:0 30px 60px -30px #14081fb0}
+.lbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px;direction:ltr}
+.lbar .mono{font-size:15px;background:#ffffff12;border:1px solid #ffffff22;padding:8px 14px;border-radius:12px}
+.lgo{min-height:44px;padding:0 20px;border:0;border-radius:99px;background:var(--grad);color:#fff;font:700 15px "Readex Pro",sans-serif;cursor:pointer}
+.lgo:disabled{opacity:.6;cursor:default}
+.lsteps{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.lsteps li{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:16px;background:#ffffff08;border:1px solid #ffffff14;opacity:.45;transition:opacity .4s,background .4s,border-color .4s}
+.lsteps li.on{opacity:1;background:#ffffff10;border-color:#F53DD666}
+.lsteps li.done>i{background:#2fbf71}
+.lsteps li>i{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font:700 13px "JetBrains Mono",monospace;font-style:normal;background:#ffffff1c;transition:background .3s}
+.lsteps li>div{flex:1;min-width:0}
+.lsteps b{display:block;font:700 15px Alexandria,sans-serif}
+.lsteps span{font-size:13px;color:#cdbfdc}
+.dns{margin-top:8px;display:grid;gap:4px;font-size:12px;direction:ltr}
+.dns div{display:grid;grid-template-columns:62px 52px minmax(0,1fr);gap:8px;padding:5px 8px;border-radius:8px;background:#ffffff0a}
+.dns em{font-style:normal;color:var(--pk);font-weight:600}.dns span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.prop{height:6px;border-radius:3px;background:#ffffff14;margin-top:8px;overflow:hidden}.prop i{display:block;height:100%;width:0;background:var(--grad);transition:width 1.6s ease}
+li.on .prop i,li.done .prop i{width:100%}
+.spark{width:100%;height:30px;display:block;margin-top:6px}
+.spark polyline{stroke-dasharray:200;stroke-dashoffset:200;transition:stroke-dashoffset 1.4s ease}
+li.on .spark polyline,li.done .spark polyline{stroke-dashoffset:0}
+.lskills{display:grid;gap:12px}
+.lcard{padding:18px 20px;border-radius:20px;background:var(--card);border:1.5px solid var(--line)}
+.lcard h4{margin:0 0 6px;font:800 19px Alexandria,sans-serif}.lcard p{margin:0 0 6px;color:var(--mut);font-size:15px}
+.hosts{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 10px}
+.hosts span{padding:7px 14px;border-radius:99px;background:var(--bg);border:1.5px solid var(--line);font-weight:600;font-size:14px}
+/* education */
+.edu{margin-top:60px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:28px;align-items:center;padding:28px;border-radius:30px;background:var(--card);border:1.5px solid var(--line)}
+.uni{display:flex;gap:14px;align-items:center;margin-bottom:20px}
+.uni img{width:54px;height:auto}
+.uni b{display:block;font:800 19px/1.3 Alexandria,sans-serif}.uni span{color:var(--mut);font-size:14px}
+.gpa{display:flex;gap:22px;align-items:flex-end}
+.gring{flex:none;width:130px;height:130px;border-radius:50%;background:conic-gradient(var(--fu) 0,var(--or) calc(var(--v)*1%),var(--line) 0);display:grid;place-items:center}
+.gring>div{width:104px;height:104px;border-radius:50%;background:var(--card);display:grid;place-content:center;text-align:center}
+.gring b{font:900 32px/1 Alexandria,sans-serif}.gring span{font:600 12px "JetBrains Mono",monospace;color:var(--mut)}
+.gbars{flex:1;display:flex;gap:6px;align-items:flex-end;height:130px;direction:ltr}
+.gbars div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;gap:4px}
+.gbars i{display:block;width:100%;border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,var(--fu),var(--mv));height:0;transition:height .9s cubic-bezier(.2,.9,.25,1)}
+.gbars i.top{background:var(--grad)}
+.gbars small{font:600 9px "JetBrains Mono",monospace;color:var(--mut)}
+.gcap{font-size:13px;color:var(--mut);margin:10px 0 16px}
+.courses{display:flex;flex-wrap:wrap;gap:6px}
+.courses span{padding:5px 11px;border-radius:99px;background:var(--soft);border:1px solid var(--line);font-size:13px}
+.courses span b{font:700 11px "JetBrains Mono",monospace;color:var(--fu);margin-inline-start:6px}
+.edu-r{position:relative;min-height:380px}
+.edu-r .pola{position:absolute;top:0;inset-inline-start:6%;width:190px}
+.edu-r .pola.p2{top:110px;inset-inline-start:auto;inset-inline-end:2%;z-index:2}
+/* AQ */
+.aq{margin-top:28px;padding:28px;border-radius:30px;background:linear-gradient(160deg,#0f3d2b,#0b2a1e);color:#eef7f1}
+.aq-h{display:flex;gap:20px;align-items:flex-start;margin-bottom:22px}
+.aq-h img{flex:none;width:92px;height:92px;border-radius:20px;background:#fff;object-fit:contain}
+.aq .lab{font:600 12px "JetBrains Mono",monospace;color:#8be3b0}
+.aq h3{font:900 clamp(24px,3vw,36px)/1.2 Alexandria,sans-serif;margin:6px 0 8px}
+.aq-h p{margin:0;color:#cfe7d8;max-width:52em}
+.aq-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.aq-phase{padding:16px;border-radius:18px;background:#ffffff0d;border:1px solid #ffffff1c}
+.ph-n{font:900 24px Alexandria,sans-serif;color:#8be3b0}
+.aq-phase h4{margin:4px 0 8px;font:800 16px Alexandria,sans-serif}
+.aq-phase ul{margin:0;padding-inline-start:16px;font-size:13.5px;color:#d9eee1}.aq-phase li{margin:3px 0}
+.aq-figs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.aq-figs figure{margin:0}.aq-img{background:#fff;border-radius:16px;overflow:hidden;height:260px}
+.aq-img img{width:100%;height:100%;object-fit:contain;display:block}
+.aq-figs figcaption{font:600 12px "JetBrains Mono",monospace;color:#8be3b0;margin-top:6px}
+.leap{margin-top:28px;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:18px;align-items:center;padding:24px 28px;border-radius:26px;background:var(--grad);color:#fff}
+.leap .lab{font:700 13px "JetBrains Mono",monospace;opacity:.85}
+.leap h4{margin:2px 0 6px;font:900 24px Alexandria,sans-serif}.leap p{margin:0;opacity:.92}
+.leap .arr{font:900 40px Alexandria}[dir=rtl] .leap .arr{transform:scaleX(-1)}
+/* behind the scenes */
+.btsb{position:relative;height:720px;border-radius:30px;background:radial-gradient(circle,color-mix(in srgb,var(--tx) 12%,transparent) 1.2px,transparent 1.5px) 0 0/22px 22px,var(--soft);border:1.5px solid var(--line);overflow:hidden}
+.btsb .pola{position:absolute;cursor:grab;touch-action:none;user-select:none;transition:scale .2s}
+.btsb .pola:active{cursor:grabbing;scale:1.05}
+.btsb .pola img{pointer-events:none}
+.btsb .clone{display:none}
+@media (max-width:980px){.aq-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:860px){.lgrid,.edu{grid-template-columns:1fr}.edu-r{min-height:340px}.leap{grid-template-columns:1fr}.leap .arr{transform:rotate(90deg)!important;justify-self:center}.aq-figs{grid-template-columns:1fr}
+  .btsb{height:auto;display:flex;gap:18px;overflow-x:auto;padding:24px;scrollbar-width:none}.btsb::-webkit-scrollbar{display:none}.btsb .pola{position:relative;left:auto!important;top:auto!important;flex:none;cursor:default}.btsb .clone{display:block}}
+@media (max-width:600px){.aq-grid{grid-template-columns:1fr}.aq-h{flex-direction:column}.gpa{flex-direction:column;align-items:center}.gbars{flex:none;width:100%;height:110px}.edu,.aq{padding:18px}.edu-r .pola{width:160px}.edu-r .pola.p2{top:90px}}
+
+
+/* ai translate demo */
+.v-tr{background:linear-gradient(150deg,#1440E0,#8E4FE8);align-items:center}
+.trx{width:min(100%,440px);background:#fff;color:#14081F;border-radius:22px;padding:18px;box-shadow:0 30px 50px -20px #14081fa0;display:grid;gap:12px}
+.trp{display:flex;background:#f1ecf6;border-radius:12px;padding:3px;direction:ltr}
+.trp button{flex:1;border:0;background:none;padding:8px 4px;border-radius:9px;font:600 12px "Readex Pro",sans-serif;color:#6b5f78;cursor:pointer;min-height:36px}
+.trp button.on{background:#fff;color:#14081F;box-shadow:0 2px 6px #14081f22}
+.trf label{display:flex;align-items:center;gap:8px;font:600 11px "JetBrains Mono",monospace;color:#8E4FE8;margin-bottom:4px}
+.tin{min-height:44px;padding:11px 14px;border-radius:12px;border:1.5px solid #e6dcef;background:#fbf8fd;font:500 15px "Readex Pro",sans-serif;transition:border-color .3s,background .3s}
+.tin.lock{border-color:#FF4D1F;background:#fff6f2}
+.tin.busy{color:#b6a6c6}
+.badge{font-style:normal;font:600 10px "Readex Pro",sans-serif;padding:2px 8px;border-radius:99px;background:#e9e2ff;color:#5b34c7}
+.badge.lockb{background:#ffe2d8;color:#c2410c}
+.trflow{display:flex;flex-wrap:wrap;align-items:center;gap:4px;font-size:10.5px;direction:ltr}
+.trflow span{padding:4px 8px;border-radius:7px;background:#f1ecf6;color:#6b5f78;transition:background .25s,color .25s}
+.trflow span.on{background:var(--grad);color:#fff}
+.trflow i{font-style:normal;color:#b6a6c6}
+.trbtns{display:flex;gap:8px;flex-wrap:wrap}
+.trbtns button{flex:1;min-height:42px;border-radius:12px;border:1.5px solid #e6dcef;background:#fff;font:600 13px "Readex Pro",sans-serif;color:#14081F;cursor:pointer}
+.trbtns button:hover{border-color:#F53DD6}
+.trnote{margin:0;font-size:12.5px;color:#6b5f78;min-height:18px}
+
+
+.visit{display:inline-flex;align-items:center;gap:6px;min-height:42px;padding:0 18px;border-radius:99px;background:var(--grad);color:#fff;text-decoration:none;font-weight:600;font-size:14px;margin:-6px 0 18px;box-shadow:0 10px 24px -12px #f53dd6aa}
+.visit:hover{translate:0 -2px}
+.mu-gal{position:relative;padding-bottom:40px}
+.mtabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}.mtabs::-webkit-scrollbar{display:none}.mtabs .tbtn{flex:none}
+.mu-ph{width:clamp(110px,24%,150px);aspect-ratio:390/844;padding:5px;border-radius:24px}
+.mu-ph img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:19px;display:block}
+.mu-stamp{position:absolute;top:auto;bottom:4px;inset-inline-start:14px;z-index:3;background:#14382bdd;color:#b8f5d3;border-color:#b8f5d3}
+
+/* more work strip */
+.more{display:flex;flex-wrap:wrap;gap:10px}
+.more span{padding:10px 16px;border-radius:14px;background:var(--card);border:1.5px solid var(--line);font-weight:500}
+
+/* brand */
+.brand-g{display:grid;grid-template-columns:1.2fr 1fr 1fr;grid-auto-rows:minmax(150px,auto);gap:14px}
+.tile{border-radius:24px;padding:22px;background:var(--card);border:1.5px solid var(--line);position:relative;overflow:hidden}
+.tile b{font:600 11px "JetBrains Mono",monospace;color:var(--mut);display:block}
+.t-mark{grid-row:span 2;background:#fff;color:#14081F;display:grid;place-items:center;text-align:center}
+.t-mark .mk{font:300 clamp(90px,10vw,150px)/1 "JetBrains Mono",monospace;display:flex;align-items:center;gap:6px}
+.t-mark .mk .st{width:.7em;height:.7em;color:url(#gg)}
+.t-mark p{margin:10px 0 0;font-size:14px;color:#6b5f78}
+.t-grad{background:var(--grad);color:#fff;display:flex;flex-direction:column;justify-content:end}
+.t-grad b{color:#ffffffcc}
+.sw{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:12px}
+.sw i{aspect-ratio:.6;border-radius:12px;background:var(--c);display:flex;align-items:end;justify-content:center;padding-bottom:6px;font:600 9px "JetBrains Mono",monospace;font-style:normal;color:var(--t,#fff);writing-mode:vertical-rl}
+.t-type .aa{font:900 64px/1 Alexandria,sans-serif;margin:10px 0 4px}
+.t-type p{margin:0;font-size:13px;color:var(--mut)}
+.t-no{display:flex;gap:16px;align-items:center}
+.t-no .x{position:relative;width:64px;height:64px;flex:none;color:var(--mut)}
+.t-no .x::after{content:"";position:absolute;left:-6px;right:-6px;top:50%;height:4px;background:var(--or);rotate:-30deg;border-radius:2px}
+.t-no p{margin:4px 0 0;font-size:14px}
+
+/* journey — metro line */
+.metro{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;padding-top:44px}
+.metro::before{content:"";position:absolute;top:58px;inset-inline:6% 6%;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--mv),var(--fu),var(--or))}
+[dir=rtl] .metro::before{background:linear-gradient(270deg,var(--mv),var(--fu),var(--or))}
+.stop{position:relative;text-align:center;padding:0 4px}
+.stop .dot{width:34px;height:34px;margin:0 auto 18px;border-radius:50%;background:var(--bg);border:6px solid var(--c,var(--fu));position:relative;z-index:1}
+.stop.big .dot{width:46px;height:46px;margin-top:-6px;background:var(--grad);border-color:var(--bg);box-shadow:0 0 0 4px var(--fu)}
+.stop .when{font:600 12px "JetBrains Mono",monospace;color:var(--mut)}
+.stop h4{font:800 18px/1.3 Alexandria,sans-serif;margin:4px 0 6px}
+.stop p{margin:0;font-size:14px;color:var(--mut)}
+.stop.now .dot{animation:ping 1.8s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--or) 60%,transparent)}100%{box-shadow:0 0 0 18px transparent}}
+
+/* how I work */
+.how{background:var(--tx);color:var(--bg)}
+.how .sh p{color:color-mix(in srgb,var(--bg) 70%,transparent)}
+.rules{list-style:none;margin:0;padding:0;border-top:1.5px solid color-mix(in srgb,var(--bg) 25%,transparent)}
+.rules li{display:grid;grid-template-columns:70px minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:center;padding:26px 0;border-bottom:1.5px solid color-mix(in srgb,var(--bg) 25%,transparent);transition:padding .3s}
+.rules li:hover{padding-inline-start:14px}
+.rules .i{font:600 14px "JetBrains Mono",monospace;color:var(--pk)}
+.rules h4{font:800 clamp(22px,2.6vw,34px)/1.15 Alexandria,sans-serif;margin:0}
+.rules li:hover h4{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rules p{margin:0;color:color-mix(in srgb,var(--bg) 72%,transparent)}
+
+/* now — stickies */
+.stick{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.note{background:var(--c);color:#14081F;border-radius:6px 6px 22px 6px;padding:22px 20px 26px;min-height:200px;rotate:var(--r);box-shadow:0 20px 30px -18px #14081f80;transition:rotate .3s,translate .3s;position:relative}
+.note:hover{rotate:0deg;translate:0 -6px}
+.note::before{content:"";position:absolute;top:-10px;left:50%;translate:-50% 0;width:70px;height:22px;background:#ffffff80;rotate:-3deg;border-radius:3px}
+.note b{font:600 11px "JetBrains Mono",monospace;opacity:.65}
+.note h4{font:800 20px/1.3 Alexandria,sans-serif;margin:8px 0 6px}
+.note p{margin:0;font-size:14px}
+.draft{font:12px "JetBrains Mono",monospace;color:var(--mut);margin-top:22px}
+
+/* contact */
+.contact{text-align:center;overflow:hidden}
+.contact h2{font:900 clamp(50px,10vw,150px)/.95 Alexandria,sans-serif;margin:0}
+.contact p{color:var(--mut);max-width:32em;margin:20px auto 30px}
+.cbtn{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cbtn a{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:99px;text-decoration:none;font-weight:600;border:1.5px solid var(--tx)}
+.cbtn a.pri{background:var(--grad);color:#fff;border-color:transparent}
+.cbtn a:hover{translate:0 -2px}
+footer{padding:28px max(5vw,16px) 110px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;color:var(--mut);border-top:1px solid var(--line)}
+
+/* memoji buddy + iMessage */
+.buddy{position:fixed;bottom:16px;inset-inline-end:16px;z-index:50;display:flex;flex-direction:column;align-items:flex-end;gap:10px;pointer-events:none}
+.buddy.off .mj{opacity:0;transform:scale(.3) translateY(60px)}
+.buddy.off .bub{opacity:0}
+.mj{pointer-events:auto;position:relative;width:112px;height:112px;border:0;padding:0;background:none;cursor:pointer;transition:opacity .35s,transform .5s cubic-bezier(.2,.9,.25,1.5);filter:drop-shadow(0 12px 18px #14081f55)}
+.mj::before{content:"";position:absolute;inset:16% 12% 0;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--fu) 40%,transparent),transparent 70%);z-index:-1}
+.mj .fc{position:absolute;inset:0;transition:transform .25s}
+.mj img{width:100%;height:100%;display:block;animation:bob 3.2s ease-in-out infinite;transform-origin:50% 90%}
+.mj.pop img{animation:popin .45s cubic-bezier(.2,.9,.25,1.6)}
+@keyframes bob{50%{translate:0 -6px}}
+@keyframes popin{0%{scale:.7}100%{scale:1}}
+.bub{pointer-events:auto;position:relative;max-width:270px;margin-inline-end:40px;padding:9px 15px;border-radius:20px;font:400 16px/1.4 -apple-system,BlinkMacSystemFont,"SF Pro Text","Readex Pro",sans-serif;color:#fff;background:var(--ios);transition:opacity .25s,transform .35s cubic-bezier(.2,.9,.25,1.4);transform-origin:100% 100%}
+[dir=rtl] .bub{transform-origin:0 100%}
+.bub .tail{position:absolute;bottom:0;inset-inline-end:-7px;width:20px;height:20px;color:var(--ios)}
+[dir=ltr] .bub .tail{transform:scaleX(-1)}
+.bub.hide{opacity:0;transform:scale(.6) translateY(10px)}
+.bub.typing{background:var(--iosg);width:64px;height:38px;padding:0;display:flex;gap:5px;align-items:center;justify-content:center}
+.bub.typing .tail{color:var(--iosg)}
+.bub.typing i{width:8px;height:8px;border-radius:50%;background:var(--iosgt);animation:dot 1.2s infinite}
+.bub.typing i:nth-child(2){animation-delay:.15s}.bub.typing i:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,60%,100%{opacity:.35}30%{opacity:1}}
+.bub .x{position:absolute;top:-9px;inset-inline-start:-9px;width:22px;height:22px;border-radius:50%;border:0;background:var(--iosg);color:var(--tx);font:11px sans-serif;cursor:pointer;display:grid;place-items:center}
+.delivered{font:500 11px -apple-system,"Readex Pro",sans-serif;color:var(--iosgt);margin-inline-end:44px;margin-top:-6px;transition:opacity .3s}
+
+@media (max-width:980px){
+  .brand-g{grid-template-columns:1fr 1fr}.t-mark{grid-column:span 2;grid-row:auto}
+  .stick{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .fhead,.trio{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}
+  .iphone{width:34%}
+  .hero{grid-template-columns:1fr;min-height:auto;padding-top:24px}
+  .stage{height:700px;order:-1}
+  nav a{display:none}
+  .about,.cs .wrap{grid-template-columns:1fr}
+  .cs.flip .vis{order:0}
+  .metro{grid-template-columns:1fr;padding-top:0;gap:26px}
+  .metro::before{top:0;bottom:0;height:auto;width:6px;inset-inline-start:17px;inset-inline-end:auto;background:linear-gradient(180deg,var(--mv),var(--fu),var(--or))!important}
+  .stop{text-align:start;display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start}
+  .stop .dot{margin:0}
+  .rules li{grid-template-columns:44px 1fr}.rules p{grid-column:2}
+  .v-fed{grid-template-columns:1fr}.arrow{rotate:90deg}
+}
+@media (max-width:600px){
+  .stick,.brand-g{grid-template-columns:minmax(0,1fr)}.brand-g>.tile{grid-column:auto!important;grid-row:auto!important}.t-mark .mk{font-size:84px}.t-type .aa{font-size:52px}.sw{grid-template-columns:repeat(3,1fr)}.sw i{aspect-ratio:1.4;writing-mode:horizontal-tb}
+  .mj{width:84px;height:84px}.bub{max-width:220px;font-size:15px;margin-inline-end:26px}.delivered{margin-inline-end:30px}
+  .key{min-width:70px;height:56px;font-size:13px}
+}
+@media (max-width:420px){.swing{transform:scale(.88)}.ribbon{height:54px}.mq span{font-size:21px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="star" viewBox="0 0 100 100"><polygon fill="currentColor" points="50.0,0.0 54.6,38.9 71.2,28.8 61.1,45.4 100.0,50.0 61.1,54.6 71.2,71.2 54.6,61.1 50.0,100.0 45.4,61.1 28.8,71.2 38.9,54.6 0.0,50.0 38.9,45.4 28.8,28.8 45.4,38.9"/></symbol>
+  <symbol id="star4" viewBox="0 0 100 100"><path fill="currentColor" d="M50 0C54 36 64 46 100 50C64 54 54 64 50 100C46 64 36 54 0 50C36 46 46 36 50 0Z"/></symbol>
+  <linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F53DD6"/><stop offset="1" stop-color="#FF4D1F"/></linearGradient>
+  <linearGradient id="metal" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9aa0ab"/><stop offset=".45" stop-color="#f4f5f8"/><stop offset=".6" stop-color="#c4c8d0"/><stop offset="1" stop-color="#7d838f"/></linearGradient>
+</svg>
+
+<header class="top">
+  <a class="logo" href="#top" aria-label="Shooq">&lt;<svg class="st"><use href="#star"/></svg>&gt;<b class="g" data-en="shooq">شوق</b></a>
+  <nav>
+    <a href="#about" data-en="About">عني</a>
+    <a href="#skills" data-en="Skills">المهارات</a>
+    <a href="#work" data-en="Work">المشاريع</a>
+    <a href="#journey" data-en="Journey">رحلتي</a>
+    <a href="#log" data-en="Log">يومياتي</a>
+    <a href="#contact" data-en="Contact">تواصل</a>
+    <button class="tg" id="lang" aria-label="Switch language">EN</button>
+    <button class="tg" id="mode" aria-label="Toggle theme">☀</button>
+  </nav>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="wrap hero" data-sec="hero">
+  <div>
+    <span class="kicker"><svg class="st"><use href="#star"/></svg><span data-en="Portfolio 2026">بورتفوليو ٢٠٢٦</span></span>
+    <h1 data-en='Shooq <span class="g">Alzamil</span>'>شوق <span class="g">الزامل</span></h1>
+    <p class="role" data-en="Web Development Specialist <span>@ Ramworld</span>">خبير تطوير مواقع <span>@ رام وورلد</span></p>
+    <p class="lead" data-en="I design the interface and build the logic behind it — from Figma to WordPress and Laravel, with an identity you notice at first glance.">أصمم الواجهة وأبني المنطق اللي وراها — من Figma إلى ووردبريس وLaravel، وبهوية تبان من أول نظرة.</p>
+    <div class="chips"><span class="chip">Front-End</span><span class="chip">WordPress</span><span class="chip">PHP &amp; Laravel</span><span class="chip">UI/UX · Figma</span><span class="chip" data-en="Systems Analysis">تحليل الأنظمة</span></div>
+    <p class="hint"><i></i><span data-en="Drag the card · tap to flip">اسحب البطاقة · اضغط عليها عشان تنقلب</span></p>
+  </div>
+  <div class="stage" id="stage">
+    <div class="pivot"><div class="swing" id="swing">
+      <div class="strap"><span>SHOOQ ✦ شوق ✦ SHOOQ ✦ شوق ✦ SHOOQ ✦ شوق ✦ SHOOQ ✦</span></div>
+      <svg class="clip" viewBox="0 0 46 64"><rect x="9" y="0" width="28" height="22" rx="5" fill="url(#metal)"/><rect x="15" y="6" width="16" height="10" rx="3" fill="#00000030"/><path d="M23 22v10" stroke="url(#metal)" stroke-width="7"/><path d="M14 40a9 9 0 1 1 18 0v14a9 9 0 0 1-18 0" fill="none" stroke="url(#metal)" stroke-width="5" stroke-linecap="round"/></svg>
+      <div class="card3d" id="card" role="button" tabindex="0" aria-label="Flip ID card">
+        <div class="face front">
+          <div class="slot"></div>
+          <div class="tp"><span>&lt;✦&gt; SHOOQ.DEV</span><span>ID · 2026</span></div>
+          <div class="photo"><div class="ring"></div><div class="in"><svg class="st"><use href="#star"/></svg><small data-en="photo soon">صورتك هنا</small></div></div>
+          <h3 data-en="Shooq Alzamil">شوق الزامل</h3>
+          <p class="r" data-en="Web Development Specialist">خبير تطوير مواقع</p>
+          <div class="meta">
+            <div><b data-en="COMPANY">الجهة</b>Ramworld</div>
+            <div><b data-en="CITY">المدينة</b><span data-en="Riyadh">الرياض</span></div>
+            <div style="grid-column:1/-1"><b data-en="FOCUS">التخصص</b>Front-End · WordPress · Laravel</div>
+          </div>
+          <div class="foil"></div><div class="glare"></div>
+        </div>
+        <div class="face back">
+          <div class="slot"></div><div class="disc"></div>
+          <h3 data-en="Let's connect">خلّنا نتواصل</h3>
+          <p data-en="Beautiful interfaces, tidy logic, and everything automated where possible.">واجهات جميلة، منطق مرتب، وكل شي أوتوماتيك قدر الإمكان.</p>
+          <div class="sk"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span><span>Laravel</span><span>WordPress</span><span>Elementor</span><span>Figma</span></div>
+          <div class="row"><div class="lnk">↗ LinkedIn<br>↗ github.com/shooqz<br>✉ shooqimu2@gmail.com</div><div class="qr"><svg class="qrsvg" viewBox="-1 -1 31 31" aria-label="QR: shooqz.github.io"><defs><linearGradient id="qrg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F53DD6"/><stop offset="1" stop-color="#FF4D1F"/></linearGradient></defs><rect x="-1" y="-1" width="31" height="31" rx="2" fill="#fff"/><path fill="#14081F" d="M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM8 0h1v1h-1zM9 0h1v1h-1zM13 0h1v1h-1zM16 0h1v1h-1zM18 0h1v1h-1zM22 0h1v1h-1zM23 0h1v1h-1zM24 0h1v1h-1zM25 0h1v1h-1zM26 0h1v1h-1zM27 0h1v1h-1zM28 0h1v1h-1zM0 1h1v1h-1zM6 1h1v1h-1zM11 1h1v1h-1zM13 1h1v1h-1zM16 1h1v1h-1zM17 1h1v1h-1zM20 1h1v1h-1zM22 1h1v1h-1zM28 1h1v1h-1zM0 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM8 2h1v1h-1zM9 2h1v1h-1zM11 2h1v1h-1zM13 2h1v1h-1zM14 2h1v1h-1zM16 2h1v1h-1zM22 2h1v1h-1zM24 2h1v1h-1zM25 2h1v1h-1zM26 2h1v1h-1zM28 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM9 3h1v1h-1zM11 3h1v1h-1zM14 3h1v1h-1zM15 3h1v1h-1zM17 3h1v1h-1zM19 3h1v1h-1zM20 3h1v1h-1zM22 3h1v1h-1zM24 3h1v1h-1zM25 3h1v1h-1zM26 3h1v1h-1zM28 3h1v1h-1zM0 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM6 4h1v1h-1zM8 4h1v1h-1zM10 4h1v1h-1zM11 4h1v1h-1zM12 4h1v1h-1zM17 4h1v1h-1zM18 4h1v1h-1zM19 4h1v1h-1zM20 4h1v1h-1zM22 4h1v1h-1zM24 4h1v1h-1zM25 4h1v1h-1zM26 4h1v1h-1zM28 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM9 5h1v1h-1zM10 5h1v1h-1zM12 5h1v1h-1zM13 5h1v1h-1zM15 5h1v1h-1zM17 5h1v1h-1zM22 5h1v1h-1zM28 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM23 6h1v1h-1zM24 6h1v1h-1zM25 6h1v1h-1zM26 6h1v1h-1zM27 6h1v1h-1zM28 6h1v1h-1zM8 7h1v1h-1zM14 7h1v1h-1zM15 7h1v1h-1zM16 7h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM11 8h1v1h-1zM12 8h1v1h-1zM18 8h1v1h-1zM19 8h1v1h-1zM22 8h1v1h-1zM24 8h1v1h-1zM26 8h1v1h-1zM28 8h1v1h-1zM1 9h1v1h-1zM2 9h1v1h-1zM4 9h1v1h-1zM7 9h1v1h-1zM8 9h1v1h-1zM9 9h1v1h-1zM11 9h1v1h-1zM12 9h1v1h-1zM13 9h1v1h-1zM14 9h1v1h-1zM15 9h1v1h-1zM16 9h1v1h-1zM17 9h1v1h-1zM18 9h1v1h-1zM19 9h1v1h-1zM23 9h1v1h-1zM24 9h1v1h-1zM27 9h1v1h-1zM0 10h1v1h-1zM2 10h1v1h-1zM3 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM9 10h1v1h-1zM21 10h1v1h-1zM22 10h1v1h-1zM24 10h1v1h-1zM26 10h1v1h-1zM0 11h1v1h-1zM1 11h1v1h-1zM3 11h1v1h-1zM5 11h1v1h-1zM7 11h1v1h-1zM19 11h1v1h-1zM20 11h1v1h-1zM22 11h1v1h-1zM23 11h1v1h-1zM24 11h1v1h-1zM2 12h1v1h-1zM4 12h1v1h-1zM5 12h1v1h-1zM6 12h1v1h-1zM7 12h1v1h-1zM8 12h1v1h-1zM20 12h1v1h-1zM21 12h1v1h-1zM22 12h1v1h-1zM25 12h1v1h-1zM27 12h1v1h-1zM0 13h1v1h-1zM1 13h1v1h-1zM2 13h1v1h-1zM3 13h1v1h-1zM4 13h1v1h-1zM5 13h1v1h-1zM8 13h1v1h-1zM9 13h1v1h-1zM19 13h1v1h-1zM20 13h1v1h-1zM22 13h1v1h-1zM24 13h1v1h-1zM25 13h1v1h-1zM27 13h1v1h-1zM28 13h1v1h-1zM2 14h1v1h-1zM3 14h1v1h-1zM4 14h1v1h-1zM5 14h1v1h-1zM6 14h1v1h-1zM9 14h1v1h-1zM20 14h1v1h-1zM21 14h1v1h-1zM22 14h1v1h-1zM23 14h1v1h-1zM0 15h1v1h-1zM1 15h1v1h-1zM3 15h1v1h-1zM5 15h1v1h-1zM7 15h1v1h-1zM9 15h1v1h-1zM19 15h1v1h-1zM20 15h1v1h-1zM22 15h1v1h-1zM24 15h1v1h-1zM25 15h1v1h-1zM26 15h1v1h-1zM27 15h1v1h-1zM28 15h1v1h-1zM1 16h1v1h-1zM2 16h1v1h-1zM3 16h1v1h-1zM6 16h1v1h-1zM23 16h1v1h-1zM25 16h1v1h-1zM26 16h1v1h-1zM27 16h1v1h-1zM0 17h1v1h-1zM5 17h1v1h-1zM9 17h1v1h-1zM19 17h1v1h-1zM21 17h1v1h-1zM22 17h1v1h-1zM23 17h1v1h-1zM24 17h1v1h-1zM25 17h1v1h-1zM26 17h1v1h-1zM28 17h1v1h-1zM0 18h1v1h-1zM1 18h1v1h-1zM2 18h1v1h-1zM4 18h1v1h-1zM5 18h1v1h-1zM6 18h1v1h-1zM8 18h1v1h-1zM9 18h1v1h-1zM19 18h1v1h-1zM20 18h1v1h-1zM24 18h1v1h-1zM25 18h1v1h-1zM28 18h1v1h-1zM0 19h1v1h-1zM3 19h1v1h-1zM4 19h1v1h-1zM9 19h1v1h-1zM10 19h1v1h-1zM12 19h1v1h-1zM14 19h1v1h-1zM15 19h1v1h-1zM16 19h1v1h-1zM17 19h1v1h-1zM19 19h1v1h-1zM21 19h1v1h-1zM22 19h1v1h-1zM25 19h1v1h-1zM0 20h1v1h-1zM2 20h1v1h-1zM3 20h1v1h-1zM4 20h1v1h-1zM6 20h1v1h-1zM11 20h1v1h-1zM12 20h1v1h-1zM13 20h1v1h-1zM14 20h1v1h-1zM16 20h1v1h-1zM18 20h1v1h-1zM20 20h1v1h-1zM21 20h1v1h-1zM22 20h1v1h-1zM23 20h1v1h-1zM24 20h1v1h-1zM26 20h1v1h-1zM27 20h1v1h-1zM28 20h1v1h-1zM8 21h1v1h-1zM11 21h1v1h-1zM14 21h1v1h-1zM15 21h1v1h-1zM17 21h1v1h-1zM18 21h1v1h-1zM19 21h1v1h-1zM20 21h1v1h-1zM24 21h1v1h-1zM25 21h1v1h-1zM26 21h1v1h-1zM27 21h1v1h-1zM0 22h1v1h-1zM1 22h1v1h-1zM2 22h1v1h-1zM3 22h1v1h-1zM4 22h1v1h-1zM5 22h1v1h-1zM6 22h1v1h-1zM12 22h1v1h-1zM13 22h1v1h-1zM14 22h1v1h-1zM16 22h1v1h-1zM17 22h1v1h-1zM18 22h1v1h-1zM19 22h1v1h-1zM20 22h1v1h-1zM22 22h1v1h-1zM24 22h1v1h-1zM0 23h1v1h-1zM6 23h1v1h-1zM8 23h1v1h-1zM9 23h1v1h-1zM12 23h1v1h-1zM16 23h1v1h-1zM19 23h1v1h-1zM20 23h1v1h-1zM24 23h1v1h-1zM25 23h1v1h-1zM27 23h1v1h-1zM28 23h1v1h-1zM0 24h1v1h-1zM2 24h1v1h-1zM3 24h1v1h-1zM4 24h1v1h-1zM6 24h1v1h-1zM11 24h1v1h-1zM16 24h1v1h-1zM18 24h1v1h-1zM19 24h1v1h-1zM20 24h1v1h-1zM21 24h1v1h-1zM22 24h1v1h-1zM23 24h1v1h-1zM24 24h1v1h-1zM0 25h1v1h-1zM2 25h1v1h-1zM3 25h1v1h-1zM4 25h1v1h-1zM6 25h1v1h-1zM10 25h1v1h-1zM11 25h1v1h-1zM13 25h1v1h-1zM14 25h1v1h-1zM15 25h1v1h-1zM16 25h1v1h-1zM19 25h1v1h-1zM20 25h1v1h-1zM23 25h1v1h-1zM25 25h1v1h-1zM27 25h1v1h-1zM0 26h1v1h-1zM2 26h1v1h-1zM3 26h1v1h-1zM4 26h1v1h-1zM6 26h1v1h-1zM10 26h1v1h-1zM11 26h1v1h-1zM12 26h1v1h-1zM14 26h1v1h-1zM16 26h1v1h-1zM18 26h1v1h-1zM19 26h1v1h-1zM20 26h1v1h-1zM21 26h1v1h-1zM22 26h1v1h-1zM23 26h1v1h-1zM24 26h1v1h-1zM25 26h1v1h-1zM26 26h1v1h-1zM27 26h1v1h-1zM0 27h1v1h-1zM6 27h1v1h-1zM13 27h1v1h-1zM14 27h1v1h-1zM17 27h1v1h-1zM21 27h1v1h-1zM22 27h1v1h-1zM24 27h1v1h-1zM25 27h1v1h-1zM26 27h1v1h-1zM28 27h1v1h-1zM0 28h1v1h-1zM1 28h1v1h-1zM2 28h1v1h-1zM3 28h1v1h-1zM4 28h1v1h-1zM5 28h1v1h-1zM6 28h1v1h-1zM10 28h1v1h-1zM11 28h1v1h-1zM12 28h1v1h-1zM13 28h1v1h-1zM14 28h1v1h-1zM15 28h1v1h-1zM17 28h1v1h-1zM19 28h1v1h-1zM24 28h1v1h-1zM26 28h1v1h-1z"/><g transform="translate(14.5 14.5)"><path fill="url(#qrg)" d="M0,-3.4 L.55,-.55 3.4,0 .55,.55 0,3.4 -.55,.55 -3.4,0 -.55,-.55Z"/><path fill="url(#qrg)" transform="rotate(45) scale(.55)" d="M0,-3.4 L.55,-.55 3.4,0 .55,.55 0,3.4 -.55,.55 -3.4,0 -.55,-.55Z"/></g></svg></div></div>
+          <div class="glare"></div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="band" id="about" data-sec="about">
+  <div class="wrap about">
+    <div>
+      <span class="tagn" data-en="// about me">// عني</span>
+      <p class="manifesto" data-en="I'm Shooq — I <mark>love interfaces</mark>, but I don't stop at the look. I study the system <mark>before the code</mark>, and I want everything I build to <mark>run itself</mark>.">أنا شوق — <mark>أحب الواجهات</mark>، بس ما أوقف عند الشكل. أحلل النظام <mark>قبل الكود</mark>، وأبي كل شي أبنيه <mark>يمشي لحاله</mark>.</p>
+      <p class="sub" data-en="I started as a COOP trainee at Ramworld and got hired by the same company. Today I build sites, plugins and platforms — and I'm the person who adds the details nobody asked for, but everyone notices.">بدأت متدربة COOP في رام وورلد وتوظفت بنفس الشركة. اليوم أبني مواقع وبلاقنات ومنصات — وأنا اللي أضيف التفاصيل اللي محد طلبها، بس الكل ينتبه لها.</p>
+    </div>
+    <div class="code" aria-label="About Shooq as code">
+      <div class="bar"><i></i><i></i><i></i><span>shooq.js</span></div>
+<pre><span class="k">const</span> <span class="n">shooq</span> = {
+  name: <span class="s">"Shooq Alzamil"</span>,
+  role: <span class="s">"Web Development Specialist"</span>,
+  at: <span class="s">"Ramworld"</span>, city: <span class="s">"Riyadh"</span>,
+  homeBase: [<span class="s">"Front-End"</span>, <span class="s">"UI/UX"</span>],
+  growing: [<span class="s">"Laravel"</span>, <span class="s">"Systems Analysis"</span>],
+  speaks: [<span class="s">"العربية"</span>, <span class="s">"English"</span>],
+  degree: <span class="s">"BSc Information Systems · IMSIU '25"</span>,
+  gpa: <span class="n">4.74</span> <span class="c">/ 5</span>,
+  rule: <span class="s">"analyze → preview → ship"</span>,
+};
+<span class="c">// automate everything ✦</span>
+<span class="n">shooq</span>.<span class="p">build</span>()<span class="cursor"></span></pre>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="band" id="skills" data-sec="skills" style="background:var(--soft)">
+  <div class="wrap">
+    <div class="sh"><div><span class="tagn" data-en="// toolbox">// صندوق أدواتي</span><h2 data-en='My <span class="g">keyboard</span>'>كيبوردي <span class="g">اليومي</span></h2></div>
+      <p data-en="Press any key to see where I actually used it.">اضغط على أي مفتاح وشوف وين استخدمته فعلًا.</p></div>
+    <div class="kb-screen" aria-live="polite"><div id="kbCmd">&gt; shooq.uses(<span class="s">"…"</span>)</div><div class="out" id="kbOut" data-en="Pick a key ↓">اختر مفتاح ↓</div></div>
+    <div class="kb" id="kb"></div>
+  </div>
+</section>
+
+<!-- WORK INDEX -->
+<section class="band work-ix" id="work" data-sec="work">
+  <div class="wrap sh"><div><span class="tagn" data-en="// selected work">// مشاريع مختارة</span><h2 data-en='Work <span class="g">index</span>'>فهرس <span class="g">المشاريع</span></h2></div>
+    <p data-en="Every ribbon is a project — hover to pause, click to jump to its story.">كل شريط مشروع — مرّر عليه يوقف، واضغط عليه يوديك لقصته.</p></div>
+  <div class="ribbons" id="ribbons"></div>
+</section>
+
+
+
+
+<!-- CASE STUDIES -->
+<!-- 01 Ramworld -->
+<article class="cs feat" id="ramworld" data-sec="p0">
+  <div class="wrap">
+    <div class="fhead">
+      <div>
+        <span class="no">01 / 08</span>
+        <h3 data-en="Ramworld website — rebuilt as a system">موقع عالم رام — من صفحات إلى نظام</h3>
+        <div class="tags"><span>WordPress</span><span data-en="Custom plugin + theme">بلاقن وثيم خاصين</span><span>Elementor</span><span>GitHub · CI</span><span>SEO · GEO</span><span>AR / EN</span></div>
+        <a class="visit" href="https://ramworld.net" target="_blank" rel="noopener" data-en="Visit the site ↗">زور الموقع ↗</a>
+      </div>
+      <p class="lede" data-en="I turned a company site running on scattered Elementor pages and 14 snippets into a bilingual CMS: a custom plugin and theme on GitHub that update with one click, dashboards where you add an item once and it shows up across the site, and widgets the team edits without touching the design.">حوّلت موقع شركة كان شغّال على صفحات إيلمنتور متفرقة و١٤ سنيبت، إلى نظام إدارة محتوى ثنائي اللغة: بلاقن وثيم خاصين على GitHub يتحدثون بزر واحد، ولوحات تحكم تضيف فيها العنصر مرة وحدة ويطلع في كل الموقع، وودجتات يعدّلها الفريق بدون ما يلمس التصميم.</p>
+    </div>
+    <div class="gal" data-gal>
+      <div class="tabs"><button class="tbtn on" data-en="Home">الرئيسية</button><button class="tbtn" data-en="Domains">النطاقات</button><button class="tbtn" data-en="Platforms Code">كود المنصات</button></div>
+      <div class="browser"><div class="bbar"><i></i><i></i><i></i><span>ramworld.net</span></div>
+        <div class="panes">
+          <img class="pane on" data-ar-src="shots/rw-home-ar.webp" data-en-src="shots/rw-home-en.webp" src="shots/rw-home-ar.webp" alt="Ramworld home" loading="lazy">
+          <img class="pane" data-ar-src="shots/rw-domains-ar.webp" data-en-src="shots/rw-domains-en.webp" src="shots/rw-domains-ar.webp" alt="Ramworld domains page" loading="lazy">
+          <img class="pane" data-ar-src="shots/rw-code-ar.webp" data-en-src="shots/rw-code-en.webp" src="shots/rw-code-ar.webp" alt="Ramworld platforms code section" loading="lazy">
+        </div>
+      </div>
+      <p class="shot" data-en="✦ switch the portfolio language — the screenshots switch too">✦ بدّل لغة البروتفوليو — واللقطات تتبدل معها</p>
+    </div>
+    <div class="stats">
+      <div><b>9</b><span data-en="dashboards">لوحات تحكم</span></div>
+      <div><b>124</b><span data-en="Elementor widgets">ودجت إيلمنتور</span></div>
+      <div><b>55×2</b><span data-en="pages, two languages">صفحة بلغتين</span></div>
+      <div><b>17</b><span data-en="releases · 6.2.0 → 6.3.5">إصدار · 6.2.0 → 6.3.5</span></div>
+    </div>
+    <div class="trio">
+      <div class="tcard">
+        <span class="lab" data-en="THE HARDEST BUG">أصعب مشكلة</span>
+        <h4 data-en="Buttons were sending people to the wrong language">الأزرار تودّي للغة الغلط</h4>
+        <div class="mini-code"><span class="k">href</span>=<span class="s">"rw:contact"</span><br>→ <span class="p">/ar/contact</span> · <span class="p">/en/contact</span></div>
+        <p data-en="I scanned 144 staging pages and found the root cause: WordPress itself was stripping the rw: link format because it didn't know it as a safe protocol. Fix on two levels: every internal link is a page key resolved at render time in the visitor's language, and the format is registered as an allowed protocol.">فحصت ١٤٤ صفحة على الستيجنق ولقيت السبب الجذري: ووردبريس نفسه كان يحذف صيغة rw: لأنه ما يعرفها كبروتوكول آمن. الحل على مستويين: كل رابط داخلي صار مفتاح صفحة يتحول وقت العرض للغة الزائر، وسجّلت الصيغة كبروتوكول مسموح.</p>
+      </div>
+      <div class="tcard">
+        <span class="lab" data-en="THE DECISION">القرار</span>
+        <h4 data-en="Data, pages and design — kept apart">البيانات والصفحات والشكل — كل واحد بمكانه</h4>
+        <p data-en="A product, license or distributor is added once in its dashboard, and appears by itself in the header, its page, the cards and the sitemap. When management swapped “Partners” for “Licenses” in the header, it was a settings change — not a rebuild.">المنتج أو الرخصة أو الموزّع ينضاف مرة وحدة في لوحته، ويطلع لحاله في الهيدر وصفحته والبطاقات وخريطة الموقع. ولما الإدارة بدّلت «الشركاء» بـ«الرخص» في الهيدر، صار التعديل من الإعدادات بدل إعادة بناء.</p>
+      </div>
+      <div class="tcard">
+        <span class="lab" data-en="WHAT CHANGED">وش تغيّر</span>
+        <ul>
+          <li data-en="Updates are a button in WordPress, every change a recorded release">التحديث صار زر في ووردبريس، وكل تغيير له إصدار مسجّل</li>
+          <li data-en="~15K lines in one documented repo instead of 14 snippets">قرابة ١٥ ألف سطر في مستودع واحد موثّق بدل ١٤ سنيبت</li>
+          <li data-en="Site Launch tool: old URLs kept, 301s, one-click rollback">أداة Site Launch: الروابط القديمة محفوظة، تحويلات 301، وتراجع بزر</li>
+          <li data-en="User, admin and a 190-page developer guide">دليل مستخدم وأدمن ودليل مطور ١٩٠ صفحة</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- 02 Tech Calendar -->
+<article class="cs" id="tech-calendar" data-sec="p1">
+  <div class="wrap">
+    <div>
+      <span class="no">02 / 08</span>
+      <h3 data-en="Tech Calendar">التقويم التقني</h3>
+      <div class="tags"><span>Laravel</span><span>Next.js</span><span>MySQL</span><span>AWS</span><span>RSVP</span><span>calendar.sa</span></div>
+      <a class="visit" href="https://calendar.sa/ar/" target="_blank" rel="noopener" data-en="Visit the site ↗">زور الموقع ↗</a>
+      <dl>
+        <dt data-en="BEFORE">قبل</dt><dd data-en="A Saudi tech & business events platform, built fast with vibe coding. I took it over midway — it only listed events: visitors looked and left, and small organizations had no way to reach their audience.">منصة سعودية لفعاليات التقنية والأعمال، انبنت بسرعة بأسلوب vibe coding. استلمتها بنص الطريق وكانت تعرض الفعاليات بس: الزائر يشوف ويطلع، والمنظمات الصغيرة ما عندها طريقة توصل لجمهورها.</dd>
+        <dt data-en="MY ROLE">دوري</dt><dd data-en="Lead developer — front end, back end, dashboard and emails, including the platform’s marketing emails.">المطوّرة الأساسية — الواجهة، والباك إند، ولوحة التحكم، والإيميلات — ومنها الإيميلات التسويقية للمنصة.</dd>
+        <dt data-en="WHAT I BUILT">وش بنيت</dt><dd><ul>
+          <li data-en="A profile page for every organization — its own template, colors and calendar to subscribe to (my favorite part)">صفحة بروفايل لكل منظمة بقالبها وألوانها وتقويم خاص يشترك فيه الزائر (شغلي المفضل)</li>
+          <li data-en="<b>I built the RSVP system</b>: one-tap “I’m going”, attendee avatars on every event, and “My events” — plus visitor accounts, avatars and a first-visit tour"><b>طوّرت نظام RSVP</b>: «سأحضر» بضغطة، صور الحضور في كل فعالية، و«فعالياتي» — مع حسابات الزوار والأفاتارات والجولة التعريفية</li>
+          <li data-en="Live event-page themes, and category subscriptions straight to your phone calendar">ثيمات حيّة لصفحة الفعالية، واشتراك بالتصنيف ينزل على تقويم جوالك</li>
+          <li data-en="A redesigned dashboard: outreach with history, newsletters in each subscriber’s language, reminders that don’t annoy">لوحة تحكم جديدة: تواصل مع المنظمات بسجل، نشرة بلغة كل مشترك، وتذكيرات ما تزعج</li>
+        </ul></dd>
+      </dl>
+      <p class="why" data-en="<b>Next:</b> starting the app version of Tech Calendar."><b>الجاي:</b> البدء بنسخة التطبيق من التقويم التقني.</p>
+      <p class="why" data-en="<b>Decision:</b> attendance needs an account so the list is real — but organizations see the <i>count</i>, never names or emails."><b>قرار:</b> الحضور يتسجل بحساب عشان القائمة تكون حقيقية — بس المنظمة تشوف <i>العدد</i>، مو الأسماء ولا الإيميلات.</p>
+    </div>
+    <div>
+      <div class="term">
+        <div class="bar"><i></i><i></i><i></i><span>debug — profile photo</span></div>
+<pre><span class="c"># "The given data was invalid" — for everyone</span>
+<span class="p">$</span> upload avatar.jpg  <span class="c">1.3 MB</span>   <span class="x">✕ invalid</span>
+<span class="p">$</span> upload tiny.png    <span class="c">494 B</span>    <span class="x">✕ invalid</span>
+<span class="c">  → not the size.</span>
+<span class="p">devtools</span> › <span class="s">"The avatar field is required"</span>
+<span class="c">  → the file never reaches the server</span>
+<span class="k">cause</span>  Content-Type: application/json
+       <span class="c">on every request — even uploads</span>
+<span class="k">fix</span>    let the browser set it  <span class="ok">✓ 1 line</span>
+<span class="c">// measure, isolate, then fix.</span></pre>
+      </div>
+      <div class="pillrow"><span><b>1,500+</b> <span data-en="visitors">زائر</span></span><span><b>13K+</b> <span data-en="interactions">تفاعل</span></span><span class="ph" data-en="first month · to confirm">أول شهر · للتأكيد</span></div>
+    </div>
+  </div>
+  <div class="wrap tdemo-wrap">
+    <div class="tdemo-h"><h4 data-en="Try it: live event themes">جرّبها: ثيمات صفحة الفعالية</h4><p data-en="A simplified demo of the idea — pick a theme like an organization would.">ديمو مبسّط للفكرة — اختر ثيم زي ما تسوي المنظمة.</p></div>
+    <div class="tdemo">
+      <aside class="tpick"><b data-en="Event page theme">ثيم صفحة الفعالية</b><p data-en="Pick one and preview it before saving.">اختر ثيم وشوفه قبل الحفظ.</p><div class="sws" id="sws"></div><button class="tsave" id="tsave" data-en="Save">حفظ</button><div class="tsaved" id="tsaved"></div></aside>
+      <div class="tpage" id="tpage"><canvas id="tfx"></canvas>
+        <div class="tcont"><span class="ttag" data-en="AI">ذكاء اصطناعي</span><h5 data-en="AI Hackathon">هاكاثون الذكاء الاصطناعي</h5><p data-en="A sample event to show the themes. Move your mouse over it, and tap “I'm going”.">فعالية تجريبية لعرض الثيمات. حرّك الماوس فوقها، واضغط «سأحضر».</p>
+          <div class="tinfo"><div><span data-en="Date">التاريخ</span><b data-en="12 Dec">١٢ ديسمبر</b></div><div><span data-en="Where">المكان</span><b data-en="Riyadh">الرياض</b></div><div><span data-en="Going">الحضور</span><b id="tcount">٢٤</b></div></div>
+          <button class="trsvp" id="trsvp">سأحضر</button><div class="thint" id="thint"></div></div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- 03 The Hance -->
+<article class="cs flip" id="the-hance" data-sec="p2">
+  <div class="wrap">
+    <div>
+      <span class="no">03 / 08</span>
+      <h3>The Hance</h3>
+      <div class="tags"><span>WordPress</span><span>WooCommerce</span><span>hance-core</span><span>hance-store</span><span>AR / EN</span></div>
+      <dl>
+        <dt data-en="THE BRIEF">المطلوب</dt><dd data-en="Three world-class sites with one identity, in two languages: The Hance, a Drone Soccer site for schools, and a store that sells drones and rents them by the hour.">٣ مواقع بمستوى عالمي، بهوية وحدة وبلغتين: ذا هانس، وموقع Drone Soccer للمدارس، ومتجر يبيع الدرونات ويؤجّرها بالساعة.</dd>
+        <dt data-en="THE HARDEST PART">أصعب شي</dt><dd data-en="Merging a bilingual store into The Hance itself — two language systems at once. Arabic pages hit 404, the cart switched to English, orders saved in the wrong language. I split the routes, made Polylang read /ar/ first, and saved the customer’s language in a cookie — then ran a full Arabic purchase and rental down to the thank-you page.">دمج متجر بلغتين داخل ذا هانس نفسه — نظامين لغة يشتغلون مع بعض. صفحات عربية تطلع 404، السلة تقلب إنجليزي، والطلب ينحفظ بلغة غلط. قسّمت المسارات، وخليت Polylang يقرأ /ar/ أول، وحفظت لغة العميل بكوكي — وجربنا شراء وإيجار كامل بالعربي لين صفحة الشكر.</dd>
+      </dl>
+      <p class="why" data-en="<b>Decision:</b> one product, two languages — instead of a paid translation add-on. One price, one stock, no subscription."><b>قرار:</b> منتج واحد بلغتين — بدل إضافة ترجمة مدفوعة. سعر واحد، مخزون واحد، وبدون اشتراك.</p>
+      <p class="why" data-en="<b>Flexibility:</b> I proposed a subdomain for the store, the client said no — I re-planned and merged it without losing a single feature."><b>مرونة:</b> اقترحت سب دومين للمتجر والعميل رفض — عدّلت الخطة ودمجته بدون ما ينقص شي.</p>
+      <div class="visits"><a class="visit" href="https://thehance.com/" target="_blank" rel="noopener" data-en="The Hance ↗">ذا هانس ↗</a><a class="visit" href="https://dronesoccer.sa/" target="_blank" rel="noopener" data-en="Drone Soccer ↗">Drone Soccer ↗</a></div>
+    
+    </div>
+    <div class="gal" data-gal>
+      <div class="tabs sites"><button class="tbtn on" style="--d:#d9a536" data-url="thehance.com">The Hance</button><button class="tbtn" style="--d:#4c7cf0" data-url="dronesoccer.sa">Drone Soccer</button><button class="tbtn" style="--d:#9a6ef0" data-url="thehance.com/store" data-en="Store panel">لوحة المتجر</button></div>
+      <div class="browser dark"><div class="bbar"><i></i><i></i><i></i><span>thehance.com</span></div>
+        <div class="panes">
+          <video class="pane on" src="shots/hance-home.mp4" poster="shots/hance-home.webp" muted loop playsinline autoplay preload="metadata" aria-label="The Hance"></video>
+          <video class="pane" src="shots/hance-drone.mp4" poster="shots/hance-drone.webp" muted loop playsinline preload="metadata" aria-label="Drone Soccer"></video>
+          <img class="pane" src="shots/hance-store.webp" alt="The Hance store panel" loading="lazy">
+        </div>
+      </div>
+      <div class="stats sm"><div><b>3</b><span data-en="sites">مواقع</span></div><div><b>26</b><span data-en="versions">إصدار</span></div><div><b>~10K</b><span data-en="lines">سطر</span></div><div><b>~22</b><span data-en="widgets">ودجت</span></div></div>
+    </div>
+  </div>
+</article>
+
+<!-- 04 Musha -->
+<article class="cs" id="musha" data-sec="p3">
+  <div class="wrap">
+    <div>
+      <span class="no">04 / 08</span>
+      <h3 data-en="Musha — Riyadh Walkers platform">منصة مشاة الرياض</h3>
+      <div class="tags"><span data-en="Platforms Code">كود المنصات</span><span data-en="Theme + plugin from scratch">قالب وإضافة من الصفر</span><span>AR / EN</span></div>
+      <a class="visit" href="https://musha.org.sa/" target="_blank" rel="noopener" data-en="Visit the site ↗">زور الموقع ↗</a>
+      <dl>
+        <dt data-en="THE BRIEF">المطلوب</dt><dd data-en="A digital platform for a nonprofit walkers' association: governance and impact, neighborhood teams, events and registration, volunteering — bilingual, Platforms-Code compliant, and run by a non-technical team.">منصة رقمية لجمعية مجتمع المشاة: الحوكمة والأثر، فرق الأحياء، الفعاليات والتسجيل، والتطوع — بلغتين، متوافقة مع كود المنصات، ويديرها فريق غير تقني.</dd>
+        <dt data-en="MY ROLE">دوري</dt><dd data-en="End to end: client communication, an interactive prototype they approved first, the theme and plugin from scratch, launch, and handover — training, guides and a 31-page technical handover doc.">من البداية للنهاية: التواصل مع العميل، نموذج تفاعلي اعتمدوه قبل أي تطوير، القالب والإضافة من الصفر، الإطلاق، والتسليم — تدريب وأدلة ووثيقة تسليم تقنية ٣١ صفحة.</dd>
+        <dt data-en="THE HARDEST PART">أصعب شي</dt><dd data-en="Two dashboards on one site: a simple Arabic one for the association, full WordPress for technical support — plus seven permission levels, feature switches only support can flip, and invite-only access.">لوحتين على نفس الموقع: لوحة عربية بسيطة للجمعية، ولوحة ووردبريس كاملة للدعم الفني — ومعها سبعة مستويات صلاحيات، ومفاتيح ميزات بيد الدعم الفني بس، والدخول بدعوة.</dd>
+      </dl>
+      <p class="why" data-en="<b>Rule:</b> reveal features gradually — and never take away one that works."><b>قاعدة:</b> أكشف الميزات على مراحل — وما أشيل أي ميزة اشتغلت.</p>
+    </div>
+    <div>
+      <div class="gal mu-gal" data-gal>
+        <div class="tabs mtabs"><button class="tbtn on" data-en="Home">الرئيسية</button><button class="tbtn" data-en="Governance">الحوكمة</button><button class="tbtn" data-en="Impact">الأثر</button><button class="tbtn" data-en="Teams">الفرق</button><button class="tbtn" data-en="Calendar">التقويم</button><button class="tbtn" data-en="Memory reel">شريط الذكريات</button><button class="tbtn" data-en="Dashboard">لوحة التحكم</button><button class="tbtn" data-en="Dashboard · events">اللوحة · الفعاليات</button></div>
+        <div class="browser"><div class="bbar"><i></i><i></i><i></i><span>musha.org.sa</span></div>
+          <div class="panes"><img class="pane on" data-ar-src="musha/home-ar.webp" data-en-src="musha/home-en.webp" src="musha/home-ar.webp" alt="Home" loading="lazy"><img class="pane" data-ar-src="musha/gov-ar.webp" data-en-src="musha/gov-en.webp" src="musha/gov-ar.webp" alt="Governance" loading="lazy"><img class="pane" data-ar-src="musha/impact-ar.webp" data-en-src="musha/impact-en.webp" src="musha/impact-ar.webp" alt="Impact" loading="lazy"><img class="pane" data-ar-src="musha/teams-ar.webp" data-en-src="musha/teams-en.webp" src="musha/teams-ar.webp" alt="Teams" loading="lazy"><img class="pane" data-ar-src="musha/events-en.webp" data-en-src="musha/events-en.webp" src="musha/events-en.webp" alt="Calendar" loading="lazy"><img class="pane" data-ar-src="musha/reel-ar.webp" data-en-src="musha/reel-ar.webp" src="musha/reel-ar.webp" alt="Memory reel" loading="lazy"><img class="pane" data-ar-src="musha/dash-ar.webp" data-en-src="musha/dash-ar.webp" src="musha/dash-ar.webp" alt="Dashboard" loading="lazy"><img class="pane" data-ar-src="musha/events-ar.webp" data-en-src="musha/events-ar.webp" src="musha/events-ar.webp" alt="Dashboard events" loading="lazy"></div>
+        </div>
+        <div class="iphone mu-ph"><img data-ar-src="musha/mob-ar.webp" data-en-src="musha/mob-en.webp" src="musha/mob-ar.webp" alt="Mobile" loading="lazy"></div>
+        <span class="stamp mu-stamp" data-en="LIVE · 5 NOV 2026">انطلق · ٥ نوفمبر ٢٠٢٦</span>
+      </div>
+      <p class="shot" data-en="✦ switch the portfolio language — the screenshots switch too">✦ بدّل لغة البروتفوليو — واللقطات تتبدل معها</p>
+    </div>
+  </div>
+</article>
+
+<!-- 05 Domains -->
+<article class="cs flip" id="domains" data-sec="p4">
+  <div class="wrap">
+    <div>
+      <span class="no">05 / 08</span>
+      <h3 data-en="Domain sales system">نظام بيع النطاقات</h3>
+      <div class="tags"><span>Laravel</span><span>React · TypeScript</span><span>Inertia</span><span data-en="Moyasar payments">بوابة ميسّر</span><span>PHPStan L7</span><span data-en="staging — not launched yet">على سيرفر التجربة</span></div>
+      <dl>
+        <dt data-en="BEFORE">قبل</dt><dd data-en="Ramworld became an accredited reseller for a domain registrar — but customers couldn't buy a domain and get it registered automatically, straight into the renewal calendar.">رام وورلد صارت موزّع معتمد عند مزوّد نطاقات — بس ما كان فيه طريقة يشتري فيها العميل نطاق ويتسجّل تلقائيًا ويدخل تقويم التجديد.</dd>
+        <dt data-en="MY ROLE">دوري</dt><dd data-en="Technical owner end to end: requirements, infrastructure and CI, the registrar API, Moyasar and SMTP, testing on the real server — and the technical contact with the registrar.">مسؤولة المشروع تقنيًا من البداية للنهاية: المتطلبات، البنية والـ CI، ربط API المزوّد وميسّر والبريد، الاختبار على السيرفر الحقيقي — والجهة التقنية اللي تتواصل مع المزوّد.</dd>
+        <dt data-en="THE HARDEST PART">أصعب شي</dt><dd data-en="The registrar said “available” on search and rejected it on registration. I didn't assume it was them — I ruled out everything on our side, then documented a reproducible proof: two commands, same domain, same minute, opposite results. In a meeting it turned out their test environment only supports search. I took every answer in writing.">المزوّد يقول «متاح» في البحث ويرفضه في التسجيل. ما افترضت إن المشكلة عندهم — استبعدت كل احتمال من جهتنا، ووثّقت دليل يتكرر: أمرين، نفس النطاق، نفس الدقيقة، ونتيجتين متناقضتين. وفي الاجتماع طلع إن بيئة الاختبار عندهم تدعم البحث بس. وأخذت كل الإجابات مكتوبة.</dd>
+      </dl>
+      <p class="why" data-en="<b>Decision:</b> never trust the browser with payment — the server asks Moyasar itself and checks amount, currency and order before marking anything paid."><b>قرار:</b> ما نثق بالمتصفح في الدفع — السيرفر يسأل ميسّر بنفسه ويتأكد من المبلغ والعملة ورقم الطلب قبل ما يعتبره مدفوع.</p>
+    </div>
+    <div>
+      <div class="vis v-dom">
+        <div class="sm-title mono">order.status</div>
+        <div class="states">
+          <span style="--c:#8a7a9c" data-en="Awaiting payment">بانتظار الدفع</span><em>→</em>
+          <span style="--c:#1440E0" data-en="Paid">مدفوع</span><em>→</em>
+          <span style="--c:#8E4FE8" data-en="Processing">قيد التنفيذ</span><em>→</em>
+          <span style="--c:#F53DD6" data-en="In review">قيد المراجعة</span><em>→</em>
+          <span style="--c:#2fbf71" data-en="Complete ✓">مكتمل ✓</span>
+        </div>
+        <div class="chain"><b data-en="5-step registration — resumes where it failed">تسجيل بـ٥ خطوات — يكمل من مكان الفشل</b><div><i class="d"></i><i class="d"></i><i class="d"></i><i class="r">↻</i><i></i></div></div>
+        <div class="ci mono"><span>✓ 154 tests</span><span>✓ PHPStan 7</span><span>✓ lint</span><span>→ merge</span></div>
+      </div>
+      <p class="shot" data-en="✦ the order lifecycle I designed">✦ مسار الطلب اللي صممته</p>
+    </div>
+  </div>
+</article>
+
+<!-- 06 Plate Studio WebAR -->
+<article class="cs" id="plate-studio" data-sec="p5">
+  <div class="wrap">
+    <div>
+      <span class="no">06 / 08</span>
+      <h3 data-en="Plate Studio — real size, on your wall">استوديو اللوحة — بالمقاس الحقيقي على جدارك</h3>
+      <div class="tags"><span>WebAR</span><span data-en="iPhone + Android, no app">آيفون وأندرويد بدون تطبيق</span><span>WooCommerce</span><span data-en="Made-to-order signs">لوحات حسب الطلب</span></div>
+      <dl>
+        <dt data-en="BEFORE">قبل</dt><dd data-en="Signs are made to order and can't be returned — yet the first studio just scaled the sign on a photo by eye. The client wanted: open the camera, see it on your house at 100% real size.">اللوحة تتصنع حسب الطلب وما ترجع — والنسخة الأولى من الاستوديو كانت تكبّر اللوحة على صورة بالعين. العميل طلب: افتح الكاميرا وشوفها على بيتك بمقاس حقيقي ١٠٠٪.</dd>
+        <dt data-en="HOW">كيف</dt><dd data-en="AR that detects the wall, a model built in meters from the centimeters the customer types, and zoom locked so nobody can “cheat” the size. Arabic broke in 3D text — so the text is drawn as an image on the sign’s face, in the site’s own fonts.">واقع معزّز يكتشف الجدار، ومجسم ينبني بالمتر من السنتيمترات اللي يكتبها الزبون، والتكبير مقفول عشان محد «يغش» المقاس. والعربي كان يتقطّع بالنص ثلاثي الأبعاد — فرسمنا النص كصورة على وجه اللوحة وبنفس خطوط الموقع.</dd>
+      </dl>
+      <p class="why" data-en="<b>Decision:</b> start with the riskiest part. I proved the AR works on day one — before any client data."><b>قرار:</b> أبدأ بالجزء الأخطر. أثبتّ إن الواقع المعزّز يشتغل من أول يوم — قبل أي بيانات من العميل.</p>
+      <div class="pillrow"><span><b>60×40</b> cm → <b>0.60×0.40</b> m</span><span><b>120×35</b> cm → <b>1.20×0.35</b> m</span></div>
+    </div>
+    <div class="gal ar-gal" data-gal>
+      <div class="tabs"><button class="tbtn on" data-en="Black aluminum">ألمنيوم أسود</button><button class="tbtn" data-en="Steel">ستانلس</button><button class="tbtn" data-en="Calibration">معايرة</button></div>
+      <div class="browser"><div class="bbar"><i></i><i></i><i></i><span data-en="prototype">نموذج تجريبي</span></div>
+        <div class="panes"><img class="pane on" src="shots/ar-desktop.webp" alt="Plate studio" loading="lazy"><img class="pane" src="shots/ar-steel.webp" alt="Steel sign" loading="lazy"><img class="pane" src="shots/ar-calib.webp" alt="Calibration board" loading="lazy"></div>
+      </div>
+      <div class="iphone"><video src="shots/ar-demo.mp4" poster="shots/ar-poster.jpg" autoplay muted loop playsinline preload="metadata"></video></div>
+    </div>
+  </div>
+</article>
+
+<!-- 07 AI TRANSLATE -->
+<article class="cs" id="ai-translate" data-sec="p7">
+  <div class="wrap">
+    <div>
+      <span class="no">07 / 08</span>
+      <h3 data-en="Smart translation with Gemini">ترجمة ذكية بـ Gemini</h3>
+      <div class="tags"><span>WordPress</span><span>Gemini API</span><span>Google AI Studio</span><span>PHP</span><span data-en="Reusable skill">سكِل قابلة لإعادة الاستخدام</span></div>
+      <dl>
+        <dt data-en="THE PROBLEM I SAW COMING">المشكلة اللي توقعتها</dt><dd data-en="“Any client who runs their own content — I know 100% where they’ll struggle: the English version.” Empty English pages, outdated ones, and official names written differently every time — by a team that writes in Arabic and keeps changing.">«أي عميل يبي يدير المحتوى بنفسه، أعرف ١٠٠٪ وين بيتعب: النسخة الإنجليزية». صفحات إنجليزية فاضية، أو قديمة، وأسماء رسمية تنكتب كل مرة بشكل — من فريق يكتب بالعربي ويتغير باستمرار.</dd>
+        <dt data-en="WHAT I BUILT">وش بنيت</dt><dd><ul>
+          <li data-en="An “English version” box on every content type — title, excerpt, body and every free-text field">صندوق «النسخة الإنجليزية» في كل أنواع المحتوى — العنوان والنبذة والنص وكل الحقول النصية</li>
+          <li data-en="Background translation seconds after saving — saving never slows down">ترجمة في الخلفية بعد الحفظ بثواني — والحفظ ما يتأخر</li>
+          <li data-en="Translates only what changed, using a fingerprint of the Arabic text">ما يترجم إلا اللي تغيّر عربيه، ببصمة للنص</li>
+          <li data-en="A binding glossary of approved names; HTML, numbers, dates, links and hashtags stay untouched; temperature 0.2 for consistency">قاموس ملزم للأسماء المعتمدة، وما يلمس الـ HTML والأرقام والتواريخ والروابط والهاشتاقات، والحرارة 0.2 عشان الترجمة تطلع ثابتة</li>
+          <li data-en="A settings page for technical support only: swappable provider, hidden key, “save & test”, and batch-translate existing content (5 items every 20s)">صفحة إعدادات للدعم الفني بس: مزوّد قابل للتبديل، مفتاح مخفي، «حفظ وتجربة»، وترجمة المحتوى الموجود على دفعات (٥ مواد كل ٢٠ ثانية)</li>
+        </ul></dd>
+      </dl>
+      <p class="why" data-en="<b>Decision:</b> a manual-edit lock — the team always has the last word; the machine only fills the gaps."><b>قرار:</b> قفل التعديل اليدوي — الفريق دايم صاحب الكلمة الأخيرة، والآلة بس تعبّي الفراغ.</p>
+      <p class="why" data-en="<b>Then:</b> built into the plugin instead of a paid translation add-on — zero cost — and turned into a skill for every project after."><b>وبعدها:</b> مدمجة في الإضافة بدل إضافة ترجمة مدفوعة — بدون أي تكلفة — وصارت سكِل لأي مشروع جاي.</p>
+    </div>
+    <div>
+      <div class="vis v-tr">
+        <div class="trx">
+          <div class="trp" role="group" aria-label="Provider"><button class="on">Gemini</button><button>Claude</button><button>Google</button><button>DeepL</button></div>
+          <div class="trf"><label>AR</label><div class="tin" id="trAr" dir="rtl">إطلاق برنامج التطوع الجديد</div></div>
+          <div class="trflow mono" id="trFlow"><span data-k="save">save</span><i>→</i><span data-k="hash">fingerprint</span><i>→</i><span data-k="gl">glossary</span><i>→</i><span data-k="ai">gemini · 0.2</span><i>→</i><span data-k="clean">sanitize</span></div>
+          <div class="trf"><label>EN <em class="badge" id="trBadge" data-en="auto-translated">ترجمة آلية</em></label><div class="tin" id="trEn" dir="ltr"></div></div>
+          <div class="trbtns"><button id="trEditAr" data-en="✎ Edit the Arabic">✎ عدّل العربي</button><button id="trEditEn" data-en="✋ Edit English by hand">✋ عدّل الإنجليزي يدوي</button></div>
+          <p class="trnote" id="trNote"></p>
+        </div>
+      </div>
+      <p class="shot" data-en="✦ an interactive demo with sample text — try it">✦ ديمو تفاعلي بنص مثال — جرّبه</p>
+    </div>
+  </div>
+</article>
+
+<!-- 07 QB -->
+<article class="cs flip" id="qb" data-sec="p6">
+  <div class="wrap">
+    <div>
+      <span class="no">08 / 08</span>
+      <h3>QB Festival</h3>
+      <div class="tags"><span>WordPress</span><span>Elementor</span><span>ACF</span><span>YouTube API v3</span><span>qbbeyond.com</span></div>
+      <a class="visit" href="https://qbbeyond.com/" target="_blank" rel="noopener" data-en="Visit the site ↗">زور الموقع ↗</a>
+      <dl>
+        <dt data-en="THE SITE">الموقع</dt><dd data-en="A gaming & anime festival site that had to feel as alive as the festival itself — and stay fast while doing it.">موقع مهرجان قيمنق وأنمي، لازم يكون حيّ زي المهرجان نفسه — ويبقى سريع.</dd>
+        <dt data-en="WHAT I SHIPPED">وش سلّمت</dt><dd><ul>
+          <li data-en="QB Video Playlists plugin — views and likes, synced on save or twice a day; visitors only read the cache">بلاقن QB Video Playlists — مشاهدات ولايكات تتزامن عند الحفظ أو مرتين باليوم، والزائر يقرأ المخزّن بس</li>
+          <li data-en="QB Cup schedule with countdowns and a gold “Level One Wins” finale">جدول QB Cup بعدّادات ونهائي بشارة «Level One Wins» الذهبية</li>
+          <li data-en="Bilingual ticket flip-cards, a season awards grid, a 3D Coverflow carousel">كروت تذاكر تنقلب بلغتين، شبكة تتويجات الموسم، وكاروسيل Coverflow ثلاثي الأبعاد</li>
+        </ul></dd>
+      </dl>
+      <p class="why" data-en="<b>Decision:</b> a plugin, not a snippet — the team pastes a link and it pulls the rest, so it feels like a product."><b>قرار:</b> بلاقن مو كود — الفريق يلصق رابط وهو يسحب الباقي، فيحسّه منتج مو سطور.</p>
+    </div>
+    <div>
+      <div class="vis v-qb">
+        <span class="trophy">🏆 Level One Wins</span>
+        <div class="ticket"><div class="main"><span class="lbl">QB CUP · FINALE</span><div class="big">Next match in</div><div class="cd" id="cd"></div></div><div class="stub">ADMIT<br>ONE<br>✦</div></div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="wrap qbwf-wrap">
+    <div class="qbwf">
+      <div class="qbwf-h"><span class="lab" data-en="FIGMA · WIREFRAMES">FIGMA · الوايرفريم</span><h4 data-en="Wireframed first — 8 pages × 3 sizes">الوايرفريم أول — ٨ صفحات × ٣ مقاسات</h4><p data-en="Before a single line of WordPress: Home, Cup, Quest, Livestream, Ticket, About, Points and Contact — for desktop, tablet and mobile.">قبل أي سطر ووردبريس: الرئيسية، الكأس، المهمات، البث، التذاكر، عن كيو بي، النقاط، والتواصل — للديسكتوب والتابلت والجوال.</p></div>
+      <div class="browser dark"><div class="bbar"><i></i><i></i><i></i><span>figma.com · QB Festival Wireframe</span></div>
+        <div class="embed" data-embed="https://embed.figma.com/design/bDuoil9uskoTv1ZYpc4yxm/QB-Festival-W%E2%80%8Fireframe?node-id=0-1&embed-host=share">
+          <img src="qb/figma-canvas.webp" alt="QB wireframe in Figma" loading="lazy">
+          <div class="eov"><button class="eplay" data-en="▶ Open the live Figma file here">▶ افتح ملف Figma هنا</button><a href="https://www.figma.com/design/bDuoil9uskoTv1ZYpc4yxm/QB-Festival-W%E2%80%8Fireframe?node-id=0-1" target="_blank" rel="noopener" data-en="Open in Figma ↗">افتحه في Figma ↗</a></div>
+        </div>
+      </div>
+      <div class="bp-tabs" data-gal>
+        <div class="tabs"><button class="tbtn on">Desktop</button><button class="tbtn">Mobile</button></div>
+        <div class="bp-panes">
+          <div class="pane on bp-desk"><div class="wf-strip" id="wfStrip"></div><div class="wf-nav"><button class="tg" data-dir="-1" aria-label="Previous">‹</button><button class="tg" data-dir="1" aria-label="Next">›</button></div></div>
+          <div class="pane bp-mob">
+            <div class="mphone"><div class="mscr"><img src="qb/wfm-home.webp" alt="Home — mobile" loading="lazy"></div><b>HOME</b></div>
+            <div class="mphone"><div class="mscr"><img src="qb/wfm-cup.webp" alt="Cup — mobile" loading="lazy"></div><b>CUP</b></div>
+            <p class="mhint" data-en="↕ scroll inside the phones">↕ مرّر داخل الجوالات</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<section class="band" style="padding-top:60px">
+  <div class="wrap">
+    <span class="tagn" data-en="// also built">// وبنيت كمان</span>
+    <div class="more">
+      <span data-en="RamHub — self-registration & admin approval (v1→v4)">RamHub — تسجيل ذاتي وموافقة أدمن (v1→v4)</span>
+      <span data-en="Events-calendar plugin for a sports federation">بلاقن رزنامة فعاليات لاتحاد رياضي</span>
+      <span data-en="Digital Growth landing page & campaign">صفحة وحملة النماء الرقمي</span>
+      <span data-en="Interactive nonprofit sales demo">ديمو جمعية تفاعلي للمبيعات</span>
+      <span data-en="Drone Soccer business profile">بروفايل Drone Soccer</span>
+    </div>
+  </div>
+</section>
+
+<!-- FIGMA -->
+<section class="band figsec" id="figma" data-sec="figma">
+  <div class="wrap">
+    <div class="sh"><div><span class="tagn" data-en="// process">// طريقتي</span><h2 class="figt"><span class="flogo"><img src="figma-logo.webp" alt="Figma" onerror="this.parentNode.classList.add('nologo');this.remove()"><b>Figma</b></span><span data-en='From <span class="g">Figma</span> to code'>من <span class="g">Figma</span> للكود</span></h2></div><p data-en="I don’t open WordPress until the wireframe is done. Play with it ↓">ما أفتح ووردبريس إلا لما يخلص الوايرفريم. جرّب بنفسك ↓</p></div>
+    <div class="figgrid">
+      <ol class="steps">
+        <li><b>01</b><div><h4 data-en="Wireframe in Figma">وايرفريم في Figma</h4><p data-en="Every page × desktop, tablet, mobile — 24 frames for QB.">كل صفحة × ديسكتوب وتابلت وجوال — ٢٤ إطار لـ QB.</p></div></li>
+        <li><b>02</b><div><h4 data-en="HTML preview">نسخة HTML</h4><p data-en="Agree on the look in the real identity before any PHP.">نتفق على الشكل بالهوية الحقيقية قبل أي PHP.</p></div></li>
+        <li><b>03</b><div><h4 data-en="Production">الإنتاج</h4><p data-en="Then WordPress, plugins and widgets — content stays editable.">بعدها ووردبريس وبلاقنات وودجتات — والمحتوى يبقى قابل للتعديل.</p></div></li>
+      </ol>
+      <div class="fgc" id="fc">
+        <div class="fc-bar"><div class="fc-dots"><i></i><i></i><i></i></div><span class="fc-file">shooq / wireframes.fig</span>
+          <div class="fc-mode" role="group"><button class="on" data-m="wf">Wireframe</button><button data-m="ui">UI</button></div></div>
+        <div class="fc-body">
+          <aside class="fc-layers"><b data-en="Layers">الطبقات</b><ul id="fcLayers"></ul></aside>
+          <div class="fc-stage" id="fcStage">
+            <div class="frm f-desk" data-f="Desktop"><span class="flab">Desktop</span>
+              <div class="blk b-nav" data-n="Nav"></div>
+              <div class="blk b-hero" data-n="Hero"><i class="ln l1"></i><i class="ln l2"></i><i class="btn"></i><i class="img"></i></div>
+              <div class="row3"><div class="blk b-card" data-n="Card 1"></div><div class="blk b-card" data-n="Card 2"></div><div class="blk b-card" data-n="Card 3"></div></div>
+              <div class="blk b-foot" data-n="Footer"></div>
+            </div>
+            <div class="frm f-tab" data-f="Tablet"><span class="flab">Tablet</span>
+              <div class="blk b-nav" data-n="Nav"></div>
+              <div class="blk b-hero" data-n="Hero"><i class="ln l1"></i><i class="ln l2"></i><i class="btn"></i></div>
+              <div class="row2"><div class="blk b-card" data-n="Card 1"></div><div class="blk b-card" data-n="Card 2"></div></div>
+            </div>
+            <div class="frm f-mob" data-f="Mobile"><span class="flab">Mobile</span>
+              <div class="blk b-nav" data-n="Nav"></div>
+              <div class="blk b-hero" data-n="Hero"><i class="ln l1"></i><i class="btn"></i></div>
+              <div class="blk b-card" data-n="Card 1"></div>
+            </div>
+            <div class="sel" id="fcSel"><i></i><i></i><i></i><i></i><span id="fcDim"></span></div>
+            <div class="cur" id="fcCur"><svg viewBox="0 0 16 20"><path d="M1 1l13 11-6 1-3 6z" fill="#F53DD6" stroke="#fff" stroke-width="1.2"/></svg><span data-en="Shooq">شوق</span></div>
+          </div>
+          <aside class="fc-props"><b data-en="Design">التصميم</b><div id="fcProps"></div></aside>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- LAUNCH -->
+<section class="band" id="launch" data-sec="launch" style="background:var(--soft)">
+  <div class="wrap">
+    <div class="sh"><div><span class="tagn" data-en="// domains · hosting · SEO">// دومين · استضافة · SEO</span><h2 data-en='From domain <span class="g">to launch</span>'>من الدومين <span class="g">للإطلاق</span></h2></div><p data-en="Building the site is half the job. I also book the domain, wire the DNS, host it, and watch it get found.">بناء الموقع نص الشغل. أحجز الدومين، وأربط الـ DNS، وأستضيفه، وأتابعه لين ينلقى.</p></div>
+    <div class="lgrid">
+      <div class="lpanel">
+        <div class="lbar"><span class="mono" id="lDomain">yourname.sa</span><button class="lgo" id="lGo" data-en="🚀 Launch it">🚀 أطلقه</button></div>
+        <ol class="lsteps" id="lSteps">
+          <li data-k="dom"><i>1</i><div><b data-en="Book the domain">حجز الدومين</b><span data-en="Available ✓ · registered">متاح ✓ · انحجز</span></div></li>
+          <li data-k="dns"><i>2</i><div><b data-en="Point the DNS">ربط الـ DNS</b><div class="dns mono"><div><em>A</em><span>@</span><span>35.214.·.·</span></div><div><em>CNAME</em><span>www</span><span>@</span></div><div><em>MX</em><span>@</span><span>mail</span></div><div><em>TXT</em><span>@</span><span>google-site-verification…</span></div></div><div class="prop"><i></i></div></div></li>
+          <li data-k="host"><i>3</i><div><b data-en="Host it + SSL">الاستضافة + SSL</b><span data-en="🔒 HTTPS · SMTP · cache">🔒 HTTPS · SMTP · كاش</span></div></li>
+          <li data-k="gsc"><i>4</i><div><b>Search Console</b><span data-en="Verified ✓ · sitemap submitted">تم التحقق ✓ · خريطة الموقع انرسلت</span></div></li>
+          <li data-k="ga"><i>5</i><div><b>Google Analytics</b><svg class="spark" viewBox="0 0 120 30" preserveAspectRatio="none"><polyline points="0,26 15,24 30,25 45,18 60,20 75,12 90,14 105,6 120,4" fill="none" stroke="url(#gg)" stroke-width="3" stroke-linecap="round"/></svg></div></li>
+        </ol>
+      </div>
+      <div class="lskills">
+        <div class="lcard"><h4 data-en="Domains & DNS">الدومين والـ DNS</h4><p data-en="Booking domains, moving them, switching nameservers and records — A, CNAME, MX, TXT — and waiting out propagation.">حجز الدومينات ونقلها، وتغيير الـ Nameservers والسجلات — A وCNAME وMX وTXT — وانتظار الانتشار بصبر.</p></div>
+        <div class="lcard"><h4 data-en="Hosting">الاستضافة</h4><p data-en="I’ve worked on:">اشتغلت على:</p><div class="hosts"><span>SiteGround</span><span>GoDaddy</span><span>Hostinger</span><span>Bluehost</span></div><p data-en="Migrations, SSL, sending mailboxes with SMTP, and caching that doesn’t show the old site.">النقل بين الاستضافات، والـ SSL، وبريد الإرسال بـ SMTP، وكاش ما يعرض النسخة القديمة.</p></div>
+        <div class="lcard"><h4 data-en="Getting found">الظهور</h4><p data-en="SEO & GEO from the start: schema for every page and FAQ, hreflang, titles and descriptions in both languages — then Google Analytics and Search Console to see what’s working.">SEO وGEO من الأساس: سكيما لكل صفحة وكل سؤال، وhreflang، وعناوين ووصف باللغتين — وبعدها Google Analytics وSearch Console أشوف وش اللي شغّال.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND -->
+<section class="band" id="brand" data-sec="brand" style="background:var(--soft)">
+  <div class="wrap">
+    <div class="sh"><div><span class="tagn" data-en="// project 07 — me">// مشروع ٠٧ — أنا</span><h2 data-en='My <span class="g">identity</span>'>هويتي <span class="g">الشخصية</span></h2></div>
+      <p data-en="I designed my own brand — and this site is built on it.">صممت هويتي بنفسي — وهالموقع مبني عليها.</p></div>
+    <div class="brand-g">
+      <div class="tile t-mark"><div><b style="color:#9a8da8" data-en="THE MARK — CODE SPARK">العلامة — شرارة الكود</b><div class="mk">&lt;<svg class="st"><use href="#star" fill="url(#gg)" style="color:#F53DD6"/></svg>&gt;</div><p data-en="Code brackets with an 8-point spark between them — 4 long points, 4 short.">أقواس كود وبينها شرارة بـ٨ رؤوس — ٤ طويلة و٤ قصيرة.</p></div></div>
+      <div class="tile t-grad"><b>GRADIENT</b><div style="font:800 22px Alexandria">#F53DD6 → #FF4D1F</div></div>
+      <div class="tile t-type"><b>ALEXANDRIA</b><div class="aa">شـ Aa</div><p data-en="Headlines, Arabic & English · Readex Pro for text · JetBrains Mono for code">العناوين بالعربي والإنجليزي · Readex Pro للنصوص · JetBrains Mono للكود</p></div>
+      <div class="tile" style="grid-column:span 2"><b data-en="PALETTE">الألوان</b><div class="sw">
+        <i style="--c:#F53DD6">F53DD6</i><i style="--c:#FF4D1F">FF4D1F</i><i style="--c:#FF9EDC;--t:#14081F">FF9EDC</i><i style="--c:#8E4FE8">8E4FE8</i><i style="--c:#14081F;box-shadow:inset 0 0 0 1px #ffffff22">14081F</i><i style="--c:#1440E0">1440E0</i></div></div>
+      <div class="tile t-no" style="grid-column:span 1"><div class="x"><svg width="64" height="64"><use href="#star4"/></svg></div><div><b data-en="REJECTED">مرفوض</b><p data-en="The 4-point star — too close to Gemini's logo.">النجمة بـ٤ رؤوس — تشبه شعار Gemini.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="band" id="journey" data-sec="journey">
+  <div class="wrap">
+    <div class="sh"><div><span class="tagn" data-en="// journey">// رحلتي</span><h2 data-en='One year, <span class="g">a big leap</span>'>سنة وحدة، <span class="g">ونقلة كبيرة</span></h2></div>
+      <p data-en="I graduated in 2025. Here’s what happened next.">تخرجت في ٢٠٢٥. وهذا اللي صار بعدها.</p></div>
+    <div class="metro">
+      <div class="stop" style="--c:var(--mv)"><div class="dot"></div><div><div class="when">2025</div><h4 data-en="Graduated">تخرجت</h4><p data-en="Information Systems · IMSIU · GPA 4.74/5">نظم المعلومات · جامعة الإمام · معدل ٤٫٧٤ من ٥</p></div></div>
+      <div class="stop" style="--c:var(--mv)"><div class="dot"></div><div><div class="when">Sep – Dec 2025</div><h4>Advanced Quality</h4><p data-en="Co-op training: analysis, modeling, wireframes, QA">تدريب تعاوني: تحليل، نمذجة، وايرفريم، واختبار</p></div></div>
+      <div class="stop" style="--c:var(--fu)"><div class="dot"></div><div><div class="when">Jan – May 2026</div><h4 data-en="Training @ Ramworld">تدريب في رام وورلد</h4><p data-en="Under Lana Al-Safadi">تحت إشراف لانا الصفدي</p></div></div>
+      <div class="stop big"><div class="dot"></div><div><div class="when">2026</div><h4 data-en="Hired ✦">توظفت ✦</h4><p data-en="Web Development Specialist, same company">خبير تطوير مواقع، بنفس الشركة</p></div></div>
+      <div class="stop now" style="--c:var(--or)"><div class="dot"></div><div><div class="when" data-en="now">الحين</div><h4 data-en="Still moving">وما زلت أتحرك</h4><p data-en="Building, learning, and growing every day">أبني، أتعلم، وأكبر كل يوم</p></div></div>
+    </div>
+
+    <!-- education -->
+    <div class="edu" data-sec="edu" id="edu">
+      <div class="edu-l">
+        <div class="uni"><img src="me/logo-ccis.webp" alt="CCIS"><div><b data-en="Imam Mohammad Ibn Saud Islamic University">جامعة الإمام محمد بن سعود الإسلامية</b><span data-en="College of Computer & Information Sciences · BSc Information Systems · 2025">كلية علوم الحاسب والمعلومات · بكالوريوس نظم المعلومات · ٢٠٢٥</span></div></div>
+        <div class="gpa">
+          <div class="gring" style="--v:94.8"><div><b>4.74</b><span dir="ltr">/ 5</span></div></div>
+          <div class="gbars" id="gbars" aria-label="GPA per semester"></div>
+        </div>
+        <p class="gcap" data-en="Semester GPA, climbing to a perfect 5.00 in my last term.">معدلي بكل ترم — لين وصلت ٥٫٠٠ كامل في آخر ترم.</p>
+        <div class="courses" id="courses"></div>
+      </div>
+      <div class="edu-r">
+        <figure class="pola" style="--r:3deg"><img src="me/grad-1.webp" alt="" loading="lazy"><figcaption data-en="Class of 2025 🎓">دفعة ٢٠٢٥ 🎓</figcaption></figure>
+        <figure class="pola p2" style="--r:-5deg"><img src="me/grad-2.webp" alt="" loading="lazy"><figcaption data-en="Graduation day 💐">يوم التخرج 💐</figcaption></figure>
+      </div>
+    </div>
+
+    <!-- advanced quality -->
+    <div class="aq" data-sec="aq" id="aq">
+      <div class="aq-h">
+        <img src="me/logo-aq.webp" alt="Advanced Quality">
+        <div><span class="lab" data-en="CO-OP TRAINING · 14 SEP – 14 DEC 2025">تدريب تعاوني · ١٤ سبتمبر – ١٤ ديسمبر ٢٠٢٥</span>
+        <h3 data-en="Advanced Quality — where I learned to analyze before I design">Advanced Quality — هنا تعلمت أحلل قبل ما أصمم</h3>
+        <p data-en="Three months in the Software Development Department, on <b>AQ Docs</b> — a system that digitizes financial documents: digital archiving, automated bookkeeping, paperless workflows. Supervised by Omar Khallouf.">ثلاث شهور في قسم تطوير البرمجيات على نظام <b>AQ Docs</b> — نظام يحوّل المستندات المالية لرقمية: أرشفة رقمية، ومحاسبة آلية، وشغل بدون ورق. تحت إشراف عمر خلوف.</p></div>
+      </div>
+      <div class="aq-grid">
+        <div class="aq-phase"><span class="ph-n">01</span><h4 data-en="Understand & document">أفهم وأوثّق</h4><ul>
+          <li data-en="Learned the system’s workflows end to end">فهمت سير عمل النظام من أوله لآخره</li>
+          <li data-en="Bilingual user guides — Arabic & English">أدلة مستخدم بلغتين — عربي وإنجليزي</li>
+          <li data-en="User stories & use cases across modules">User stories وUse cases لكل الوحدات</li></ul></div>
+        <div class="aq-phase"><span class="ph-n">02</span><h4 data-en="Model the system">أنمذج النظام</h4><ul>
+          <li data-en="Use case diagrams per module">مخططات Use case لكل وحدة</li>
+          <li data-en="Context diagram & DFD levels 0, 1, 2">مخطط السياق وDFD بالمستويات ٠ و١ و٢</li>
+          <li data-en="ERD for users, roles, files and subscriptions">ERD للمستخدمين والأدوار والملفات والاشتراكات</li></ul></div>
+        <div class="aq-phase"><span class="ph-n">03</span><h4 data-en="Requirements → wireframes">من المتطلبات للوايرفريم</h4><ul>
+          <li data-en="Requirements analysis (RAD) for new systems">تحليل متطلبات (RAD) لأنظمة جديدة</li>
+          <li data-en="Wireframes from approved requirements">وايرفريمز من المتطلبات المعتمدة</li>
+          <li data-en="Proposed process improvements with a prototype">اقترحت تحسينات على العمليات وعرضتها ببروتوتايب</li></ul></div>
+        <div class="aq-phase"><span class="ph-n">04</span><h4 data-en="Test & validate">أختبر وأتحقق</h4><ul>
+          <li data-en="Test plan & high-risk areas — upload limits, permissions, integrations">خطة اختبار ومناطق الخطورة — حدود الرفع، الصلاحيات، والتكاملات</li>
+          <li data-en="Functional, security & validation test cases, run in a sandbox">حالات اختبار وظيفية وأمنية وتحقق، نفّذتها على بيئة تجريبية</li>
+          <li data-en="A Mini-SRS for the system + a final presentation">Mini-SRS للنظام + عرض تقديمي</li></ul></div>
+      </div>
+      <div class="aq-figs">
+        <figure><div class="aq-img"><img src="me/aq-dfd.webp" alt="DFD Level 2" loading="lazy"></div><figcaption>DFD · Level 2</figcaption></figure>
+        <figure><div class="aq-img"><img src="me/aq-wireframes.webp" alt="Wireframes" loading="lazy"></div><figcaption data-en="Wireframes — mobile">وايرفريم — جوال</figcaption></figure>
+      </div>
+    </div>
+
+    <!-- one year leap -->
+    <div class="leap">
+      <div><span class="lab">2025</span><h4 data-en="Analyzing systems">أحلل الأنظمة</h4><p data-en="User stories, DFDs, wireframes, test cases — on paper and in Figma.">User stories وDFD ووايرفريم وحالات اختبار — على الورق وفي Figma.</p></div>
+      <div class="arr">→</div>
+      <div><span class="lab">2026</span><h4 data-en="Building them">أبنيها</h4><p data-en="Laravel platforms, WordPress plugins with releases & CI, a WebAR studio, payments that resume where they fail — and the sites go live on real domains.">منصات Laravel، وبلاقنات ووردبريس بإصدارات وCI، واستوديو WebAR، ودفع يكمل من مكان الفشل — والمواقع تنطلق على دومينات حقيقية.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW I WORK -->
+<section class="band how" id="how" data-sec="how">
+  <div class="wrap">
+    <div class="sh"><div><span class="tagn" style="color:var(--pk)" data-en="// how I work">// طريقتي</span><h2 data-en="How I <span class='g'>work</span>">كيف <span class="g">أشتغل</span></h2></div>
+      <p data-en="Five rules I keep in every project.">خمس قواعد ألتزم فيها بكل مشروع.</p></div>
+    <ul class="rules">
+      <li><span class="i">01</span><h4 data-en="Analyze before code">أحلل قبل الكود</h4><p data-en="I study the system first — I learned it the hard way when a calendar's admin logic needed rework.">أدرس النظام أول — تعلمتها بالطريقة الصعبة لما منطق أدمن رزنامة احتاج إعادة.</p></li>
+      <li><span class="i">02</span><h4 data-en="Preview, then production">Preview ثم إنتاج</h4><p data-en="An HTML preview before any production PHP, every time.">نسخة HTML أول قبل أي PHP للإنتاج، كل مرة.</p></li>
+      <li><span class="i">03</span><h4 data-en="Content ≠ code">المحتوى ≠ الكود</h4><p data-en="Strict separation, and minimal, targeted changes.">فصل صارم بينهم، وتعديلات صغيرة ودقيقة.</p></li>
+      <li><span class="i">04</span><h4 data-en="AI, guided by me">AI بس بقيادتي</h4><p data-en="I use AI to move faster — steered by my own technical background.">أستخدم الذكاء الاصطناعي عشان أسرع — بس بخلفيتي التقنية أنا اللي أوجّهه.</p></li>
+      <li><span class="i">05</span><h4 data-en="Automate everything">أتمتة كل شي</h4><p data-en="If it can run by itself, it should.">إذا يقدر يمشي لحاله، لازم يمشي لحاله.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- NOW -->
+<section class="band" id="now" data-sec="now">
+  <div class="wrap">
+    <div class="sh"><div><span class="tagn" data-en="// currently">// الحين</span><h2 data-en='On my <span class="g">desk</span>'>على <span class="g">مكتبي</span></h2></div>
+      <p data-en="What I'm building and learning right now.">اللي أبنيه وأتعلمه هالفترة.</p></div>
+    <div class="stick">
+      <div class="note" style="--c:#ffe08a;--r:1deg"><b data-en="STARTING">أبدأ</b><h4 data-en="Tech Calendar — the app">التقويم التقني — نسخة التطبيق</h4><p data-en="Taking the platform from the browser to an app.">أنقل المنصة من المتصفح لتطبيق.</p></div>
+      <div class="note" style="--c:#FF9EDC;--r:-2deg"><b data-en="BUILDING">أبني</b><h4 data-en="Invoice-reminder system">نظام تذكير الفواتير</h4><p data-en="Laravel — email reminders and calendar sync. My hands-on backend project.">Laravel — تذكيرات بالإيميل ومزامنة مع التقويم. مشروعي العملي للباك إند.</p></div>
+      <div class="note" style="--c:#c9b3ff;--r:1.5deg"><b data-en="DESIGNING">أصمم</b><h4 data-en="Platform-code templates">قوالب كود المنصات</h4><p data-en="Sector templates that comply with the DGA platforms code.">قوالب قطاعية متوافقة مع كود المنصات الرقمية.</p></div>
+      <div class="note" style="--c:#ffc2a8;--r:-1deg"><b data-en="SHARING">أشارك</b><h4 data-en="A WordPress webinar">ويبينار ووردبريس</h4><p data-en="Advanced WordPress, its plugins, and lifting interface design.">ووردبريس المتقدم وإضافاته وكيف نرفع مستوى تصميم الواجهات.</p></div>
+      <div class="note" style="--c:#b9e9ff;--r:2deg"><b data-en="LEARNING">أتعلم</b><h4 data-en="IELTS & what's next">IELTS والجاي</h4><p data-en="Preparing for IELTS, and considering a Master's.">أجهز للآيلتس، وأفكر بالماجستير.</p></div>
+    </div>
+    <p class="draft" data-en="✦ draft — Shooq to confirm what's public">✦ مسودة — شوق تأكد وش ينعرض</p>
+  </div>
+</section>
+
+<!-- LOG BOARD -->
+<section class="band" id="log" data-sec="log">
+  <div class="wrap">
+    <div class="logb" id="logb">
+      <div class="logh"><div class="liveb"><span class="live"><i></i>LIVE</span><span id="lastUp"></span><span id="streak"></span></div><span class="tagn" data-en="// daily log">// يومياتي</span><h2 data-en='What I <span class="g">did today</span>'>وش <span class="g">سويت اليوم</span></h2><p data-en="My space — I update it whenever I like. Drag the stickers ✦">مساحتي — أحدّثها على كيفي. اسحب الستيكرز ✦</p><div class="nowst" id="nowSt"></div></div>
+      <div class="ticker"><div class="tk" id="ticker"></div></div>
+      <div class="stk keep-sm" style="width:110px;top:5%;inset-inline-end:5%;--r:8deg"><img src="memoji/laptop.webp" alt=""></div>
+      <div class="stk keep-sm" style="width:56px;top:8%;inset-inline-start:5%;--r:-10deg"><svg viewBox="0 0 100 100" style="width:100%;display:block"><use href="#star" fill="url(#gg)" style="color:#F53DD6"/></svg></div>
+      <div class="stk tagn2" style="top:58%;inset-inline-end:3%;--r:6deg"><b data-en="HELLO, I'M">أهلين، أنا</b><span data-en="Shooq">شوق</span></div>
+      <div class="stk pill" style="--c:#1440E0;bottom:8%;inset-inline-start:4%;--r:-6deg">RTL first ↩</div>
+      <div class="stk pill mono" style="--c:#14081F;top:30%;inset-inline-start:4%;--r:4deg">&lt;/&gt;</div>
+      <div class="stk pill" style="--c:#FF4D1F;bottom:6%;inset-inline-end:6%;--r:-4deg">ship it ✦</div>
+      <div class="stk pill" style="--c:#8E4FE8;top:38%;inset-inline-end:4%;--r:-12deg" data-en="detail person">بنت التفاصيل</div>
+      <div class="stk" style="width:96px;top:52%;inset-inline-start:5%;--r:-8deg"><img src="memoji/party.webp" alt=""></div>
+      <div class="entries" id="entries"></div>
+      <div class="editor" id="editor">
+        <h4 data-en="New log entry">يومية جديدة</h4>
+        <div class="row2"><input type="date" id="eDate"><input type="time" id="eTime"><select id="eType"><option value="note">note</option><option value="quote">quote</option><option value="polaroid">polaroid</option></select><select id="eColor"><option>pink</option><option>mauve</option><option>orange</option><option>sky</option><option>mint</option><option>ink</option></select><input id="eSticker" placeholder="sticker ✦" maxlength="4"></div>
+        <div class="row2"><input id="eTagAr" placeholder="الوسم"><input id="eTagEn" placeholder="tag"><input id="eImg" placeholder="img: log/photo.webp" style="grid-column:span 2"></div>
+        <textarea id="eAr" placeholder="وش سويتي اليوم؟"></textarea><textarea id="eEn" placeholder="English (optional)"></textarea>
+        <pre id="eOut"></pre><button id="eCopy" data-en="Copy for log.json">انسخيها لـ log.json</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- BEHIND THE SCENES -->
+<section class="band bts" id="bts" data-sec="bts">
+  <div class="wrap">
+    <div class="sh"><div><span class="tagn" data-en="// behind the scenes">// خلف الكواليس</span><h2 data-en='Where the <span class="g">work happens</span>'>وين <span class="g">يصير الشغل</span></h2></div><p data-en="Drag the photos around ✦">اسحب الصور ✦</p></div>
+    <div class="btsb" id="btsb">
+      <figure class="pola" style="--r:-4deg;left:2%;top:4%"><img src="me/w-figma.webp" alt="" loading="lazy"><figcaption data-en="A Figma prototype for Wasatah’s website">بروتوتايب موقع وساطة في Figma</figcaption></figure>
+      <figure class="pola" style="--r:3deg;left:22%;top:14%"><img src="me/w-wasatah.webp" alt="" loading="lazy"><figcaption data-en="Wasatah Capital’s website">موقع وساطة كابيتال</figcaption></figure>
+      <figure class="pola" style="--r:-2deg;left:42%;top:2%"><img src="me/w-ramworld.webp" alt="" loading="lazy"><figcaption data-en="Building a Ramworld section — from a café">أبني قسم لموقع عالم رام — من الكافيه</figcaption></figure>
+      <figure class="pola" style="--r:5deg;left:62%;top:12%"><img src="me/w-laravel.webp" alt="" loading="lazy"><figcaption data-en="Setting up a Laravel project">أجهّز مشروع Laravel</figcaption></figure>
+      <figure class="pola" style="--r:-6deg;left:80%;top:3%"><img src="me/w-cafe.webp" alt="" loading="lazy"><figcaption data-en="Coffee & code ☕️">قهوة وكود ☕️</figcaption></figure>
+      <figure class="pola" style="--r:4deg;left:10%;top:48%"><img src="me/w-desk.webp" alt="" loading="lazy"><figcaption data-en="My desk">مكتبي</figcaption></figure>
+      <figure class="pola" style="--r:-3deg;left:56%;top:50%"><img src="me/w-qb.webp" alt="" loading="lazy"><figcaption data-en="Building QB in Elementor">أبني QB في Elementor</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- LINKEDIN -->
+<section class="band lisec" id="linkedin" data-sec="log" hidden>
+  <div class="wrap">
+    <div class="sh"><div><span class="tagn" data-en="// from LinkedIn">// من لينكدإن</span><h2 data-en='Latest <span class="g">posts</span>'>آخر <span class="g">البوستات</span></h2></div><p data-en="What I share there, here too.">اللي أنشره هناك، تلقونه هنا.</p></div>
+    <div class="lis" id="lis"></div>
+    <p class="lihelp" id="lihelp"></p>
+  </div>
+</section>
+<!-- CONTACT -->
+<section class="band contact" id="contact" data-sec="contact">
+  <div class="wrap">
+    <h2 data-en='Let&#39;s <span class="g">talk</span>'>خلّنا <span class="g">نتواصل</span></h2>
+    <p data-en="Want to build something together, or just talk interfaces and systems? I'm here.">تبي نبني شي سوا، أو بس نسولف عن الواجهات والأنظمة؟ أنا موجودة.</p>
+    <div class="cbtn">
+      <a class="pri" href="#contact">LinkedIn ↗</a>
+      <a href="https://github.com/shooqz" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="mailto:shooqimu2@gmail.com">✉ <span dir="ltr">shooqimu2@gmail.com</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="end" data-sec="end"><span class="mono">&lt;✦&gt; shooq · 2026</span><span data-en="Designed & coded in my own identity">مصمّم ومبرمج بهويتي</span></footer>
+
+<div class="buddy off" id="buddy" aria-live="polite">
+  <div class="bub hide" id="bub"></div>
+  <div class="delivered" id="dlv" style="opacity:0">Delivered</div>
+  <button class="mj" id="mj" aria-label="Shooq memoji"><span class="fc"><img id="mjImg" src="memoji/wave.webp" alt=""></span></button>
+</div>
+
+<script>
+{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const root=document.documentElement;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+root.style.setProperty('--star','polygon(50% 0%, 65.3% 13%, 82.5% 17.5%, 87% 34.7%, 100% 50%, 87% 65.3%, 82.5% 82.5%, 65.3% 87%, 50% 100%, 34.7% 87%, 17.5% 82.5%, 13% 65.3%, 0% 50%, 13% 34.7%, 17.5% 17.5%, 34.7% 13%)');
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let lang='ar';
+
+/* ---------- data ---------- */
+const SLUG=['ramworld','tech-calendar','the-hance','musha','domains','plate-studio','ai-translate','qb'];
+const R=[
+ {ar:'موقع عالم رام',en:'Ramworld website',tag:'Plugin + Theme · CI',c:'#F53DD6',t:'#fff'},
+ {ar:'التقويم التقني',en:'Tech Calendar',tag:'Laravel · Next.js',c:'var(--tx)',t:'var(--bg)'},
+ {ar:'The Hance',en:'The Hance',tag:'3 sites · WooCommerce',c:'#FF4D1F',t:'#fff'},
+ {ar:'مشاة الرياض',en:'Musha',tag:'Platforms Code',c:'#FF9EDC',t:'#14081F'},
+ {ar:'نظام النطاقات',en:'Domain sales system',tag:'Laravel · Payments',c:'#8E4FE8',t:'#fff'},
+ {ar:'استوديو اللوحة',en:'Plate Studio',tag:'WebAR',c:'#1440E0',t:'#fff'},
+ {ar:'ترجمة ذكية بـ Gemini',en:'Smart translation · Gemini',tag:'AI · WordPress',c:'#FFD3EF',t:'#14081F'},
+ {ar:'QB Festival',en:'QB Festival',tag:'WordPress · YouTube API',c:'#14081F',t:'#FF9EDC'}
+];
+const KEYS=[
+ [['HTML','hot','كل مشروع يبدأ عندي بـ preview HTML','Every project starts with an HTML preview'],['CSS','','الهوية والأنيميشن — زي هالصفحة','Identity & motion — like this page'],['JavaScript','','العدّادات والكاروسيلات والتفاعل','Countdowns, carousels, interaction'],['PHP','mv','RW Core، hance-core، QB Playlists','RW Core, hance-core, QB Playlists'],['Laravel','mv','التقويم التقني ونظام بيع النطاقات','Tech Calendar & the domain sales system']],
+ [['WordPress','hot wide','موقع عالم رام، ذا هانس، مشاة الرياض، QB','Ramworld, The Hance, Musha, QB'],['Elementor','','١٢٤ ودجت بحقول — بدون HTML','124 widgets with fields — no HTML'],['WooCommerce','','متجر ذا هانس بلغتين وإيجار بالساعة','The Hance store: bilingual, hourly rental'],['React · TS','','لوحات نظام النطاقات عبر Inertia','Domain system dashboards via Inertia'],['Next.js','','واجهة التقويم التقني','Tech Calendar front end']],
+ [['Figma','pk','وايرفريم قبل أي كود — من تدريبي في Advanced Quality لـ QB','Wireframes before any code — from Advanced Quality to QB'],['UI/UX','pk','تفاصيل محد طلبها، بس الكل ينتبه لها','Details nobody asked for — everyone notices'],['WebAR','','استوديو اللوحة بالمقاس الحقيقي','Plate Studio, real size'],['APIs','','ميسّر، يوتيوب، مزوّد النطاقات','Moyasar, YouTube, a domain registrar'],['GitHub · CI','hot','إصدارات وفحوص قبل كل دمج','Releases & checks before every merge']],
+ [['Systems Analysis','wide','User stories، Use cases، DFD، ERD — أحلل قبل أكتب سطر','User stories, use cases, DFDs, ERDs — I analyze before I write a line'],['SEO · GEO','hot','سكيما لكل صفحة وسؤال، hreflang، وعناوين ووصف باللغتين','Schema for every page & FAQ, hreflang, titles & descriptions in both languages'],['Analytics','','Google Analytics — أرقام التقويم التقني جات من هنا','Google Analytics — Tech Calendar’s numbers came from here'],['Search Console','','التحقق والفهرسة ومتابعة الظهور بعد كل إطلاق','Verification, indexing and visibility after every launch']],
+ [['DNS · Domains','mv','حجز الدومينات وتغيير الـ DNS والسجلات','Registering domains, switching DNS and records'],['Hosting','','SiteGround · GoDaddy · Hostinger · Bluehost','SiteGround · GoDaddy · Hostinger · Bluehost'],['Zoho','','خلفية ERP على Zoho — وحملات Zoho Campaigns للترويج عن الخدمات','ERP background on Zoho — and Zoho Campaigns to promote services'],['Adobe','','خلفية على أنظمة ERP من Adobe','ERP background on Adobe'],['RTL','pk','عربي أولًا، دايم','Arabic-first, always']]
+];
+const L={
+ about:{m:'wave',ar:['أهلين! أنا شوق 👋','هذا أنا بس بكود 😄'],en:['Hi! I’m Shooq 👋','That’s me, but in code 😄']},
+ skills:{m:'laptop',ar:['جرّب تضغط على المفاتيح ⌨️','كل مفتاح له قصة 💻'],en:['Go ahead, press the keys ⌨️','Every key has a story 💻']},
+ work:{m:'present',ar:['هذي مشاريعي 👇 مرّر على أي شريط'],en:['Here’s my work 👇 hover any ribbon']},
+ p0:{m:'stars',ar:['موقع شركتي — بنيته كنظام مو صفحات ✨'],en:['My company’s site — built as a system ✨']},
+ p1:{m:'laptop',ar:['صفحات المنظمات شغلي المفضل هنا 💻'],en:['Organization pages are my favorite part 💻']},
+ p2:{m:'wink',ar:['٣ مواقع بهوية وحدة 😉'],en:['3 sites, one identity 😉']},
+ p3:{m:'happy',ar:['من النموذج للإطلاق بحوالي شهر 🚶‍♀️'],en:['Prototype to launch in about a month 🚶‍♀️']},
+ p4:{m:'think',ar:['تعلمت هنا: لا تصدّق أول جواب 🤔'],en:['Lesson here: don’t trust the first answer 🤔']},
+ p5:{m:'shock',ar:['جربته على جداري بنفسي! 😱'],en:['I tested it on my own wall! 😱']},
+ p7:{m:'stars',ar:['الآلة تعبّي الفراغ، والفريق صاحب الكلمة ✨'],en:['The machine fills the gaps, the team has the last word ✨']},
+ p6:{m:'party',ar:['QB! وحضرت المهرجان بنفسي 🎉'],en:['QB! I was at the festival myself 🎉']},
+ figma:{m:'think',ar:['قبل أي كود… أرسم في Figma 🎨'],en:['Before any code… I draw in Figma 🎨']},
+ launch:{m:'stars',ar:['من حجز الدومين لين أول زائر 🚀','جرّب زر الإطلاق 👀'],en:['From domain to first visitor 🚀','Try the launch button 👀']},
+ edu:{m:'party',ar:['تخرجت ٢٠٢٥ — وشوف وش صار بسنة 🎓'],en:['Graduated 2025 — look what one year did 🎓']},
+ aq:{m:'think',ar:['هنا تعلمت أحلل قبل ما أصمم 🧠'],en:['This is where I learned to analyze before designing 🧠']},
+ bts:{m:'laptop',ar:['خلف الكواليس ☕️'],en:['Behind the scenes ☕️']},
+ brand:{m:'stars',ar:['هذي هويتي — كل تفصيلة مقصودة ✨'],en:['My identity — every detail on purpose ✨']},
+ journey:{m:'happy',ar:['من متدربة لموظفة بنفس الشركة 🎓'],en:['From trainee to hired, same company 🎓']},
+ how:{m:'whisper',ar:['بقولك سر… أحلل قبل ما أكتب سطر كود 🤫'],en:['Psst… I analyze before I write a line 🤫']},
+ log:{m:'happy',ar:['هنا أكتب وش سويت كل يوم ✍️','اسحب الستيكرز، عادي 😄'],en:['This is where I log my days ✍️','Go on, drag the stickers 😄']},
+ now:{m:'dream',ar:['هذا اللي أحلم فيه وأشتغل عليه ☁️'],en:['What I’m dreaming up & building ☁️']},
+ contact:{m:'kiss',ar:['يلا نتواصل! 💌'],en:['Let’s talk! 💌']},
+ end:{m:'wave',ar:['وصلت للآخر! شكرًا إنك جيت 👋'],en:['You made it! Thanks for coming 👋']},
+ idle:{m:'eyeroll',ar:['لسّا هنا؟ 👀'],en:['Still there? 👀']},
+ back:{m:'party',ar:['رجعت! 🥳'],en:['You’re back! 🥳']},
+ dizzy:{m:'dizzy',ar:['خلاص دوّختني 😵‍💫'],en:['Okay, now I’m dizzy 😵‍💫']},
+ kiss:{m:'kiss',ar:['😘'],en:['😘']}
+};
+
+/* ---------- renderers ---------- */
+function drawRibbons(){
+  const rot=[-2.5,1.8,-1.2,2.2,-2,1.4,-1.6,2],ind=[2,7,4,9,3,6,8,5];
+  $('#ribbons').innerHTML=R.map((p,i)=>{
+    const unit=`<span><i class="n2" dir="ltr">${String(i+1).padStart(2,'0')}.</i><bdi>${esc(lang==='ar'?p.ar:p.en)}</bdi><em>${esc(p.tag)}</em><svg class="st"><use href="#star"/></svg></span>`.repeat(4);
+    return `<a class="ribbon" data-p="${i}" href="#${SLUG[i]}" style="--c:${p.c};--t:${p.t};--r:${rot[i]}deg;--in:${ind[i]}vw;--d:${22+i*3}s;--dir:${i%2?'reverse':'normal'}"><span class="bd"><svg class="st"><use href="#star"/></svg></span><span class="track"><span class="mq">${unit}${unit}</span></span><span class="zz"><svg viewBox="0 0 30 44" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><polyline points="4,6 12,14 4,22 12,30 4,38"/><polyline points="14,6 22,14 14,22 22,30 14,38"/><polyline points="24,6 30,12"/></svg></span></a>`;
+  }).join('');
+}
+function drawKeys(){
+  $('#kb').innerHTML=KEYS.map((row,r)=>`<div class="kr">${row.map((k,j)=>`<button class="key ${k[1]}" data-k="${r}-${j}"><small>${['F','S','D','A','Z'][r]}${j+1}</small>${esc(k[0])}</button>`).join('')}</div>`).join('');
+}
+$('#kb').addEventListener('click',e=>{
+  const b=e.target.closest('.key');if(!b)return;
+  const [r,j]=b.dataset.k.split('-').map(Number),k=KEYS[r][j];
+  $$('.key.on').forEach(x=>x.classList.remove('on'));b.classList.add('on');setTimeout(()=>b.classList.remove('on'),160);
+  $('#kbCmd').innerHTML=`&gt; shooq.uses(<span class="s">"${esc(k[0])}"</span>)`;
+  $('#kbOut').textContent='↳ '+(lang==='ar'?k[2]:k[3]);
+  if(shown){setFace(['laptop','wink','stars','happy'][Math.floor(Math.random()*4)])}
+});
+
+// galleries
+$$('[data-gal]').forEach(g=>{const bs=[...g.querySelectorAll('.tbtn')],ps=[...g.querySelectorAll('.pane')];
+  bs.forEach((b,i)=>b.addEventListener('click',()=>{if(b.dataset.url){const u=g.querySelector('.bbar span');if(u)u.textContent=b.dataset.url}bs.forEach(x=>x.classList.toggle('on',x===b));ps.forEach((x,j)=>{x.classList.toggle('on',j===i);if(x.tagName==='VIDEO'){if(j===i){x.currentTime=0;x.play().catch(()=>{})}else x.pause()}})}))});
+
+/* ---------- tech calendar themes demo ---------- */
+const THEMES=[
+ {id:'classic',ar:'كلاسيك',en:'Classic',bg:'#eef2fd',dark:false,fx:null},
+ {id:'confetti',ar:'احتفال',en:'Party',bg:'linear-gradient(180deg,#fff9f1,#fdeedd)',dark:false,fx:'confetti'},
+ {id:'stars',ar:'نجوم',en:'Stars',bg:'radial-gradient(1000px 700px at 80% 0%,#10245e,transparent 60%),#060f2e',dark:true,fx:'stars'},
+ {id:'motion',ar:'متحرك',en:'Motion',bg:'linear-gradient(120deg,#081a4b,#0b2577,#0e6f8a,#1640d9,#081a4b)',dark:true,fx:'motion'},
+ {id:'aurora',ar:'شفق',en:'Aurora',bg:'linear-gradient(160deg,#e3f8fc,#ece6ff 50%,#ffe9ef)',dark:false,fx:null}
+];
+let tCur='confetti',tSaved='confetti',tGoing=false;
+const tpage=$('#tpage'),tcan=$('#tfx'),tctx=tcan.getContext('2d');
+function drawSw(){$('#sws').innerHTML=THEMES.map(t=>`<button class="tsw ${t.id===tCur?'on':''}" data-t="${t.id}"><i style="background:${t.bg}"></i>${lang==='ar'?t.ar:t.en}${t.admin?`<small>${lang==='ar'?'للأدمن فقط':'admin only'}</small>`:''}</button>`).join('')}
+const fxE=(()=>{let mode=null,parts=[],raf=0,w=0,h=0,mouse={x:0,y:0},vis=false;const t0=performance.now();
+ const PAL={confetti:['#e81528','#13bfdc','#ffd166','#1f5bff','#22c55e'],ramworld:['#1f3a6b','#00b4d8','#7fdcef','#ffffff']};
+ const rnd=(a,b)=>a+Math.random()*(b-a);
+ function size(){const r=tcan.getBoundingClientRect(),d=devicePixelRatio||1;w=r.width;h=r.height;tcan.width=w*d;tcan.height=h*d;tctx.setTransform(d,0,0,d,0,0)}
+ const piece=(x,y,b)=>{const p=PAL[mode];return{x,y,w:rnd(5,10),h:rnd(8,14),rot:rnd(0,6.3),vr:rnd(-.1,.1),vx:b?rnd(-6,6):rnd(-.4,.4),vy:b?rnd(-11,-4):rnd(.6,1.6),c:p[Math.floor(Math.random()*p.length)],sw:rnd(0,6.3),life:b?1:Infinity}};
+ const star=()=>({x:rnd(0,w),y:rnd(0,h),z:rnd(.2,1),tw:rnd(0,6.3),r:rnd(.6,1.8)});
+ const wave=t=>{const k=(Math.sin(t/1200)+1)/2;return`rgb(${[31-31*k,58+122*k,107+109*k].map(Math.round).join(',')})`};
+ function frame(now){tctx.clearRect(0,0,w,h);const t=now-t0;
+  if(mode==='stars'){for(const s of parts){const px=s.x-(mouse.x-w/2)*.03*s.z,py=s.y-(mouse.y-h/2)*.03*s.z;tctx.globalAlpha=.35+.65*Math.abs(Math.sin(t/900+s.tw));tctx.fillStyle=s.z>.7?'#7fe3f2':'#fff';tctx.beginPath();tctx.arc(px,py,s.r*(1+s.z),0,7);tctx.fill()}tctx.globalAlpha=1}
+  else{const wv=mode==='ramworld'?wave(t):null;parts=parts.filter(p=>p.life>0&&p.y<h+30);
+   for(const p of parts){if(p.life!==Infinity){p.vy+=.25;p.life-=.006}p.x+=p.vx+Math.sin(t/600+p.sw)*.5;p.y+=p.vy;p.rot+=p.vr;tctx.save();tctx.translate(p.x,p.y);tctx.rotate(p.rot);tctx.globalAlpha=Math.min(1,p.life);tctx.fillStyle=wv&&p.c==='#ffffff'?wv:p.c;tctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);tctx.restore()}
+   while(parts.filter(p=>p.life===Infinity).length<40)parts.push(piece(rnd(0,w),rnd(-h,-10),false))}
+  raf=requestAnimationFrame(frame)}
+ function start(next){cancelAnimationFrame(raf);mode=next==='motion'?null:next;parts=[];size();tctx.clearRect(0,0,w,h);if(!mode||reduce||!vis)return;if(mode==='stars')parts=Array.from({length:140},star);raf=requestAnimationFrame(frame)}
+ new IntersectionObserver(([e])=>{vis=e.isIntersecting;vis?start(mode||((THEMES.find(x=>x.id===tCur)||{}).fx)):cancelAnimationFrame(raf)}).observe(tpage);
+ const ro=new ResizeObserver(()=>{if(vis)start(mode)});ro.observe(tpage);
+ tpage.addEventListener('pointermove',e=>{const r=tcan.getBoundingClientRect();mouse={x:e.clientX-r.left,y:e.clientY-r.top}});
+ return{start,burst(x,y){if(mode!=='confetti'&&mode!=='ramworld')return;for(let i=0;i<90;i++)parts.push(piece(x,y,true))}}})();
+function hintT(t){const H={party:['اضغط «سأحضر» وشوف الاحتفال 🎉','Tap “I’m going” for a celebration 🎉'],stars:['حرّك الماوس، النجوم تتحرك معك ✨','Move your mouse — the stars follow ✨']};
+ const k=t.fx==='confetti'||t.fx==='ramworld'?'party':t.fx==='stars'?'stars':null;$('#thint').textContent=k?H[k][lang==='ar'?0:1]:''}
+function applyT(t){tpage.style.setProperty('--pbg',t.bg);tpage.classList.toggle('dark',t.dark);tpage.classList.toggle('motion',t.fx==='motion');fxE.start(t.fx);hintT(t)}
+function tCount(){const n=24+(tGoing?1:0);$('#tcount').textContent=lang==='ar'?n.toLocaleString('ar-SA'):n;$('#trsvp').textContent=tGoing?(lang==='ar'?'✓ بتحضر':'✓ Going'):(lang==='ar'?'سأحضر':'I’m going')}
+$('#sws').addEventListener('click',e=>{const b=e.target.closest('.tsw');if(!b)return;tCur=b.dataset.t;applyT(THEMES.find(x=>x.id===tCur));drawSw();$('#tsaved').textContent=''});
+$('#tsave').onclick=()=>{tSaved=tCur;$('#tsaved').textContent=lang==='ar'?'✓ انحفظ. هذا الشكل اللي بيشوفه الزوار.':'✓ Saved. This is what visitors will see.'};
+$('#trsvp').onclick=e=>{tGoing=!tGoing;tCount();if(tGoing){const r=e.target.getBoundingClientRect(),p=tcan.getBoundingClientRect();fxE.burst(r.left-p.left+r.width/2,r.top-p.top)}};
+
+/* ---------- log board ---------- */
+const SEED=[{date:'2026-11-26',type:'note',color:'pink',sticker:'✦',tag_ar:'بورتفوليو',tag_en:'Portfolio',ar:'بنيت بورتفوليو بهويتي: بطاقة ID تتمرجح، وميموجي يكلّم الزوار برسايل iMessage.',en:'Built my portfolio in my own identity: a swinging ID card and a memoji that texts visitors.'},{date:'2026-11-26',type:'quote',color:'ink',sticker:'📝',tag_ar:'توثيق',tag_en:'Docs',ar:'رجعت لمشاريعي القديمة وكتبت بريف لسبع مشاريع.',en:'Went back through my old projects and wrote a brief for seven of them.'}];
+const ECOL={pink:'#FF9EDC',mauve:'#c9b3ff',orange:'#ffc2a8',sky:'#b9e9ff',mint:'#c6f2dc',ink:'#14081F'};
+let LOG=SEED;
+const MON=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+function fmtD(d){const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(String(d||''));return m?`${m[3]} ${MON[+m[2]-1]||''} ${m[1]}`:esc(d||'')}
+let STATUS={ar:'أشتغل على بورتفوليوي',en:'Working on my portfolio'};
+function daysAgo(d){const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(d||'');if(!m)return null;const t=new Date(+m[1],+m[2]-1,+m[3]);const n=new Date();n.setHours(0,0,0,0);return Math.round((n-t)/864e5)}
+function relAr(n){return n===0?'اليوم':n===1?'أمس':n===2?'قبل يومين':n<11?`قبل ${n.toLocaleString('ar-SA')} أيام`:`قبل ${n.toLocaleString('ar-SA')} يوم`}
+function relEn(n){return n===0?'today':n===1?'yesterday':`${n} days ago`}
+function renderLog(){
+  const list=[...LOG].filter(e=>e&&typeof e==='object').sort((a,b)=>(String(b.date)+(b.time||'')).localeCompare(String(a.date)+(a.time||'')));
+  const ar=lang==='ar';
+  if(list.length){const n=daysAgo(list[0].date);const tm=/^\d{2}:\d{2}$/.test(list[0].time||'')?' · '+list[0].time:'';
+    $('#lastUp').textContent=n==null?'':(ar?'آخر تحديث: ':'Updated ')+(ar?relAr(n):relEn(n))+tm;
+    const days=[...new Set(list.map(e=>e.date))].map(daysAgo).filter(x=>x!=null).sort((a,b)=>a-b);let st=0;if(days.length&&days[0]<=1){st=1;for(let i=1;i<days.length;i++){if(days[i]===days[i-1]+1)st++;else break}}
+    $('#streak').textContent=st>1?(ar?`🔥 ${st.toLocaleString('ar-SA')} أيام ورا بعض`:`🔥 ${st}-day streak`):(st===1?(ar?'🔥 يوم ١':'🔥 day 1'):'');
+    $('#ticker').innerHTML=(()=>{const u=list.slice(0,6).map(e=>`<span><b>${fmtD(e.date)}</b>${esc((ar?e.ar:(e.en||e.ar))||'')}</span>`).join('<span>✦</span>');return u+'<span>✦</span>'+u+'<span>✦</span>'})();
+  }
+  const sv=STATUS&&(ar?STATUS.ar:(STATUS.en||STATUS.ar));
+  $('#nowSt').innerHTML=sv?`<i></i><span>${ar?'الحين:':'Now:'} ${esc(sv)}</span>`:'';
+  if(!list.length){$('#entries').innerHTML=`<p class="empty">${ar?'ما فيه يوميات للحين ✦':'No entries yet ✦'}</p>`;return}
+  $('#entries').innerHTML=list.map((e,i)=>{
+    const txt=esc((ar?e.ar:(e.en||e.ar))||''),tag=esc((ar?e.tag_ar:(e.tag_en||e.tag_ar))||'');
+    const type=['note','quote','polaroid'].includes(e.type)?e.type:'note',col=ECOL[e.color]||ECOL.pink;
+    const img=type==='polaroid'&&e.img&&/^[\w\-\/\.]+$/.test(e.img)?`<img src="${esc(e.img)}" alt="" loading="lazy">`:'';
+    const r=[-2.5,1.8,-1.2,2.4,-1.8,1.2][i%6],fresh=i===0&&daysAgo(e.date)===0;
+    const tm=/^\d{2}:\d{2}$/.test(e.time||'')?e.time:'';
+    return `<article class="ent ${type==='note'?'enote':type}${fresh?' fresh':''}" style="--ec:${type==='quote'?'#14081F':col};--r:${r}deg">${fresh?`<span class="newb">${ar?'جديد':'NEW'}</span>`:''}${img}<div class="d"><span>${fmtD(e.date)}</span><span>${tm}</span></div>${tag?`<span class="t">${tag}</span>`:''}<p>${txt}</p>${e.sticker?`<span class="sk">${esc(String(e.sticker).slice(0,4))}</span>`:''}</article>`}).join('');
+}
+fetch('log.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{if(Array.isArray(d))LOG=d;else if(d&&Array.isArray(d.entries)){LOG=d.entries;STATUS=d.status||null}renderLog()}).catch(()=>{});
+// draggable stickers
+$$('.stk').forEach(st=>{let sx=0,sy=0,ox=0,oy=0,on=false;
+  st.addEventListener('pointerdown',e=>{on=true;st.setPointerCapture(e.pointerId);const b=$('#logb').getBoundingClientRect(),r=st.getBoundingClientRect();ox=r.left-b.left;oy=r.top-b.top;sx=e.clientX;sy=e.clientY;st.style.insetInlineStart='auto';st.style.insetInlineEnd='auto';st.style.bottom='auto';st.style.left=ox+'px';st.style.top=oy+'px';st.style.zIndex=5});
+  st.addEventListener('pointermove',e=>{if(!on)return;st.style.left=(ox+e.clientX-sx)+'px';st.style.top=(oy+e.clientY-sy)+'px'});
+  st.addEventListener('pointerup',()=>on=false);st.addEventListener('pointercancel',()=>on=false)});
+// private editor: open with #edit-log
+function edOut(){const o={date:$('#eDate').value,time:$('#eTime').value,type:$('#eType').value,color:$('#eColor').value,sticker:$('#eSticker').value,tag_ar:$('#eTagAr').value,tag_en:$('#eTagEn').value,ar:$('#eAr').value,en:$('#eEn').value};if(o.type==='polaroid')o.img=$('#eImg').value;$('#eOut').textContent=JSON.stringify(o,null,2)+','}
+{const d=new Date(),z=x=>String(x).padStart(2,'0');$('#eDate').value=`${d.getFullYear()}-${z(d.getMonth()+1)}-${z(d.getDate())}`;$('#eTime').value=`${z(d.getHours())}:${z(d.getMinutes())}`}
+$$('#editor input,#editor select,#editor textarea').forEach(x=>x.addEventListener('input',edOut));edOut();
+$('#eCopy').onclick=()=>{navigator.clipboard?.writeText($('#eOut').textContent).then(()=>{$('#eCopy').textContent='✓'}).catch(()=>{})};
+function edCheck(){$('#editor').classList.toggle('on',location.hash==='#edit-log');if(location.hash==='#edit-log')requestAnimationFrame(()=>$('#log').scrollIntoView())}
+addEventListener('hashchange',edCheck);edCheck();
+
+
+// countdown
+const T0=Date.now()+((2*24+5)*3600+1847)*1000;
+function cd(){const el=$('#cd');if(!el)return;let s=Math.max(0,Math.floor((T0-Date.now())/1000));const u=[[Math.floor(s/86400),'D'],[Math.floor(s%86400/3600),'H'],[Math.floor(s%3600/60),'M'],[s%60,'S']];
+  el.innerHTML=u.map(([v,l])=>`<div>${String(v).padStart(2,'0')}<small>${l}</small></div>`).join('')}
+cd();setInterval(cd,1000);
+/* wireframe strip */
+const WF=[['home','HOME'],['cup','CUP'],['quest','QUEST'],['live','LIVESTREAM'],['ticket','TICKET'],['about','ABOUT'],['points','POINTS · GALLERY'],['contact','CONTACT']];
+$('#wfStrip').innerHTML=WF.map(([f,n])=>`<figure><div class="wfi"><img src="qb/wf-${f}.webp" alt="${n} wireframe" loading="lazy"></div><figcaption>${n}</figcaption></figure>`).join('');
+$$('.wf-nav button').forEach(b=>b.addEventListener('click',()=>{const st=$('#wfStrip'),d=+b.dataset.dir*(lang==='ar'?-1:1);st.scrollBy({left:d*st.clientWidth*.8,behavior:'smooth'})}));
+/* click-to-load embeds */
+$$('.embed').forEach(e=>e.querySelector('.eplay').addEventListener('click',()=>{const f=document.createElement('iframe');f.src=e.dataset.embed;f.allowFullscreen=true;f.loading='lazy';f.title='Figma';e.querySelector('.eov').remove();e.appendChild(f)}));
+/* figma canvas */
+{const fc=$('#fc'),st=$('#fcStage'),sel=$('#fcSel'),cur=$('#fcCur'),dim=$('#fcDim');
+ const blks=$$('#fcStage .blk');let cIdx=0,auto=true,timer=null,vis=false;
+ $('#fcLayers').innerHTML=$$('#fcStage .frm').map(f=>`<li class="fr">▣ ${f.dataset.f}</li>`+[...f.querySelectorAll('.blk')].map(b=>`<li data-i="${blks.indexOf(b)}">▭ ${b.dataset.n}</li>`).join('')).join('');
+ function pick(b,fromAuto){const sr=st.getBoundingClientRect(),r=b.getBoundingClientRect(),fr=b.closest('.frm');
+   const fw=+(fr.dataset.f==='Desktop'?1440:fr.dataset.f==='Tablet'?768:390),sc=fw/fr.getBoundingClientRect().width;
+   sel.style.left=(r.left-sr.left)+'px';sel.style.top=(r.top-sr.top)+'px';sel.style.width=r.width+'px';sel.style.height=r.height+'px';sel.classList.add('on');
+   const W=Math.round(r.width*sc),H=Math.round(r.height*sc);dim.textContent=`${W} × ${H}`;
+   cur.style.transform=`translate(${r.left-sr.left+r.width*.6}px,${r.top-sr.top+r.height*.55}px)`;
+   $$('#fcLayers li[data-i]').forEach(l=>l.classList.toggle('on',+l.dataset.i===blks.indexOf(b)));
+   const ui=fc.classList.contains('uim');
+   $('#fcProps').innerHTML=`<span>Frame<em>${fr.dataset.f}</em></span><span>Layer<em>${b.dataset.n}</em></span><span>W<em>${W}</em></span><span>H<em>${H}</em></span><span>Fill<em>${ui?'Brand':'#E3E3E3'}</em></span><span>Radius<em>${ui?8:3}</em></span>`;
+   if(!fromAuto){auto=false;clearInterval(timer);timer=setTimeout(()=>{auto=true;loop()},6000)}}
+ function loop(){clearInterval(timer);timer=setInterval(()=>{if(!auto||!vis||reduce)return;cIdx=(cIdx+1)%blks.length;pick(blks[cIdx],true);if(cIdx===0)fcMode(fc.classList.contains('uim')?'wf':'ui')},1500)}
+ function fcMode(m){fc.classList.toggle('uim',m==='ui');$$('.fc-mode button').forEach(b=>b.classList.toggle('on',b.dataset.m===m))}
+ blks.forEach(b=>b.addEventListener('click',()=>pick(b,false)));
+ $('#fcLayers').addEventListener('click',e=>{const l=e.target.closest('li[data-i]');if(l)pick(blks[+l.dataset.i],false)});
+ $$('.fc-mode button').forEach(b=>b.addEventListener('click',()=>{fcMode(b.dataset.m);auto=false;clearInterval(timer);timer=setTimeout(()=>{auto=true;loop()},8000);const on=$('#fcLayers li.on');if(on)pick(blks[+on.dataset.i],false)}));
+ new IntersectionObserver(([e])=>{vis=e.isIntersecting;if(vis&&!sel.classList.contains('on'))pick(blks[0],true)}).observe(fc);
+ new ResizeObserver(()=>{const on=$('#fcLayers li.on');if(on)pick(blks[+on.dataset.i],true)}).observe(st);
+ loop();}
+
+let zTop=10;
+
+/* launch demo */
+{const steps=$$('#lSteps li');let busy=false;
+ function run(){if(busy)return;busy=true;$('#lGo').disabled=true;steps.forEach(l=>l.classList.remove('on','done'));
+  steps.forEach((l,i)=>setTimeout(()=>{if(i)steps[i-1].classList.replace('on','done');l.classList.add('on');if(i===steps.length-1)setTimeout(()=>{l.classList.replace('on','done');busy=false;$('#lGo').disabled=false},1500)},reduce?0:i*1300))}
+ $('#lGo').addEventListener('click',run);
+ let ran=false;new IntersectionObserver(([e])=>{if(e.isIntersecting&&!ran){ran=true;setTimeout(run,500)}},{threshold:.4}).observe($('#lSteps'));}
+/* education bars + courses */
+{const T=[['21·S2',4.28],['SUM',5.00],['22·S1',4.54],['22·S2',4.79],['22·S3',4.85],['23·S1',4.54],['23·S2',4.88],['23·S3',4.75],['24·S1',4.94],['24·S2',4.86],['24·S3',5.00]];
+ $('#gbars').innerHTML=T.map(([l,v],i)=>`<div title="${l}: ${v.toFixed(2)}"><i class="${v>=4.94?'top':''}" data-h="${Math.max(6,(v-3.8)/1.2*100)}"></i><small>${l}</small></div>`).join('');
+ new IntersectionObserver(([e])=>{if(e.isIntersecting)$$('#gbars i').forEach((b,i)=>setTimeout(()=>b.style.height=b.dataset.h+'%',reduce?0:i*70))},{threshold:.3}).observe($('#gbars'));}
+const COURSES=[['Systems Analysis & Design','تحليل وتصميم النظم','A'],['User Experience','تجربة المستخدم','A'],['ERP Systems','أنظمة تخطيط الموارد','A+'],['Database Management Systems','إدارة قواعد البيانات','A+'],['Information Security','أمن المعلومات','A+'],['Cyber Security','الأمن السيبراني','A+'],['Enterprise Architecture','معمارية المنشآت','A+'],['IS Strategy & Policy','استراتيجية نظم المعلومات','A+'],['Object Oriented Programming','البرمجة الكائنية','A+'],['Graduation Project I','مشروع التخرج ١','A+'],['Principles of Marketing','مبادئ التسويق','A+']];
+function drawCourses(){$('#courses').innerHTML=COURSES.map(c=>`<span><bdi>${esc(lang==='ar'?c[1]:c[0])}</bdi><b dir="ltr">${c[2]}</b></span>`).join('')}
+/* draggable polaroids */
+$$('#btsb .pola').forEach(st=>{let sx=0,sy=0,ox=0,oy=0,on=false;
+  st.addEventListener('pointerdown',e=>{if(innerWidth<=860)return;on=true;st.setPointerCapture(e.pointerId);const b=$('#btsb').getBoundingClientRect(),r=st.getBoundingClientRect();ox=r.left-b.left;oy=r.top-b.top;sx=e.clientX;sy=e.clientY;st.style.left=ox+'px';st.style.top=oy+'px';st.style.zIndex=++zTop});
+  st.addEventListener('pointermove',e=>{if(!on)return;st.style.left=(ox+e.clientX-sx)+'px';st.style.top=(oy+e.clientY-sy)+'px'});
+  st.addEventListener('pointerup',()=>on=false);st.addEventListener('pointercancel',()=>on=false)});
+
+
+/* behind-the-scenes auto scroll (mobile) */
+{const box=$('#btsb');[...box.children].forEach(f=>{const c=f.cloneNode(true);c.classList.add('clone');c.setAttribute('aria-hidden','true');box.appendChild(c)});
+ let pos=0,pause=0,vis=false,last=0;
+ const half=()=>box.scrollWidth/2;
+ function step(t){const dt=last?Math.min(50,t-last):16;last=t;
+   if(innerWidth<=860&&vis&&!reduce&&t>pause){pos+=dt*.04;if(pos>=half())pos-=half();box.scrollLeft=(root.dir==='rtl'?-1:1)*pos}
+   requestAnimationFrame(step)}
+ const hold=()=>{pause=performance.now()+3500};
+ box.addEventListener('touchstart',hold,{passive:true});box.addEventListener('pointerdown',hold);
+ box.addEventListener('scroll',()=>{if(performance.now()<pause)pos=Math.abs(box.scrollLeft)},{passive:true});
+ new IntersectionObserver(([e])=>vis=e.isIntersecting).observe(box);
+ requestAnimationFrame(step);}
+
+/* ai translate demo */
+{const AR=['إطلاق برنامج التطوع الجديد','إطلاق برنامج التطوع الجديد في الحي'],EN=['Launching the new volunteering program','Launching the new volunteering program in the neighborhood'];
+ let v=0,locked=false,busy=false,ran=false;const en=$('#trEn'),ar=$('#trAr'),bd=$('#trBadge'),note=$('#trNote'),steps=$$('#trFlow span');
+ const N={run:['يترجم في الخلفية…','Translating in the background…'],done:['انحفظ — والحفظ ما تأخر.','Saved — saving never waited.'],lock:['🔒 الحقل انقفل: الترجمة الآلية ما تلمسه.','🔒 Field locked: auto-translation won’t touch it.'],skip:['العربي تغيّر، بس الإنجليزي مقفول — تعديلك محفوظ.','The Arabic changed, but English is locked — your edit stays.']};
+ const t=k=>N[k][lang==='ar'?0:1];
+ function run(){if(busy)return;busy=true;note.textContent=t('run');en.classList.add('busy');steps.forEach(x=>x.classList.remove('on'));
+  steps.forEach((x,i)=>setTimeout(()=>{steps.forEach(y=>y.classList.remove('on'));x.classList.add('on')},reduce?0:i*420));
+  setTimeout(()=>{steps.forEach(y=>y.classList.remove('on'));en.classList.remove('busy');en.textContent=EN[v];note.textContent=t('done');busy=false},reduce?0:steps.length*420+200)}
+ $('#trEditAr').onclick=()=>{v=1-v;ar.textContent=AR[v];if(locked){note.textContent=t('skip');return}run()};
+ $('#trEditEn').onclick=()=>{if(busy)return;locked=!locked;en.classList.toggle('lock',locked);bd.classList.toggle('lockb',locked);
+   bd.textContent=locked?(lang==='ar'?'🔒 تعديل يدوي':'🔒 manual edit'):(lang==='ar'?'ترجمة آلية':'auto-translated');
+   if(locked){en.textContent=en.textContent.replace(/program/,'programme');note.textContent=t('lock')}else{note.textContent='';run()}};
+ $$('.trp button').forEach(b=>b.onclick=()=>{$$('.trp button').forEach(x=>x.classList.toggle('on',x===b));steps[3].textContent=b.textContent.toLowerCase()+(b.textContent==='Gemini'?' · 0.2':'')});
+ new IntersectionObserver(([e])=>{if(e.isIntersecting&&!ran){ran=true;run()}},{threshold:.4}).observe($('.trx'));}
+/* linkedin */
+let LI=[];
+function renderLI(){const sec=$('#linkedin');
+  const ok=LI.filter(p=>p&&/^https:\/\/www\.linkedin\.com\/embed\/feed\/update\/urn:li:(share|ugcPost|activity):\d+(\?collapsed=1)?$/.test(p.embed||''));
+  sec.hidden=!ok.length;
+  $('#lis').innerHTML=ok.map(p=>{const urn=p.embed.split('/update/')[1].split('?')[0];const h=Math.min(1200,Math.max(300,+p.h||640));
+    return `<article class="li-card"><div class="lih"><b>in</b><span>LinkedIn</span></div><div class="lif" style="height:${h}px"><iframe src="${esc(p.embed)}" title="LinkedIn post" loading="lazy"></iframe><span class="lifb">in</span></div><div class="lia"><a href="https://www.linkedin.com/feed/update/${esc(urn)}" target="_blank" rel="noopener">${lang==='ar'?'افتح على لينكدإن ↗':'Open on LinkedIn ↗'}</a></div></article>`}).join('');
+  $('#lihelp').textContent='';}
+fetch('linkedin.json',{cache:'no-store'}).then(r=>r.ok?r.json():[]).then(d=>{if(Array.isArray(d)){LI=d;renderLI()}}).catch(()=>{});
+
+
+/* ---------- i18n ---------- */
+const nodes=$$('[data-en]');nodes.forEach(e=>e._ar=e.innerHTML);
+function setLang(l){
+  lang=l;root.lang=l;root.dir=l==='ar'?'rtl':'ltr';
+  nodes.forEach(e=>e.innerHTML=l==='ar'?e._ar:e.dataset.en);
+  $('#lang').textContent=l==='ar'?'EN':'ع';
+  $('#dlv').textContent=l==='ar'?'تم التسليم':'Delivered';
+  drawRibbons();drawKeys();drawSw();tCount();hintT(THEMES.find(x=>x.id===tCur));renderLog();renderLI();drawCourses();
+  $$('img[data-en-src]').forEach(i=>i.src=l==='ar'?i.dataset.arSrc:i.dataset.enSrc);
+  if(cur&&shown){const c=cur;cur=null;say(c)}
+  try{localStorage.setItem('sh-lang',l)}catch(e){}
+}
+$('#lang').onclick=()=>setLang(lang==='ar'?'en':'ar');
+function setMode(m){root.dataset.mode=m;$('#mode').textContent=m==='dark'?'☀':'☾';try{localStorage.setItem('sh-mode',m)}catch(e){}}
+$('#mode').onclick=()=>setMode(root.dataset.mode==='dark'?'light':'dark');
+
+/* ---------- memoji buddy ---------- */
+['kiss','think','whisper','stars','happy','present','dream','shock','wink','eyeroll','wave','party','dizzy','laptop'].forEach(n=>{const i=new Image();i.src='memoji/'+n+'.webp'});
+const buddy=$('#buddy'),bub=$('#bub'),mj=$('#mj'),mjImg=$('#mjImg'),fc=mj.querySelector('.fc'),dlv=$('#dlv');
+const TAIL='<svg class="tail" viewBox="0 0 20 20"><path fill="currentColor" d="M20 0v20H2c4-1 8-4 9-9V0z"/></svg>';
+var cur=null,shown=false;let hideT=null,idx=0,tmr=null,muted=false,clicks=[],idleT=null,secNow=null;
+function setFace(n){if(!mjImg.src.endsWith('/'+n+'.webp')){mjImg.src='memoji/'+n+'.webp';mj.classList.remove('pop');void mj.offsetWidth;mj.classList.add('pop')}}
+function say(key,next){
+  const k=L[key];if(!k||!shown)return;
+  if(cur===key&&!next&&!bub.classList.contains('hide'))return;
+  idx=(cur===key&&next)?idx+1:0;cur=key;setFace(k.m);
+  if(muted&&!next)return;muted=false;
+  clearTimeout(tmr);dlv.style.opacity=0;bub.className='bub typing';bub.innerHTML='<i></i><i></i><i></i>'+TAIL;
+  tmr=setTimeout(()=>{const arr=k[lang];bub.className='bub';bub.textContent=arr[idx%arr.length];bub.insertAdjacentHTML('beforeend',TAIL);
+    const x=document.createElement('button');x.className='x';x.textContent='✕';x.setAttribute('aria-label','close');
+    x.onclick=e=>{e.stopPropagation();bub.classList.add('hide');dlv.style.opacity=0;muted=true};bub.appendChild(x);dlv.style.opacity=1;if(innerWidth<600){clearTimeout(hideT);hideT=setTimeout(()=>{bub.classList.add('hide');dlv.style.opacity=0},4500)}},reduce?0:900);
+}
+const hero=$('[data-sec=hero]');
+new IntersectionObserver(([e])=>{
+  if(!e.isIntersecting&&!shown){shown=true;buddy.classList.remove('off');cur=null;setTimeout(()=>say(secNow||'about'),450)}
+  else if(e.isIntersecting&&shown){shown=false;bub.classList.add('hide');dlv.style.opacity=0;buddy.classList.add('off')}
+},{threshold:.25}).observe(hero);
+const secIO=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){secNow=e.target.dataset.sec;say(secNow)}})},{rootMargin:'-45% 0px -45% 0px'});
+$$('[data-sec]').forEach(s=>{if(s.dataset.sec!=='hero')secIO.observe(s)});
+document.addEventListener('pointerover',e=>{const r=e.target.closest('.ribbon');if(r&&shown){muted=false;say('p'+r.dataset.p)}});
+mj.addEventListener('click',()=>{
+  const now=Date.now();clicks=clicks.filter(t=>now-t<1500);clicks.push(now);
+  if(clicks.length>=5){clicks=[];say('dizzy',true);return}
+  if(cur&&L[cur][lang].length>1)say(cur,true);else say('kiss',true);
+});
+addEventListener('pointermove',e=>{if(!shown)return;const r=mj.getBoundingClientRect();const dx=(e.clientX-(r.left+r.width/2))/innerWidth,dy=(e.clientY-(r.top+r.height/2))/innerHeight;fc.style.transform=`rotate(${Math.max(-12,Math.min(12,dx*24))}deg) translate(${dx*8}px,${dy*6}px)`},{passive:true});
+function poke(){clearTimeout(idleT);idleT=setTimeout(()=>{if(shown)say('idle')},20000)}
+['scroll','pointermove','keydown'].forEach(ev=>addEventListener(ev,poke,{passive:true}));poke();
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&shown)say('back')});
+
+/* ---------- swinging badge ---------- */
+const swing=$('#swing'),card=$('#card'),stage=$('#stage');
+let a=reduce?0:22,v=0,drag=false,off0=0,flip=false,tx=0,ty=0,moved=0,last=null;
+const pivotXY=()=>{const r=stage.getBoundingClientRect();return{x:r.left+r.width/2,y:r.top-10}};
+const pang=e=>{const p=pivotXY();return -Math.atan2(e.clientX-p.x,e.clientY-p.y)*180/Math.PI};
+let turnT=0,lastT='';const render=()=>{const t=`rotateY(${(flip?180:0)+ty}deg) rotateX(${tx}deg)`;if(t!==lastT){card.style.transform=t;lastT=t}card.classList.toggle('flipped',flip)};
+const doFlip=()=>{flip=!flip;tx=0;ty=0;card.classList.add('turning');clearTimeout(turnT);turnT=setTimeout(()=>card.classList.remove('turning'),650);render()};
+let lastA=null;(function tick(){if(!drag){v+=-0.012*a;v*=0.985;a+=v;if(Math.abs(a)<.02&&Math.abs(v)<.02){a=0;v=0}}const ra=Math.round(a*100)/100;if(ra!==lastA){swing.style.transform=`rotate(${ra}deg)`;lastA=ra}requestAnimationFrame(tick)})();
+card.addEventListener('pointerdown',e=>{drag=true;moved=0;last={x:e.clientX,y:e.clientY};off0=a-pang(e);card.setPointerCapture(e.pointerId)});
+card.addEventListener('pointermove',e=>{
+  if(card.classList.contains('turning'))return;if(!drag&&e.pointerType!=='mouse')return;
+  const r=card.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;
+  card.style.setProperty('--mx',(px*100).toFixed(1)+'%');card.style.setProperty('--my',(py*100).toFixed(1)+'%');card.style.setProperty('--ang',(px*240+py*120).toFixed(0)+'deg');
+  if(drag){moved+=Math.hypot(e.clientX-last.x,e.clientY-last.y);last={x:e.clientX,y:e.clientY};const na=Math.max(-60,Math.min(60,pang(e)+off0));v=na-a;a=na;tx=0;ty=0}
+  else{tx=(.5-py)*16;ty=(px-.5)*18}
+  render();
+});
+const end=()=>{if(!drag)return;drag=false;if(moved<6){v+=flip?-4:4;doFlip()}else render()};
+card.addEventListener('pointerup',end);card.addEventListener('pointercancel',end);
+card.addEventListener('pointerleave',()=>{if(!drag){tx=0;ty=0;render()}});
+card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();v+=4;doFlip()}});
+
+/* ---------- init ---------- */
+let sm=null,sl=null;try{sm=localStorage.getItem('sh-mode');sl=localStorage.getItem('sh-lang')}catch(e){}
+setMode(sm||'dark');setLang(sl||'ar');render();applyT(THEMES.find(x=>x.id==='confetti'));
+}
+</script>
+</body>
+</html>

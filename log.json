@@ -1,0 +1,28 @@
+{
+  "status": {
+    "ar": "أشتغل على بورتفوليوي",
+    "en": "Working on my portfolio"
+  },
+  "entries": [
+    {
+      "date": "2026-11-26",
+      "type": "note",
+      "color": "pink",
+      "sticker": "✦",
+      "tag_ar": "بورتفوليو",
+      "tag_en": "Portfolio",
+      "ar": "بنيت بورتفوليو بهويتي: بطاقة ID تتمرجح، وميموجي يكلّم الزوار برسايل iMessage.",
+      "en": "Built my portfolio in my own identity: a swinging ID card and a memoji that texts visitors."
+    },
+    {
+      "date": "2026-11-26",
+      "type": "quote",
+      "color": "ink",
+      "sticker": "📝",
+      "tag_ar": "توثيق",
+      "tag_en": "Docs",
+      "ar": "رجعت لمشاريعي القديمة وكتبت بريف لسبع مشاريع.",
+      "en": "Went back through my old projects and wrote a brief for seven of them."
+    }
+  ]
+}
