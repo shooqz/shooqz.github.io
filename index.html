@@ -4,6 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>شوق الزامل — Portfolio</title>
+<meta name="description" content="شوق الزامل — خبيرة تطوير مواقع @ عالم رام. Front-End · WordPress · Laravel · UI/UX Figma.">
+<meta name="theme-color" content="#14081F">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shooqz.github.io/">
+<meta property="og:title" content="شوق الزامل — Portfolio">
+<meta property="og:description" content="خبيرة تطوير مواقع @ عالم رام · Front-End · WordPress · Laravel · UI/UX">
+<meta property="og:image" content="https://shooqz.github.io/og.jpg?v=2">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://shooqz.github.io/og.jpg?v=2">
+<script>document.documentElement.classList.add('fwait');(function(){var d=function(){document.documentElement.classList.remove('fwait')};if(document.fonts&&document.fonts.ready){document.fonts.ready.then(d)}setTimeout(d,1800)})()</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;600;800;900&family=Readex+Pro:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -57,9 +71,10 @@ nav a:hover{color:var(--tx);background:var(--soft)}
 h1{font:900 clamp(52px,8.5vw,118px)/.98 Alexandria,sans-serif;margin:22px 0 10px}
 .role{font:600 clamp(18px,2vw,22px) Alexandria,sans-serif;margin:0 0 14px}
 .role span{color:var(--mv)}
-.lead{color:var(--mut);max-width:34em;margin:0 0 26px;font-size:17px}
+.lead{color:var(--mut);max-width:34em;margin:0 0 26px;font-size:17px;line-height:1.75}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{border:1.5px solid var(--tx);border-radius:99px;padding:5px 14px;font-size:14px;font-weight:500}
+.chip{border:1.5px solid var(--tx);border-radius:99px;padding:5px 14px;font:500 14px/1.5 "Readex Pro",sans-serif;white-space:nowrap}
+.hero>div:first-child{transition:opacity .35s}.fwait .hero>div:first-child{opacity:0}
 .hint{margin-top:30px;font:13px "JetBrains Mono",monospace;color:var(--mut);display:flex;align-items:center;gap:8px}
 .hint i{width:8px;height:8px;border-radius:50%;background:var(--or);animation:blink 1.4s infinite}
 @keyframes blink{50%{opacity:.2}}
@@ -71,11 +86,9 @@ h1{font:900 clamp(52px,8.5vw,118px)/.98 Alexandria,sans-serif;margin:22px 0 10px
 .strap{margin:auto;width:38px;height:clamp(140px,22vh,230px);background:var(--grad);overflow:hidden;position:relative}
 .strap span{position:absolute;inset:0;writing-mode:vertical-rl;font:600 12px "JetBrains Mono",monospace;color:#fff;letter-spacing:.18em;white-space:nowrap;display:flex;align-items:center;justify-content:center}
 .clip{display:block;margin:-6px auto -14px;width:46px;height:64px;position:relative;z-index:2;filter:drop-shadow(0 3px 3px #0003)}
-.card3d{position:relative;width:320px;height:460px;transform-style:preserve-3d;will-change:transform;transition:transform .7s cubic-bezier(.2,.9,.25,1.15);cursor:grab;touch-action:none}
-.card3d .front{transition:visibility 0s linear .25s}
+.card3d{position:relative;width:320px;height:460px;transform-style:preserve-3d;will-change:transform;cursor:grab;touch-action:none}
 .card3d.turning .foil,.card3d.turning .glare{opacity:0;transition:none}
-.card3d.turning{transition-duration:.6s}
-.card3d .back{visibility:hidden;transition:visibility 0s linear .25s}
+.card3d .back{visibility:hidden}
 .card3d.flipped .front{visibility:hidden}.card3d.flipped .back{visibility:visible}
 .face{position:absolute;inset:0;border-radius:24px;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;box-shadow:0 30px 60px -20px #14081f66,0 0 0 1px #14081f14}
 .slot{position:absolute;top:16px;left:50%;translate:-50% 0;width:64px;height:12px;border-radius:9px;background:var(--bg);box-shadow:inset 0 2px 3px #0003;z-index:3}
@@ -825,7 +838,7 @@ footer{padding:28px max(5vw,16px) 110px;display:flex;justify-content:space-betwe
   <div>
     <span class="kicker"><svg class="st"><use href="#star"/></svg><span data-en="Portfolio 2026">بورتفوليو ٢٠٢٦</span></span>
     <h1 data-en='Shooq <span class="g">Alzamil</span>'>شوق <span class="g">الزامل</span></h1>
-    <p class="role" data-en="Web Development Specialist <span>@ Ramworld</span>">خبير تطوير مواقع <span>@ رام وورلد</span></p>
+    <p class="role" data-en="Web Development Specialist <span>@ Ramworld</span>">خبيرة تطوير مواقع <span>@ عالم رام</span></p>
     <p class="lead" data-en="I design the interface and build the logic behind it — from Figma to WordPress and Laravel, with an identity you notice at first glance.">أصمم الواجهة وأبني المنطق اللي وراها — من Figma إلى ووردبريس وLaravel، وبهوية تبان من أول نظرة.</p>
     <div class="chips"><span class="chip">Front-End</span><span class="chip">WordPress</span><span class="chip">PHP &amp; Laravel</span><span class="chip">UI/UX · Figma</span><span class="chip" data-en="Systems Analysis">تحليل الأنظمة</span></div>
     <p class="hint"><i></i><span data-en="Drag the card · tap to flip">اسحب البطاقة · اضغط عليها عشان تنقلب</span></p>
@@ -838,9 +851,9 @@ footer{padding:28px max(5vw,16px) 110px;display:flex;justify-content:space-betwe
         <div class="face front">
           <div class="slot"></div>
           <div class="tp"><span>&lt;✦&gt; SHOOQ.DEV</span><span>ID · 2026</span></div>
-          <div class="photo"><div class="ring"></div><div class="in"><svg class="st"><use href="#star"/></svg><small data-en="photo soon">صورتك هنا</small></div></div>
+          <div class="photo"><div class="ring"></div><div class="in"><svg class="st"><use href="#star"/></svg></div></div>
           <h3 data-en="Shooq Alzamil">شوق الزامل</h3>
-          <p class="r" data-en="Web Development Specialist">خبير تطوير مواقع</p>
+          <p class="r" data-en="Web Development Specialist">خبيرة تطوير مواقع</p>
           <div class="meta">
             <div><b data-en="COMPANY">الجهة</b>Ramworld</div>
             <div><b data-en="CITY">المدينة</b><span data-en="Riyadh">الرياض</span></div>
@@ -867,7 +880,7 @@ footer{padding:28px max(5vw,16px) 110px;display:flex;justify-content:space-betwe
     <div>
       <span class="tagn" data-en="// about me">// عني</span>
       <p class="manifesto" data-en="I'm Shooq — I <mark>love interfaces</mark>, but I don't stop at the look. I study the system <mark>before the code</mark>, and I want everything I build to <mark>run itself</mark>.">أنا شوق — <mark>أحب الواجهات</mark>، بس ما أوقف عند الشكل. أحلل النظام <mark>قبل الكود</mark>، وأبي كل شي أبنيه <mark>يمشي لحاله</mark>.</p>
-      <p class="sub" data-en="I started as a COOP trainee at Ramworld and got hired by the same company. Today I build sites, plugins and platforms — and I'm the person who adds the details nobody asked for, but everyone notices.">بدأت متدربة COOP في رام وورلد وتوظفت بنفس الشركة. اليوم أبني مواقع وبلاقنات ومنصات — وأنا اللي أضيف التفاصيل اللي محد طلبها، بس الكل ينتبه لها.</p>
+      <p class="sub" data-en="I started as a COOP trainee at Ramworld and got hired by the same company. Today I build sites, plugins and platforms — and I'm the person who adds the details nobody asked for, but everyone notices.">بدأت متدربة COOP في عالم رام وتوظفت بنفس الشركة. اليوم أبني مواقع وبلاقنات ومنصات — وأنا اللي أضيف التفاصيل اللي محد طلبها، بس الكل ينتبه لها.</p>
     </div>
     <div class="code" aria-label="About Shooq as code">
       <div class="bar"><i></i><i></i><i></i><span>shooq.js</span></div>
@@ -1081,7 +1094,7 @@ footer{padding:28px max(5vw,16px) 110px;display:flex;justify-content:space-betwe
       <h3 data-en="Domain sales system">نظام بيع النطاقات</h3>
       <div class="tags"><span>Laravel</span><span>React · TypeScript</span><span>Inertia</span><span data-en="Moyasar payments">بوابة ميسّر</span><span>PHPStan L7</span><span data-en="staging — not launched yet">على سيرفر التجربة</span></div>
       <dl>
-        <dt data-en="BEFORE">قبل</dt><dd data-en="Ramworld became an accredited reseller for a domain registrar — but customers couldn't buy a domain and get it registered automatically, straight into the renewal calendar.">رام وورلد صارت موزّع معتمد عند مزوّد نطاقات — بس ما كان فيه طريقة يشتري فيها العميل نطاق ويتسجّل تلقائيًا ويدخل تقويم التجديد.</dd>
+        <dt data-en="BEFORE">قبل</dt><dd data-en="Ramworld became an accredited reseller for a domain registrar — but customers couldn't buy a domain and get it registered automatically, straight into the renewal calendar.">عالم رام صارت موزّع معتمد عند مزوّد نطاقات — بس ما كان فيه طريقة يشتري فيها العميل نطاق ويتسجّل تلقائيًا ويدخل تقويم التجديد.</dd>
         <dt data-en="MY ROLE">دوري</dt><dd data-en="Technical owner end to end: requirements, infrastructure and CI, the registrar API, Moyasar and SMTP, testing on the real server — and the technical contact with the registrar.">مسؤولة المشروع تقنيًا من البداية للنهاية: المتطلبات، البنية والـ CI، ربط API المزوّد وميسّر والبريد، الاختبار على السيرفر الحقيقي — والجهة التقنية اللي تتواصل مع المزوّد.</dd>
         <dt data-en="THE HARDEST PART">أصعب شي</dt><dd data-en="The registrar said “available” on search and rejected it on registration. I didn't assume it was them — I ruled out everything on our side, then documented a reproducible proof: two commands, same domain, same minute, opposite results. In a meeting it turned out their test environment only supports search. I took every answer in writing.">المزوّد يقول «متاح» في البحث ويرفضه في التسجيل. ما افترضت إن المشكلة عندهم — استبعدت كل احتمال من جهتنا، ووثّقت دليل يتكرر: أمرين، نفس النطاق، نفس الدقيقة، ونتيجتين متناقضتين. وفي الاجتماع طلع إن بيئة الاختبار عندهم تدعم البحث بس. وأخذت كل الإجابات مكتوبة.</dd>
       </dl>
@@ -1319,8 +1332,8 @@ footer{padding:28px max(5vw,16px) 110px;display:flex;justify-content:space-betwe
     <div class="metro">
       <div class="stop" style="--c:var(--mv)"><div class="dot"></div><div><div class="when">2025</div><h4 data-en="Graduated">تخرجت</h4><p data-en="Information Systems · IMSIU · GPA 4.74/5">نظم المعلومات · جامعة الإمام · معدل ٤٫٧٤ من ٥</p></div></div>
       <div class="stop" style="--c:var(--mv)"><div class="dot"></div><div><div class="when">Sep – Dec 2025</div><h4>Advanced Quality</h4><p data-en="Co-op training: analysis, modeling, wireframes, QA">تدريب تعاوني: تحليل، نمذجة، وايرفريم، واختبار</p></div></div>
-      <div class="stop" style="--c:var(--fu)"><div class="dot"></div><div><div class="when">Jan – May 2026</div><h4 data-en="Training @ Ramworld">تدريب في رام وورلد</h4><p data-en="Under Lana Al-Safadi">تحت إشراف لانا الصفدي</p></div></div>
-      <div class="stop big"><div class="dot"></div><div><div class="when">2026</div><h4 data-en="Hired ✦">توظفت ✦</h4><p data-en="Web Development Specialist, same company">خبير تطوير مواقع، بنفس الشركة</p></div></div>
+      <div class="stop" style="--c:var(--fu)"><div class="dot"></div><div><div class="when">Jan – May 2026</div><h4 data-en="Training @ Ramworld">تدريب في عالم رام</h4></div></div>
+      <div class="stop big"><div class="dot"></div><div><div class="when">2026</div><h4 data-en="Hired ✦">توظفت ✦</h4><p data-en="Web Development Specialist, same company">خبيرة تطوير مواقع، بنفس الشركة</p></div></div>
       <div class="stop now" style="--c:var(--or)"><div class="dot"></div><div><div class="when" data-en="now">الحين</div><h4 data-en="Still moving">وما زلت أتحرك</h4><p data-en="Building, learning, and growing every day">أبني، أتعلم، وأكبر كل يوم</p></div></div>
     </div>
 
@@ -1332,7 +1345,7 @@ footer{padding:28px max(5vw,16px) 110px;display:flex;justify-content:space-betwe
           <div class="gring" style="--v:94.8"><div><b>4.74</b><span dir="ltr">/ 5</span></div></div>
           <div class="gbars" id="gbars" aria-label="GPA per semester"></div>
         </div>
-        <p class="gcap" data-en="Semester GPA, climbing to a perfect 5.00 in my last term.">معدلي بكل ترم — لين وصلت ٥٫٠٠ كامل في آخر ترم.</p>
+        
         <div class="courses" id="courses"></div>
       </div>
       <div class="edu-r">
@@ -1798,7 +1811,11 @@ const swing=$('#swing'),card=$('#card'),stage=$('#stage');
 let a=reduce?0:22,v=0,drag=false,off0=0,flip=false,tx=0,ty=0,moved=0,last=null;
 const pivotXY=()=>{const r=stage.getBoundingClientRect();return{x:r.left+r.width/2,y:r.top-10}};
 const pang=e=>{const p=pivotXY();return -Math.atan2(e.clientX-p.x,e.clientY-p.y)*180/Math.PI};
-let turnT=0,lastT='';const render=()=>{const t=`rotateY(${(flip?180:0)+ty}deg) rotateX(${tx}deg)`;if(t!==lastT){card.style.transform=t;lastT=t}card.classList.toggle('flipped',flip)};
+let turnT=0,lastT='',cy=0,vy=0,cx=0,vx=0,spin=false;
+const paint=()=>{const t=`rotateY(${cy.toFixed(2)}deg) rotateX(${cx.toFixed(2)}deg)`;if(t!==lastT){card.style.transform=t;lastT=t}card.classList.toggle('flipped',Math.cos(cy*Math.PI/180)<0)};
+const loop=()=>{const gy=(flip?180:0)+ty,gx=tx;vy=(vy+(gy-cy)*.09)*.74;vx=(vx+(gx-cx)*.12)*.7;cy+=vy;cx+=vx;
+ if(Math.abs(gy-cy)<.05&&Math.abs(vy)<.05&&Math.abs(gx-cx)<.05&&Math.abs(vx)<.05){cy=gy;cx=gx;paint();spin=false;return}paint();requestAnimationFrame(loop)};
+const render=()=>{if(reduce){cy=(flip?180:0)+ty;cx=tx;paint();return}if(!spin){spin=true;requestAnimationFrame(loop)}};
 const doFlip=()=>{flip=!flip;tx=0;ty=0;card.classList.add('turning');clearTimeout(turnT);turnT=setTimeout(()=>card.classList.remove('turning'),650);render()};
 let lastA=null;(function tick(){if(!drag){v+=-0.012*a;v*=0.985;a+=v;if(Math.abs(a)<.02&&Math.abs(v)<.02){a=0;v=0}}const ra=Math.round(a*100)/100;if(ra!==lastA){swing.style.transform=`rotate(${ra}deg)`;lastA=ra}requestAnimationFrame(tick)})();
 card.addEventListener('pointerdown',e=>{drag=true;moved=0;last={x:e.clientX,y:e.clientY};off0=a-pang(e);card.setPointerCapture(e.pointerId)});
